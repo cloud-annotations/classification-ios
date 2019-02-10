@@ -17,8 +17,7 @@ In order to develop for iOS we need to first install the latest version of Xcode
 Launch Xcode and choose **Open another project...**
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_50BD1551C2CA022B9CF9D8DF0A28275DB7ACF3DBDD5764C0CB12B3AF3B1E0766_1541995654686_Screen+Shot+2018-11-11+at+10.18.30+PM.png)
 
-Then in the file selector, choose `cloud-annotations/app-ios/ios-app`.
-![](https://d2mxuefqeaa7sj.cloudfront.net/s_50BD1551C2CA022B9CF9D8DF0A28275DB7ACF3DBDD5764C0CB12B3AF3B1E0766_1541995948999_Screen+Shot+2018-11-11+at+10.21.17+PM.png)
+Then in the file selector, choose `classification-ios`.
 
 ## Test the application in the simulator
 Now we’re ready to test! First we’ll make sure the app builds on our computer, if all goes well, the simulator will open and the app will display.
