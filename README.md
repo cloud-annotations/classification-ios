@@ -1,7 +1,14 @@
-# classification-ios
-📱 Run Classification Inferences in iOS
+# Object Detection React App
 
-A demo app for iOS is provided that will retrieve a list of models you have uploaded to you object storage bucket. It will then download any updates to that model for running locally.
+You can find an in depth walkthrough for training a Core ML model [here](https://cloud-annotations.github.io/training/).
+
+## Setup
+`git clone` the repo and `cd` into it by running the following command:
+
+```bash
+git clone github.com/cloud-annotations/classification-ios.git &&
+cd classification-ios
+```
 
 ## Install Xcode
 In order to develop for iOS we need to first install the latest version of Xcode, which can be found on the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
