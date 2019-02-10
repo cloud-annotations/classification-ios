@@ -1,4 +1,4 @@
-# Object Detection React App
+# Classification iOS App
 
 You can find an in depth walkthrough for training a Core ML model [here](https://cloud-annotations.github.io/training/).
 
