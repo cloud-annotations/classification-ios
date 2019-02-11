@@ -34,16 +34,16 @@ Since the simulator does not have access to a camera, and the app relies on the 
 
 1. Select the project editor (*The name of the project with a blue icon*)
 1. Under the **Signing** section, click **Add Account**
-![](assets/add_account.png)
+![](https://bourdakos.github.io/deprecated-cloud-annotations/assets/add_account.png)
 1. Login with your Apple ID and password
-![](assets/xcode_add_account.png)
+![](https://bourdakos.github.io/deprecated-cloud-annotations/assets/xcode_add_account.png)
 1. *You should see a new personal team created*
 1. Close the preferences window
 
 Now we have to create a certificate to sign our app with
 1. Select **General**
 1. Change the **bundle identifier** to `com.<YOUR_LAST_NAME>.Core-ML-Vision`
-![](assets/change_identifier.png)
+![](https://bourdakos.github.io/deprecated-cloud-annotations/assets/change_identifier.png)
 1. Select the personal team that was just created from the **Team** dropdown
 1. Plug in your iOS device
 1. Select your device from the device menu to the right of the **build and run** icon
