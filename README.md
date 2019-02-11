@@ -10,6 +10,9 @@ git clone github.com/cloud-annotations/classification-ios.git &&
 cd classification-ios
 ```
 
+## Add your model files to the project
+Copy the `model_ios` directory generated from the classification walkthrough and paste it into the `classification-ios/Core ML Classification` folder of this repo.
+
 ## Install Xcode
 In order to develop for iOS we need to first install the latest version of Xcode, which can be found on the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
 
