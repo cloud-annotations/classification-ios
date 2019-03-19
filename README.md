@@ -6,7 +6,7 @@ You can find an in depth walkthrough for training a Core ML model [here](https:/
 `git clone` the repo and `cd` into it by running the following command:
 
 ```bash
-git clone github.com/cloud-annotations/classification-ios.git &&
+git clone https://github.com/cloud-annotations/classification-ios.git
 cd classification-ios
 ```
 
