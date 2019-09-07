@@ -73,11 +73,11 @@ class NewsViewController: UIViewController {
    
     
     func analyzeText( arr: [ String], keyword: String){
-        let naturalLanguageUnderstanding = NaturalLanguageUnderstanding(version: "2019-07-12", apiKey: "{zoJzrFwHBvke1PvG4jSs8pKD1BHOQ-Rzq0PBFSeb5epv}")
-        naturalLanguageUnderstanding.serviceURL = "{https://gateway.watsonplatform.net/natural-language-understanding/api}"
+        let naturalLanguageUnderstanding = NaturalLanguageUnderstanding(version: "2019-07-12", apiKey: "zoJzrFwHBvke1PvG4jSs8pKD1BHOQ-Rzq0PBFSeb5epv")
+        naturalLanguageUnderstanding.serviceURL = "https://gateway.watsonplatform.net/natural-language-understanding/api"
         for x in arr{
             
-            let sentiment = SentimentOptions(targets: keyword + " bad")
+            let sentiment = SentimentOptions(targets: keyword)
             let features = Features(sentiment: sentiment)
             naturalLanguageUnderstanding.analyze(features: features, text: arr[x]) {
                 response, error in
