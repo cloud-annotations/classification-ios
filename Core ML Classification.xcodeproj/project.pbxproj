@@ -40,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		182AA042232374AA00B6E2A1 /* Model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Model.mlmodel; path = "../../../model-w691w8x4/model_ios/Model.mlmodel"; sourceTree = "<group>"; };
+		182AA046232381DB00B6E2A1 /* Model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Model.mlmodel; path = "../../../../model-w691w8x4/model_ios/Model.mlmodel"; sourceTree = "<group>"; };
 		234F030F2210CB9D000E9E19 /* CoreMLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLUtils.swift; sourceTree = "<group>"; };
 		237A0D5621274ABE003FA1F9 /* CameraViewController+Heatmap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+Heatmap.swift"; sourceTree = "<group>"; };
 		23B0A77820A3888B00D02B06 /* UIViewController+PulleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+PulleyViewController.swift"; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 		2DBDD2931FCF7FAE004A6DC1 /* Core ML Classification */ = {
 			isa = PBXGroup;
 			children = (
+				182AA046232381DB00B6E2A1 /* Model.mlmodel */,
 				2D7DF31E204F4D1E00CC26D7 /* Supporting Files */,
 				234F030D2210CABE000E9E19 /* model_ios */,
 				2DBDD2941FCF7FAE004A6DC1 /* AppDelegate.swift */,
