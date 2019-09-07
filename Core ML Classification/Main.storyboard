@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="us8-Mc-tfd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="us8-Mc-tfd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,11 +28,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q0m-3C-Pg4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4t6-Dp-qzK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4t6-Dp-qzK">
+                                <rect key="frame" x="0.0" y="40" width="375" height="627"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Focus" translatesAutoresizingMaskIntoConstraints="NO" id="nUF-ND-VCt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Focus" translatesAutoresizingMaskIntoConstraints="NO" id="nUF-ND-VCt">
+                                <rect key="frame" x="0.0" y="40" width="375" height="637"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQ4-s0-jJR">
                                 <rect key="frame" x="321.5" y="40" width="33.5" height="33.5"/>
@@ -92,6 +92,17 @@
                                     <action selector="sliderValueChanged:" destination="MPu-h4-IWa" eventType="valueChanged" id="bwk-Nd-afe"/>
                                 </connections>
                             </slider>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cQ9-hm-nOM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WOc-m6-NFm"/>
+                                    <barButtonItem title="Social Vale" id="rO7-aZ-NoY"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BoQ-iZ-Qii"/>
+                                    <barButtonItem title="Price Comparator" id="yCI-N8-qH0"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zEk-c3-U6N"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -193,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blX-K6-Mjq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-769" y="467"/>
+            <point key="canvasLocation" x="-770.39999999999998" y="466.41679160419795"/>
         </scene>
         <!--Results Table View Controller-->
         <scene sceneID="Ikh-Tl-i2h">
@@ -342,11 +353,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Background" width="1242" height="2208"/>
-        <image name="Cancel" width="100" height="100"/>
-        <image name="Capture" width="232" height="232"/>
-        <image name="Choose" width="165" height="165"/>
-        <image name="Focus" width="1242" height="1242"/>
-        <image name="Update" width="165" height="165"/>
+        <image name="Background" width="414" height="736"/>
+        <image name="Cancel" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="Capture" width="77.333335876464844" height="77.333335876464844"/>
+        <image name="Choose" width="55" height="55"/>
+        <image name="Focus" width="414" height="414"/>
+        <image name="Update" width="55" height="55"/>
     </resources>
 </document>
