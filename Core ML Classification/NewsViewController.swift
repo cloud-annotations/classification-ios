@@ -18,6 +18,7 @@ class NewsViewController: UIViewController {
         brandLabel.text = CameraViewController.Globals.Brand
         productLabel.text = CameraViewController.Globals.Product
         let host = "https://newsapi.org/v2/everything?q="+CameraViewController.Globals.Brand+"&apiKey=e443b5309d904830bbe102d3a5af11ff&language=en&sortBy=popularity&pageSize=30&qInTitle="+CameraViewController.Globals.Product
+        
         if let url = URL(string: host){
             var request = URLRequest(url: url, timeoutInterval: 720)
             request.httpMethod = "GET"
@@ -58,7 +59,7 @@ class NewsViewController: UIViewController {
                 } else if let p = data {
                     do{
                         let json = try JSON(data: p)
-                        print(json["data"]["searchProduct"]["products"][0]["imageUrlPrimaryTransformed"])
+//                        print(json["data"]["searchProduct"]["products"][0]["imageUrlPrimaryTransformed"])
                     } catch {
                         
                     }
@@ -68,25 +69,40 @@ class NewsViewController: UIViewController {
             }
             task2.resume()
         }
-    
+        self.testNLP()
     }
     
-    func analyzeText( arr: [ String], keyword: String){
+    func testNLP() {
+        let kw = "father"
+        
+        analyzeText(keyword: kw)
+    }
+    
+//    func analyzeText( arr: [ String], keyword: String){
+    func analyzeText(keyword: String){
         let naturalLanguageUnderstanding = NaturalLanguageUnderstanding(version: "2019-07-12", apiKey: "zoJzrFwHBvke1PvG4jSs8pKD1BHOQ-Rzq0PBFSeb5epv")
         naturalLanguageUnderstanding.serviceURL = "https://gateway.watsonplatform.net/natural-language-understanding/api"
+        
+        let keyword = [keyword]
+        
+        let arr = ["when a father is dysfunctional and is so selfish he drags his kids into his dysfunction", "have a happy wedding anniversary my love"]
         for x in arr{
-            
+            print(x)
             let sentiment = SentimentOptions(targets: keyword)
             let features = Features(sentiment: sentiment)
-            naturalLanguageUnderstanding.analyze(features: features, text: arr[x]) {
+            naturalLanguageUnderstanding.analyze(features: features, text: x) {
                 response, error in
                 
                 guard let analysis = response?.result else {
                     print(error?.localizedDescription ?? "unknown error")
                     return
                 }
+                print("------------------------------------------")
                 
-                print(analysis)
+                
+                print(analysis.sentiment.map({ result in
+                    result
+                }))
             }
         }
     }
