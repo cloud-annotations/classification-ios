@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182AA043232374AA00B6E2A1 /* Model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 182AA042232374AA00B6E2A1 /* Model.mlmodel */; };
 		234F03102210CB9D000E9E19 /* CoreMLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234F030F2210CB9D000E9E19 /* CoreMLUtils.swift */; };
-		234F03112210D09E000E9E19 /* Model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 234F030E2210CABE000E9E19 /* Model.mlmodel */; };
 		237A0D5721274ABE003FA1F9 /* CameraViewController+Heatmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A0D5621274ABE003FA1F9 /* CameraViewController+Heatmap.swift */; };
 		23B0A77920A3888B00D02B06 /* UIViewController+PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B0A77820A3888B00D02B06 /* UIViewController+PulleyViewController.swift */; };
 		23CC92B320A1530F00F70DDC /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CC92B220A1530F00F70DDC /* ProgressBar.swift */; };
@@ -39,7 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		234F030E2210CABE000E9E19 /* Model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Model.mlmodel; sourceTree = "<group>"; };
+		182AA042232374AA00B6E2A1 /* Model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Model.mlmodel; path = "../../../model-w691w8x4/model_ios/Model.mlmodel"; sourceTree = "<group>"; };
 		234F030F2210CB9D000E9E19 /* CoreMLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLUtils.swift; sourceTree = "<group>"; };
 		237A0D5621274ABE003FA1F9 /* CameraViewController+Heatmap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+Heatmap.swift"; sourceTree = "<group>"; };
 		23B0A77820A3888B00D02B06 /* UIViewController+PulleyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+PulleyViewController.swift"; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		234F030D2210CABE000E9E19 /* model_ios */ = {
 			isa = PBXGroup;
 			children = (
-				234F030E2210CABE000E9E19 /* Model.mlmodel */,
+				182AA042232374AA00B6E2A1 /* Model.mlmodel */,
 			);
 			path = model_ios;
 			sourceTree = "<group>";
@@ -207,8 +207,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				234F03112210D09E000E9E19 /* Model.mlmodel in Sources */,
 				23CC92B320A1530F00F70DDC /* ProgressBar.swift in Sources */,
+				182AA043232374AA00B6E2A1 /* Model.mlmodel in Sources */,
 				2DC5F13D1FD609050063B2D5 /* ResultsTableViewController.swift in Sources */,
 				2DC5F13F1FD6093B0063B2D5 /* ResultsTableViewCell.swift in Sources */,
 				2D7DF31D204F4CA500CC26D7 /* SwiftSpinner.swift in Sources */,
@@ -353,10 +353,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KGK2UJBFUH;
+				DEVELOPMENT_TEAM = 4P9SR4BTUC;
 				INFOPLIST_FILE = "$(SRCROOT)/Core ML Classification/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ibm.Core-ML-Classification";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrew.Core-ML-Classification";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -368,10 +368,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KGK2UJBFUH;
+				DEVELOPMENT_TEAM = 4P9SR4BTUC;
 				INFOPLIST_FILE = "$(SRCROOT)/Core ML Classification/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ibm.Core-ML-Classification";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrew.Core-ML-Classification";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
