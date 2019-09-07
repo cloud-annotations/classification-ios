@@ -7,7 +7,7 @@
 
 import UIKit
 import SwiftyJSON
-import NaturalLanguageUnderstanding 
+import NaturalLanguageUnderstanding
 
 class NewsViewController: UIViewController {
     @IBOutlet weak var brandLabel: UILabel!
@@ -73,11 +73,11 @@ class NewsViewController: UIViewController {
    
     
     func analyzeText( arr: [ String], keyword: String){
-        let naturalLanguageUnderstanding = NaturalLanguageUnderstanding(version: "2019-07-12", apiKey: "{apikey}")
-        naturalLanguageUnderstanding.serviceURL = "{url}"
+        let naturalLanguageUnderstanding = NaturalLanguageUnderstanding(version: "2019-07-12", apiKey: "{zoJzrFwHBvke1PvG4jSs8pKD1BHOQ-Rzq0PBFSeb5epv}")
+        naturalLanguageUnderstanding.serviceURL = "{https://gateway.watsonplatform.net/natural-language-understanding/api}"
         for x in arr{
             
-            let sentiment = SentimentOptions(targets: [x])
+            let sentiment = SentimentOptions(targets: keyword + " bad")
             let features = Features(sentiment: sentiment)
             naturalLanguageUnderstanding.analyze(features: features, url: "www.wsj.com/news/markets") {
                 response, error in
