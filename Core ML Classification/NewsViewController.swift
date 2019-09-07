@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftyJSON
+import NaturalLanguageUnderstanding 
 
 class NewsViewController: UIViewController {
     @IBOutlet weak var brandLabel: UILabel!
@@ -67,7 +68,31 @@ class NewsViewController: UIViewController {
             }
             task2.resume()
         }
+    
     }
+   
+    
+    func analyzeText( arr: [ String], keyword: String){
+        let naturalLanguageUnderstanding = NaturalLanguageUnderstanding(version: "2019-07-12", apiKey: "{apikey}")
+        naturalLanguageUnderstanding.serviceURL = "{url}"
+        for x in arr{
+            
+            let sentiment = SentimentOptions(targets: [x])
+            let features = Features(sentiment: sentiment)
+            naturalLanguageUnderstanding.analyze(features: features, url: "www.wsj.com/news/markets") {
+                response, error in
+                
+                guard let analysis = response?.result else {
+                    print(error?.localizedDescription ?? "unknown error")
+                    return
+                }
+                
+                print(analysis)
+            }
+        }
+    }
+
+
 }
 
 

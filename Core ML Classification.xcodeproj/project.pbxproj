@@ -423,10 +423,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QJC37CW5P5;
+				DEVELOPMENT_TEAM = 4P9SR4BTUC;
 				INFOPLIST_FILE = "$(SRCROOT)/Core ML Classification/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.a.Core-ML-Classification";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrew.Core-ML-Classification";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -439,10 +439,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QJC37CW5P5;
+				DEVELOPMENT_TEAM = 4P9SR4BTUC;
 				INFOPLIST_FILE = "$(SRCROOT)/Core ML Classification/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.a.Core-ML-Classification";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrew.Core-ML-Classification";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
