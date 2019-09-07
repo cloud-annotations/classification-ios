@@ -79,7 +79,7 @@ class NewsViewController: UIViewController {
             
             let sentiment = SentimentOptions(targets: keyword + " bad")
             let features = Features(sentiment: sentiment)
-            naturalLanguageUnderstanding.analyze(features: features, url: "www.wsj.com/news/markets") {
+            naturalLanguageUnderstanding.analyze(features: features, text: arr[x]) {
                 response, error in
                 
                 guard let analysis = response?.result else {
