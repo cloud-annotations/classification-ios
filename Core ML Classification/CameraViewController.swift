@@ -17,10 +17,16 @@
 import UIKit
 import AVFoundation
 import Vision
+import CoreML
+
+
 
 class CameraViewController: UIViewController {
 
-    // MARK: - IBOutlets
+    struct Globals {
+        static var Brand:String = ""
+        static var Product:String = ""
+    }
     
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var imageView: UIImageView!
@@ -105,6 +111,12 @@ class CameraViewController: UIViewController {
             
             DispatchQueue.main.async {
                 self.push(results: classifications)
+                Globals.Product = classifications[0].identifier
+                if(classifications[0].identifier == "soylent"){
+                    Globals.Brand = "Soylent"
+                } else if(classifications[0].identifier == "rice krispie treat"){
+                    Globals.Brand = "Kellogg's"
+                }
             }
             
             self.originalConfs = classifications

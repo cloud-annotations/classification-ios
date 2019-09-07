@@ -1,0 +1,1051 @@
+Training with training/test data at:
+  DATA_DIR: /mnt/data/iosbucket
+  MODEL_DIR: /job/model-code
+  TRAINING_JOB: 
+  TRAINING_COMMAND: cd "$(dirname "$(find . -name "start.sh" -maxdepth 2 | head -1)")" && chmod 777 ./start.sh && ./start.sh 500
+Storing trained model at:
+  RESULT_DIR: /mnt/results/trainediosbucket/training-tEXUQIcWg
+Sat Sep  7 05:00:51 UTC 2019: Running Tensorflow job
+Collecting pycocotools==2.0.0 (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/96/84/9a07b1095fd8555ba3f3d519517c8743c2554a245f9476e5e39869f948d2/pycocotools-2.0.0.tar.gz (1.5MB)
+Collecting coremltools==2.0 (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/d4/d1/ef590ecea35843b16afa28aafb009cddb55c7f8763f4e9bd92063213e9e0/coremltools-2.0-cp36-none-manylinux1_x86_64.whl (2.7MB)
+Collecting tfcoreml==0.3.0 (from -r requirements.txt (line 3))
+  Downloading https://files.pythonhosted.org/packages/01/0b/b8cf6369c4201190bf41b172d4ecaa1c65774a1e1215f43875c06d7f51a8/tfcoreml-0.3.0-py3-none-any.whl
+Collecting tensorflowjs==0.8.0 (from -r requirements.txt (line 4))
+  Downloading https://files.pythonhosted.org/packages/6b/0c/89f4b64a9c55a161287781f8c63e4492f6cb2faa01195c9f8990291c1404/tensorflowjs-0.8.0-py3-none-any.whl
+Collecting tensorflow-hub==0.3.0 (from -r requirements.txt (line 5))
+  Downloading https://files.pythonhosted.org/packages/9e/f0/3a3ced04c8359e562f1b91918d9bde797c8a916fcfeddc8dc5d673d1be20/tensorflow_hub-0.3.0-py2.py3-none-any.whl (73kB)
+Collecting h5py==2.8.0 (from -r requirements.txt (line 6))
+  Downloading https://files.pythonhosted.org/packages/8e/cb/726134109e7bd71d98d1fcc717ffe051767aac42ede0e7326fd1787e5d64/h5py-2.8.0-cp36-cp36m-manylinux1_x86_64.whl (2.8MB)
+Building wheels for collected packages: pycocotools
+  Building wheel for pycocotools (setup.py): started
+  Building wheel for pycocotools (setup.py): finished with status 'done'
+  Created wheel for pycocotools: filename=pycocotools-2.0.0-cp36-cp36m-linux_x86_64.whl size=280602 sha256=75481e2d877f92e4c8e9b0ef6dea574472ebc8b5895f4b8e925211cb79d78f42
+  Stored in directory: /home/gpuuser/.cache/pip/wheels/dc/e6/36/0e1ae88c868eb42d3f92181b1c9bbd0b217a7ec3da6bd62e55
+Successfully built pycocotools
+Installing collected packages: pycocotools, coremltools, tfcoreml, tensorflowjs, tensorflow-hub, h5py
+  WARNING: The script coremlconverter is installed in '/home/gpuuser/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+  WARNING: The script tensorflowjs_converter is installed in '/home/gpuuser/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed coremltools-2.0 h5py-2.8.0 pycocotools-2.0.0 tensorflow-hub-0.3.0 tensorflowjs-0.8.0 tfcoreml-0.3.0
+/////////////////////////////
+// Training classification //
+/////////////////////////////
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:523: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:524: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:527: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:532: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+WARNING: Logging before flag parsing goes to stderr.
+W0907 05:01:43.272712 140088028936000 __init__.py:56] Some hub symbols are not available because TensorFlow version is less than 1.14
+INFO:tensorflow:Looking for images in 'Rice Krispie Treat'
+I0907 05:01:43.279044 140088028936000 tf_logging.py:115] Looking for images in 'Rice Krispie Treat'
+INFO:tensorflow:Looking for images in 'Soylent'
+I0907 05:01:43.286349 140088028936000 tf_logging.py:115] Looking for images in 'Soylent'
+2019-09-07 05:01:44.364937: W tensorflow/core/graph/graph_constructor.cc:1265] Importing a graph with a lower producer version 26 into an existing graph with producer version 27. Shape inference will have run different parts of the graph with different producer versions.
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+I0907 05:01:45.849478 140088028936000 tf_logging.py:115] Saver not created because there are no variables in the graph to restore
+2019-09-07 05:01:46.082666: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2019-09-07 05:01:48.834158: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1432] Found device 0 with properties: 
+name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
+pciBusID: 0000:83:00.0
+totalMemory: 11.17GiB freeMemory: 11.11GiB
+2019-09-07 05:01:48.834206: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-09-07 05:01:49.103321: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-09-07 05:01:49.103372: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-09-07 05:01:49.103379: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-09-07 05:01:49.103492: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10762 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0, compute capability: 3.7)
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/60da9f99-9400-4dc8-8120-ac68864e8b2d.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:49.758398 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/60da9f99-9400-4dc8-8120-ac68864e8b2d.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+WARNING:tensorflow:From /job/model-code/src/classification/retrain.py:359: FastGFile.__init__ (from tensorflow.python.platform.gfile) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.gfile.GFile.
+W0907 05:01:49.885114 140088028936000 tf_logging.py:125] From /job/model-code/src/classification/retrain.py:359: FastGFile.__init__ (from tensorflow.python.platform.gfile) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.gfile.GFile.
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/439c7a56-47e8-42d9-aae1-5bdbeee42f86.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.106350 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/439c7a56-47e8-42d9-aae1-5bdbeee42f86.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/a8bfff34-924a-4b42-b5d7-7f741a1d4eac.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.124289 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/a8bfff34-924a-4b42-b5d7-7f741a1d4eac.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/34f8a962-fdb2-4968-af91-968afc58e79b.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.142879 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/34f8a962-fdb2-4968-af91-968afc58e79b.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/f65bc3bd-266a-4ea8-a96a-3120c20b3f11.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.159770 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/f65bc3bd-266a-4ea8-a96a-3120c20b3f11.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/620f3290-aea2-4894-97b3-eaee54a43137.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.178670 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/620f3290-aea2-4894-97b3-eaee54a43137.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/54eeff50-13d7-4378-bd8d-0ef19f1eb7e8.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.196414 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/54eeff50-13d7-4378-bd8d-0ef19f1eb7e8.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/f91519b0-1ecc-4b38-8f56-773d99475f56.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.215018 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/f91519b0-1ecc-4b38-8f56-773d99475f56.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/1f99a7e7-3686-453a-bd30-f0ec96686c58.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.234164 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/1f99a7e7-3686-453a-bd30-f0ec96686c58.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/a0fbfd51-c195-4a1e-b38c-1b5807242e42.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.252586 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/a0fbfd51-c195-4a1e-b38c-1b5807242e42.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/b1d9d3df-94ab-459e-9b62-86ec8ee5d12c.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.270000 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/b1d9d3df-94ab-459e-9b62-86ec8ee5d12c.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/4013778c-f5ce-4d5c-a159-fe7c5c923618.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.287043 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/4013778c-f5ce-4d5c-a159-fe7c5c923618.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/359d5851-9999-4608-a1f7-3c5b968de7ef.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.303482 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/359d5851-9999-4608-a1f7-3c5b968de7ef.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/a6f2cd9f-27e9-4d2b-a7f5-14d317d1bbf9.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.322566 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/a6f2cd9f-27e9-4d2b-a7f5-14d317d1bbf9.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/7c532f7b-6be0-4239-ab49-56e8eb47b264.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.340153 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/7c532f7b-6be0-4239-ab49-56e8eb47b264.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/27fb57cd-c022-46ee-87a1-392861760daa.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.357392 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/27fb57cd-c022-46ee-87a1-392861760daa.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/d0bf100b-3313-4759-9200-1c1a796ef797.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.375625 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/d0bf100b-3313-4759-9200-1c1a796ef797.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/fda461c5-7e0d-49c6-bd99-44ee77e0dfa0.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.392668 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/fda461c5-7e0d-49c6-bd99-44ee77e0dfa0.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/cd60498d-054a-4c13-82bd-976d8f92bb68.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.409073 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/cd60498d-054a-4c13-82bd-976d8f92bb68.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/ea03cf5c-dbd4-49aa-bc62-2bc03da1d5c4.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.425182 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/ea03cf5c-dbd4-49aa-bc62-2bc03da1d5c4.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/3d9ab24a-6ff7-4b26-a9a8-d23588b5ee64.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.442084 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/3d9ab24a-6ff7-4b26-a9a8-d23588b5ee64.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/73e7e6cd-0715-42df-8397-3486584d0282.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.458945 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/73e7e6cd-0715-42df-8397-3486584d0282.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/0fb155d2-fbc6-4568-9d40-dd898d83ff7c.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.476399 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/0fb155d2-fbc6-4568-9d40-dd898d83ff7c.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/73def3d1-e8c2-4286-9be3-61c47733d96f.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.494424 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/73def3d1-e8c2-4286-9be3-61c47733d96f.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/55f5e2df-fd19-4093-8418-8793ced51430.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.513232 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/55f5e2df-fd19-4093-8418-8793ced51430.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/0447c973-70de-4a25-92fc-f0a03e0d4b02.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.530802 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/0447c973-70de-4a25-92fc-f0a03e0d4b02.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/c777c070-e3d7-42cf-91ec-2cc4e160a7a8.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.548217 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/c777c070-e3d7-42cf-91ec-2cc4e160a7a8.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/125dc75c-476e-46da-8a20-3dfa3264f6d7.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.566463 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/125dc75c-476e-46da-8a20-3dfa3264f6d7.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/1abdc2f0-b7d7-471f-b5e3-548a8a9d26f1.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.584982 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/1abdc2f0-b7d7-471f-b5e3-548a8a9d26f1.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/17566ba0-bbd8-4289-b5b6-88bb6a4d66b3.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.603182 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/17566ba0-bbd8-4289-b5b6-88bb6a4d66b3.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/e1d6fc83-e494-479f-b8a5-44a80372e735.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.621471 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/e1d6fc83-e494-479f-b8a5-44a80372e735.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/95ac288d-c4b3-4431-8308-bf2cef2cf4e6.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.640247 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/95ac288d-c4b3-4431-8308-bf2cef2cf4e6.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/6d54329b-fa80-47e1-9c2c-6ff4d1a09801.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.658293 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/6d54329b-fa80-47e1-9c2c-6ff4d1a09801.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/3622f4bb-18b0-4a42-8a86-f146261e43a4.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.675809 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Rice Krispie Treat/3622f4bb-18b0-4a42-8a86-f146261e43a4.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/66b70f1c-557d-4e51-96c8-cbc5d2c6d4dd.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.694467 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/66b70f1c-557d-4e51-96c8-cbc5d2c6d4dd.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/3b4beed3-91a1-4560-b7e5-3fdd698f9572.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.712995 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/3b4beed3-91a1-4560-b7e5-3fdd698f9572.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/0ff8427f-020e-465b-a0f8-9688912e1faf.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.730867 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/0ff8427f-020e-465b-a0f8-9688912e1faf.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/5e2e1b72-85f2-4a6c-9142-33eafc5d4216.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.748625 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/5e2e1b72-85f2-4a6c-9142-33eafc5d4216.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/15437d79-270a-4d2b-8eb0-0aaa92263e9c.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.766190 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/15437d79-270a-4d2b-8eb0-0aaa92263e9c.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/9b722406-9480-4b9d-adbd-c2e2d6757306.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.784245 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/9b722406-9480-4b9d-adbd-c2e2d6757306.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/1e503cc6-651e-46e1-a0a7-64e0dff87313.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.800609 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/1e503cc6-651e-46e1-a0a7-64e0dff87313.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/f45f0dfd-034f-4161-9ae5-9d8647b503f5.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.816373 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/f45f0dfd-034f-4161-9ae5-9d8647b503f5.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/3f3da47d-7c27-47ea-928a-cd17e9a53904.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.831816 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/3f3da47d-7c27-47ea-928a-cd17e9a53904.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/cb143a26-41a7-41e7-8614-74bffc89efd7.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.850412 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/cb143a26-41a7-41e7-8614-74bffc89efd7.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/bc571c0c-e1b7-4ad5-b0c1-3b9f7551cf0d.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.868517 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/bc571c0c-e1b7-4ad5-b0c1-3b9f7551cf0d.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/6109669b-7228-4f2e-baa9-6a6a6090eece.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.886731 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/6109669b-7228-4f2e-baa9-6a6a6090eece.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/e636c329-a5b7-440e-9505-da38cfd4af57.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.905530 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/e636c329-a5b7-440e-9505-da38cfd4af57.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/de51af6b-0936-4668-ae3e-accdf2bb9795.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.923507 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/de51af6b-0936-4668-ae3e-accdf2bb9795.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/91f66c15-475a-472f-b062-db0a91fe6f26.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.941729 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/91f66c15-475a-472f-b062-db0a91fe6f26.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/6b1b7901-49b4-4689-88c5-6c7f8ce58f1a.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.960705 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/6b1b7901-49b4-4689-88c5-6c7f8ce58f1a.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/09edd936-428a-4afc-91ca-5a7a02bcbb24.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.979454 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/09edd936-428a-4afc-91ca-5a7a02bcbb24.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/38aa39ea-ba9e-4dea-8f7b-3515c54bbc7a.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:51.997868 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/38aa39ea-ba9e-4dea-8f7b-3515c54bbc7a.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/b2f80c41-54d1-4f5b-a95d-c6ab995b9bce.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.015769 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/b2f80c41-54d1-4f5b-a95d-c6ab995b9bce.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/95274652-8ae5-408e-822d-59a0bafb98d4.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.033934 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/95274652-8ae5-408e-822d-59a0bafb98d4.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/c05545c7-4d49-4856-a59b-332534b43b03.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.051636 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/c05545c7-4d49-4856-a59b-332534b43b03.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/eeadb126-a73a-47e4-a04a-a8761d992508.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.069652 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/eeadb126-a73a-47e4-a04a-a8761d992508.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/306cf568-7e87-4891-bbe2-9fd917e41cfd.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.087919 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/306cf568-7e87-4891-bbe2-9fd917e41cfd.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/657d2645-fb1f-4cc2-9c4c-e5b7f45fe5d7.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.106926 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/657d2645-fb1f-4cc2-9c4c-e5b7f45fe5d7.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/e718797d-b950-4bee-9c1f-1198428ce24a.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.124558 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/e718797d-b950-4bee-9c1f-1198428ce24a.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/407cdf3b-317c-4c1e-952b-3877313d862f.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.143373 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/407cdf3b-317c-4c1e-952b-3877313d862f.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/3dcb6c68-0860-42af-a831-89a471b56ff4.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.161316 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/3dcb6c68-0860-42af-a831-89a471b56ff4.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/d2665470-9bc5-4646-bfae-e3763f405620.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.180215 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/d2665470-9bc5-4646-bfae-e3763f405620.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/10a70ec1-c220-4097-b2f3-73a241308e3f.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.198603 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/10a70ec1-c220-4097-b2f3-73a241308e3f.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/b48832d0-6415-4a1f-9d74-0235b8710dae.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.216007 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/b48832d0-6415-4a1f-9d74-0235b8710dae.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/742e83e4-2838-41e4-862a-d16149b8cfe8.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.233891 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/742e83e4-2838-41e4-862a-d16149b8cfe8.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/ae09d2c7-697c-43c2-ba20-89b2a27a4d0b.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.251873 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/ae09d2c7-697c-43c2-ba20-89b2a27a4d0b.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/bf8eb80c-3f2d-4bf4-9024-303d7a900d30.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.269085 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/bf8eb80c-3f2d-4bf4-9024-303d7a900d30.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/e1cd216f-e541-4223-913f-0bf17289b79b.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.286652 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/e1cd216f-e541-4223-913f-0bf17289b79b.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:Creating bottleneck at /tmp/bottleneck/Soylent/c3cc18d3-b3ec-4263-a911-a6773d620a52.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+I0907 05:01:52.305443 140088028936000 tf_logging.py:115] Creating bottleneck at /tmp/bottleneck/Soylent/c3cc18d3-b3ec-4263-a911-a6773d620a52.jpg_https~tfhub.dev~google~imagenet~mobilenet_v1_100_224~feature_vector~1.txt
+INFO:tensorflow:2019-09-07 05:01:53.891543: Step 0: Train accuracy = 97.0%
+I0907 05:01:53.891696 140088028936000 tf_logging.py:115] 2019-09-07 05:01:53.891543: Step 0: Train accuracy = 97.0%
+INFO:tensorflow:2019-09-07 05:01:53.892427: Step 0: Cross entropy = 0.241123
+I0907 05:01:53.892461 140088028936000 tf_logging.py:115] 2019-09-07 05:01:53.892427: Step 0: Cross entropy = 0.241123
+INFO:tensorflow:2019-09-07 05:01:54.162282: Step 0: Validation accuracy = 100.0% (N=100)
+I0907 05:01:54.162401 140088028936000 tf_logging.py:115] 2019-09-07 05:01:54.162282: Step 0: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:01:54.581913: Step 10: Train accuracy = 100.0%
+I0907 05:01:54.582056 140088028936000 tf_logging.py:115] 2019-09-07 05:01:54.581913: Step 10: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:01:54.582336: Step 10: Cross entropy = 0.041710
+I0907 05:01:54.582368 140088028936000 tf_logging.py:115] 2019-09-07 05:01:54.582336: Step 10: Cross entropy = 0.041710
+INFO:tensorflow:2019-09-07 05:01:54.657329: Step 10: Validation accuracy = 100.0% (N=100)
+I0907 05:01:54.657416 140088028936000 tf_logging.py:115] 2019-09-07 05:01:54.657329: Step 10: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:01:55.146072: Step 20: Train accuracy = 100.0%
+I0907 05:01:55.146148 140088028936000 tf_logging.py:115] 2019-09-07 05:01:55.146072: Step 20: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:01:55.146316: Step 20: Cross entropy = 0.026238
+I0907 05:01:55.146344 140088028936000 tf_logging.py:115] 2019-09-07 05:01:55.146316: Step 20: Cross entropy = 0.026238
+INFO:tensorflow:2019-09-07 05:01:55.183933: Step 20: Validation accuracy = 100.0% (N=100)
+I0907 05:01:55.184017 140088028936000 tf_logging.py:115] 2019-09-07 05:01:55.183933: Step 20: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:01:55.575233: Step 30: Train accuracy = 100.0%
+I0907 05:01:55.575306 140088028936000 tf_logging.py:115] 2019-09-07 05:01:55.575233: Step 30: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:01:55.575477: Step 30: Cross entropy = 0.016190
+I0907 05:01:55.575493 140088028936000 tf_logging.py:115] 2019-09-07 05:01:55.575477: Step 30: Cross entropy = 0.016190
+INFO:tensorflow:2019-09-07 05:01:55.611876: Step 30: Validation accuracy = 100.0% (N=100)
+I0907 05:01:55.611946 140088028936000 tf_logging.py:115] 2019-09-07 05:01:55.611876: Step 30: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:01:56.087220: Step 40: Train accuracy = 100.0%
+I0907 05:01:56.087327 140088028936000 tf_logging.py:115] 2019-09-07 05:01:56.087220: Step 40: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:01:56.087531: Step 40: Cross entropy = 0.014274
+I0907 05:01:56.087546 140088028936000 tf_logging.py:115] 2019-09-07 05:01:56.087531: Step 40: Cross entropy = 0.014274
+INFO:tensorflow:2019-09-07 05:01:56.124411: Step 40: Validation accuracy = 100.0% (N=100)
+I0907 05:01:56.124486 140088028936000 tf_logging.py:115] 2019-09-07 05:01:56.124411: Step 40: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:01:56.522670: Step 50: Train accuracy = 100.0%
+I0907 05:01:56.522783 140088028936000 tf_logging.py:115] 2019-09-07 05:01:56.522670: Step 50: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:01:56.523059: Step 50: Cross entropy = 0.010238
+I0907 05:01:56.523092 140088028936000 tf_logging.py:115] 2019-09-07 05:01:56.523059: Step 50: Cross entropy = 0.010238
+INFO:tensorflow:2019-09-07 05:01:56.597856: Step 50: Validation accuracy = 100.0% (N=100)
+I0907 05:01:56.597944 140088028936000 tf_logging.py:115] 2019-09-07 05:01:56.597856: Step 50: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:01:57.170801: Step 60: Train accuracy = 100.0%
+I0907 05:01:57.170886 140088028936000 tf_logging.py:115] 2019-09-07 05:01:57.170801: Step 60: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:01:57.171041: Step 60: Cross entropy = 0.008387
+I0907 05:01:57.171056 140088028936000 tf_logging.py:115] 2019-09-07 05:01:57.171041: Step 60: Cross entropy = 0.008387
+INFO:tensorflow:2019-09-07 05:01:57.208941: Step 60: Validation accuracy = 100.0% (N=100)
+I0907 05:01:57.209006 140088028936000 tf_logging.py:115] 2019-09-07 05:01:57.208941: Step 60: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:01:57.671111: Step 70: Train accuracy = 100.0%
+I0907 05:01:57.671180 140088028936000 tf_logging.py:115] 2019-09-07 05:01:57.671111: Step 70: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:01:57.671356: Step 70: Cross entropy = 0.009240
+I0907 05:01:57.671370 140088028936000 tf_logging.py:115] 2019-09-07 05:01:57.671356: Step 70: Cross entropy = 0.009240
+INFO:tensorflow:2019-09-07 05:01:57.708415: Step 70: Validation accuracy = 100.0% (N=100)
+I0907 05:01:57.708481 140088028936000 tf_logging.py:115] 2019-09-07 05:01:57.708415: Step 70: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:01:58.106073: Step 80: Train accuracy = 100.0%
+I0907 05:01:58.106140 140088028936000 tf_logging.py:115] 2019-09-07 05:01:58.106073: Step 80: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:01:58.106304: Step 80: Cross entropy = 0.008771
+I0907 05:01:58.106319 140088028936000 tf_logging.py:115] 2019-09-07 05:01:58.106304: Step 80: Cross entropy = 0.008771
+INFO:tensorflow:2019-09-07 05:01:58.143144: Step 80: Validation accuracy = 100.0% (N=100)
+I0907 05:01:58.143207 140088028936000 tf_logging.py:115] 2019-09-07 05:01:58.143144: Step 80: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:01:58.620448: Step 90: Train accuracy = 100.0%
+I0907 05:01:58.620526 140088028936000 tf_logging.py:115] 2019-09-07 05:01:58.620448: Step 90: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:01:58.620714: Step 90: Cross entropy = 0.006125
+I0907 05:01:58.620735 140088028936000 tf_logging.py:115] 2019-09-07 05:01:58.620714: Step 90: Cross entropy = 0.006125
+INFO:tensorflow:2019-09-07 05:01:58.664803: Step 90: Validation accuracy = 100.0% (N=100)
+I0907 05:01:58.664868 140088028936000 tf_logging.py:115] 2019-09-07 05:01:58.664803: Step 90: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:01:59.125388: Step 100: Train accuracy = 100.0%
+I0907 05:01:59.125470 140088028936000 tf_logging.py:115] 2019-09-07 05:01:59.125388: Step 100: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:01:59.125667: Step 100: Cross entropy = 0.007211
+I0907 05:01:59.125687 140088028936000 tf_logging.py:115] 2019-09-07 05:01:59.125667: Step 100: Cross entropy = 0.007211
+INFO:tensorflow:2019-09-07 05:01:59.174899: Step 100: Validation accuracy = 100.0% (N=100)
+I0907 05:01:59.174981 140088028936000 tf_logging.py:115] 2019-09-07 05:01:59.174899: Step 100: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:01:59.572095: Step 110: Train accuracy = 100.0%
+I0907 05:01:59.572203 140088028936000 tf_logging.py:115] 2019-09-07 05:01:59.572095: Step 110: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:01:59.572462: Step 110: Cross entropy = 0.005035
+I0907 05:01:59.572492 140088028936000 tf_logging.py:115] 2019-09-07 05:01:59.572462: Step 110: Cross entropy = 0.005035
+INFO:tensorflow:2019-09-07 05:01:59.643732: Step 110: Validation accuracy = 100.0% (N=100)
+I0907 05:01:59.643814 140088028936000 tf_logging.py:115] 2019-09-07 05:01:59.643732: Step 110: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:00.235265: Step 120: Train accuracy = 100.0%
+I0907 05:02:00.235354 140088028936000 tf_logging.py:115] 2019-09-07 05:02:00.235265: Step 120: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:00.235567: Step 120: Cross entropy = 0.004756
+I0907 05:02:00.235591 140088028936000 tf_logging.py:115] 2019-09-07 05:02:00.235567: Step 120: Cross entropy = 0.004756
+INFO:tensorflow:2019-09-07 05:02:00.296152: Step 120: Validation accuracy = 100.0% (N=100)
+I0907 05:02:00.296231 140088028936000 tf_logging.py:115] 2019-09-07 05:02:00.296152: Step 120: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:00.694606: Step 130: Train accuracy = 100.0%
+I0907 05:02:00.694673 140088028936000 tf_logging.py:115] 2019-09-07 05:02:00.694606: Step 130: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:00.694828: Step 130: Cross entropy = 0.005281
+I0907 05:02:00.694851 140088028936000 tf_logging.py:115] 2019-09-07 05:02:00.694828: Step 130: Cross entropy = 0.005281
+INFO:tensorflow:2019-09-07 05:02:00.731830: Step 130: Validation accuracy = 100.0% (N=100)
+I0907 05:02:00.731896 140088028936000 tf_logging.py:115] 2019-09-07 05:02:00.731830: Step 130: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:01.119665: Step 140: Train accuracy = 100.0%
+I0907 05:02:01.119777 140088028936000 tf_logging.py:115] 2019-09-07 05:02:01.119665: Step 140: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:01.120034: Step 140: Cross entropy = 0.004498
+I0907 05:02:01.120065 140088028936000 tf_logging.py:115] 2019-09-07 05:02:01.120034: Step 140: Cross entropy = 0.004498
+INFO:tensorflow:2019-09-07 05:02:01.198216: Step 140: Validation accuracy = 100.0% (N=100)
+I0907 05:02:01.198301 140088028936000 tf_logging.py:115] 2019-09-07 05:02:01.198216: Step 140: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:01.623784: Step 150: Train accuracy = 100.0%
+I0907 05:02:01.623850 140088028936000 tf_logging.py:115] 2019-09-07 05:02:01.623784: Step 150: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:01.624022: Step 150: Cross entropy = 0.003866
+I0907 05:02:01.624036 140088028936000 tf_logging.py:115] 2019-09-07 05:02:01.624022: Step 150: Cross entropy = 0.003866
+INFO:tensorflow:2019-09-07 05:02:01.660158: Step 150: Validation accuracy = 100.0% (N=100)
+I0907 05:02:01.660224 140088028936000 tf_logging.py:115] 2019-09-07 05:02:01.660158: Step 150: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:02.058812: Step 160: Train accuracy = 100.0%
+I0907 05:02:02.058949 140088028936000 tf_logging.py:115] 2019-09-07 05:02:02.058812: Step 160: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:02.059208: Step 160: Cross entropy = 0.004411
+I0907 05:02:02.059222 140088028936000 tf_logging.py:115] 2019-09-07 05:02:02.059208: Step 160: Cross entropy = 0.004411
+INFO:tensorflow:2019-09-07 05:02:02.097943: Step 160: Validation accuracy = 100.0% (N=100)
+I0907 05:02:02.098007 140088028936000 tf_logging.py:115] 2019-09-07 05:02:02.097943: Step 160: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:02.640528: Step 170: Train accuracy = 100.0%
+I0907 05:02:02.640617 140088028936000 tf_logging.py:115] 2019-09-07 05:02:02.640528: Step 170: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:02.640831: Step 170: Cross entropy = 0.004339
+I0907 05:02:02.640854 140088028936000 tf_logging.py:115] 2019-09-07 05:02:02.640831: Step 170: Cross entropy = 0.004339
+INFO:tensorflow:2019-09-07 05:02:02.701257: Step 170: Validation accuracy = 100.0% (N=100)
+I0907 05:02:02.701335 140088028936000 tf_logging.py:115] 2019-09-07 05:02:02.701257: Step 170: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:03.234826: Step 180: Train accuracy = 100.0%
+I0907 05:02:03.234907 140088028936000 tf_logging.py:115] 2019-09-07 05:02:03.234826: Step 180: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:03.235061: Step 180: Cross entropy = 0.004401
+I0907 05:02:03.235076 140088028936000 tf_logging.py:115] 2019-09-07 05:02:03.235061: Step 180: Cross entropy = 0.004401
+INFO:tensorflow:2019-09-07 05:02:03.272610: Step 180: Validation accuracy = 100.0% (N=100)
+I0907 05:02:03.272672 140088028936000 tf_logging.py:115] 2019-09-07 05:02:03.272610: Step 180: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:03.658005: Step 190: Train accuracy = 100.0%
+I0907 05:02:03.658069 140088028936000 tf_logging.py:115] 2019-09-07 05:02:03.658005: Step 190: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:03.658221: Step 190: Cross entropy = 0.002440
+I0907 05:02:03.658235 140088028936000 tf_logging.py:115] 2019-09-07 05:02:03.658221: Step 190: Cross entropy = 0.002440
+INFO:tensorflow:2019-09-07 05:02:03.695110: Step 190: Validation accuracy = 100.0% (N=100)
+I0907 05:02:03.695173 140088028936000 tf_logging.py:115] 2019-09-07 05:02:03.695110: Step 190: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:04.162867: Step 200: Train accuracy = 100.0%
+I0907 05:02:04.162977 140088028936000 tf_logging.py:115] 2019-09-07 05:02:04.162867: Step 200: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:04.163220: Step 200: Cross entropy = 0.003127
+I0907 05:02:04.163235 140088028936000 tf_logging.py:115] 2019-09-07 05:02:04.163220: Step 200: Cross entropy = 0.003127
+INFO:tensorflow:2019-09-07 05:02:04.200374: Step 200: Validation accuracy = 100.0% (N=100)
+I0907 05:02:04.200453 140088028936000 tf_logging.py:115] 2019-09-07 05:02:04.200374: Step 200: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:04.667670: Step 210: Train accuracy = 100.0%
+I0907 05:02:04.667742 140088028936000 tf_logging.py:115] 2019-09-07 05:02:04.667670: Step 210: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:04.667902: Step 210: Cross entropy = 0.002954
+I0907 05:02:04.667917 140088028936000 tf_logging.py:115] 2019-09-07 05:02:04.667902: Step 210: Cross entropy = 0.002954
+INFO:tensorflow:2019-09-07 05:02:04.706053: Step 210: Validation accuracy = 100.0% (N=100)
+I0907 05:02:04.706119 140088028936000 tf_logging.py:115] 2019-09-07 05:02:04.706053: Step 210: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:05.098531: Step 220: Train accuracy = 100.0%
+I0907 05:02:05.098598 140088028936000 tf_logging.py:115] 2019-09-07 05:02:05.098531: Step 220: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:05.098770: Step 220: Cross entropy = 0.003633
+I0907 05:02:05.098796 140088028936000 tf_logging.py:115] 2019-09-07 05:02:05.098770: Step 220: Cross entropy = 0.003633
+INFO:tensorflow:2019-09-07 05:02:05.134158: Step 220: Validation accuracy = 100.0% (N=100)
+I0907 05:02:05.134225 140088028936000 tf_logging.py:115] 2019-09-07 05:02:05.134158: Step 220: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:05.530274: Step 230: Train accuracy = 100.0%
+I0907 05:02:05.530387 140088028936000 tf_logging.py:115] 2019-09-07 05:02:05.530274: Step 230: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:05.530651: Step 230: Cross entropy = 0.002636
+I0907 05:02:05.530683 140088028936000 tf_logging.py:115] 2019-09-07 05:02:05.530651: Step 230: Cross entropy = 0.002636
+INFO:tensorflow:2019-09-07 05:02:05.604395: Step 230: Validation accuracy = 100.0% (N=100)
+I0907 05:02:05.604478 140088028936000 tf_logging.py:115] 2019-09-07 05:02:05.604395: Step 230: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:06.027552: Step 240: Train accuracy = 100.0%
+I0907 05:02:06.027657 140088028936000 tf_logging.py:115] 2019-09-07 05:02:06.027552: Step 240: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:06.027908: Step 240: Cross entropy = 0.002557
+I0907 05:02:06.027939 140088028936000 tf_logging.py:115] 2019-09-07 05:02:06.027908: Step 240: Cross entropy = 0.002557
+INFO:tensorflow:2019-09-07 05:02:06.098992: Step 240: Validation accuracy = 100.0% (N=100)
+I0907 05:02:06.099073 140088028936000 tf_logging.py:115] 2019-09-07 05:02:06.098992: Step 240: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:06.512575: Step 250: Train accuracy = 100.0%
+I0907 05:02:06.512643 140088028936000 tf_logging.py:115] 2019-09-07 05:02:06.512575: Step 250: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:06.512805: Step 250: Cross entropy = 0.002920
+I0907 05:02:06.512820 140088028936000 tf_logging.py:115] 2019-09-07 05:02:06.512805: Step 250: Cross entropy = 0.002920
+INFO:tensorflow:2019-09-07 05:02:06.550658: Step 250: Validation accuracy = 100.0% (N=100)
+I0907 05:02:06.550734 140088028936000 tf_logging.py:115] 2019-09-07 05:02:06.550658: Step 250: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:06.943682: Step 260: Train accuracy = 100.0%
+I0907 05:02:06.943891 140088028936000 tf_logging.py:115] 2019-09-07 05:02:06.943682: Step 260: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:06.944139: Step 260: Cross entropy = 0.003615
+I0907 05:02:06.944154 140088028936000 tf_logging.py:115] 2019-09-07 05:02:06.944139: Step 260: Cross entropy = 0.003615
+INFO:tensorflow:2019-09-07 05:02:06.982806: Step 260: Validation accuracy = 100.0% (N=100)
+I0907 05:02:06.982944 140088028936000 tf_logging.py:115] 2019-09-07 05:02:06.982806: Step 260: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:07.435282: Step 270: Train accuracy = 100.0%
+I0907 05:02:07.435355 140088028936000 tf_logging.py:115] 2019-09-07 05:02:07.435282: Step 270: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:07.435519: Step 270: Cross entropy = 0.002667
+I0907 05:02:07.435535 140088028936000 tf_logging.py:115] 2019-09-07 05:02:07.435519: Step 270: Cross entropy = 0.002667
+INFO:tensorflow:2019-09-07 05:02:07.474777: Step 270: Validation accuracy = 100.0% (N=100)
+I0907 05:02:07.474858 140088028936000 tf_logging.py:115] 2019-09-07 05:02:07.474777: Step 270: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:07.959636: Step 280: Train accuracy = 100.0%
+I0907 05:02:07.959716 140088028936000 tf_logging.py:115] 2019-09-07 05:02:07.959636: Step 280: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:07.959896: Step 280: Cross entropy = 0.002735
+I0907 05:02:07.959914 140088028936000 tf_logging.py:115] 2019-09-07 05:02:07.959896: Step 280: Cross entropy = 0.002735
+INFO:tensorflow:2019-09-07 05:02:08.008274: Step 280: Validation accuracy = 100.0% (N=100)
+I0907 05:02:08.008346 140088028936000 tf_logging.py:115] 2019-09-07 05:02:08.008274: Step 280: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:08.478076: Step 290: Train accuracy = 100.0%
+I0907 05:02:08.478168 140088028936000 tf_logging.py:115] 2019-09-07 05:02:08.478076: Step 290: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:08.478333: Step 290: Cross entropy = 0.002423
+I0907 05:02:08.478360 140088028936000 tf_logging.py:115] 2019-09-07 05:02:08.478333: Step 290: Cross entropy = 0.002423
+INFO:tensorflow:2019-09-07 05:02:08.516811: Step 290: Validation accuracy = 100.0% (N=100)
+I0907 05:02:08.516880 140088028936000 tf_logging.py:115] 2019-09-07 05:02:08.516811: Step 290: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:09.055128: Step 300: Train accuracy = 100.0%
+I0907 05:02:09.055289 140088028936000 tf_logging.py:115] 2019-09-07 05:02:09.055128: Step 300: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:09.055706: Step 300: Cross entropy = 0.001838
+I0907 05:02:09.055740 140088028936000 tf_logging.py:115] 2019-09-07 05:02:09.055706: Step 300: Cross entropy = 0.001838
+INFO:tensorflow:2019-09-07 05:02:09.129810: Step 300: Validation accuracy = 100.0% (N=100)
+I0907 05:02:09.129897 140088028936000 tf_logging.py:115] 2019-09-07 05:02:09.129810: Step 300: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:09.535521: Step 310: Train accuracy = 100.0%
+I0907 05:02:09.535622 140088028936000 tf_logging.py:115] 2019-09-07 05:02:09.535521: Step 310: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:09.535807: Step 310: Cross entropy = 0.001997
+I0907 05:02:09.535821 140088028936000 tf_logging.py:115] 2019-09-07 05:02:09.535807: Step 310: Cross entropy = 0.001997
+INFO:tensorflow:2019-09-07 05:02:09.572980: Step 310: Validation accuracy = 100.0% (N=100)
+I0907 05:02:09.573059 140088028936000 tf_logging.py:115] 2019-09-07 05:02:09.572980: Step 310: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:10.096306: Step 320: Train accuracy = 100.0%
+I0907 05:02:10.096342 140088028936000 tf_logging.py:115] 2019-09-07 05:02:10.096306: Step 320: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:10.096422: Step 320: Cross entropy = 0.002067
+I0907 05:02:10.096436 140088028936000 tf_logging.py:115] 2019-09-07 05:02:10.096422: Step 320: Cross entropy = 0.002067
+INFO:tensorflow:2019-09-07 05:02:10.131805: Step 320: Validation accuracy = 100.0% (N=100)
+I0907 05:02:10.131838 140088028936000 tf_logging.py:115] 2019-09-07 05:02:10.131805: Step 320: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:10.574601: Step 330: Train accuracy = 100.0%
+I0907 05:02:10.574715 140088028936000 tf_logging.py:115] 2019-09-07 05:02:10.574601: Step 330: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:10.574964: Step 330: Cross entropy = 0.001727
+I0907 05:02:10.574982 140088028936000 tf_logging.py:115] 2019-09-07 05:02:10.574964: Step 330: Cross entropy = 0.001727
+INFO:tensorflow:2019-09-07 05:02:10.616626: Step 330: Validation accuracy = 100.0% (N=100)
+I0907 05:02:10.616695 140088028936000 tf_logging.py:115] 2019-09-07 05:02:10.616626: Step 330: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:11.014804: Step 340: Train accuracy = 100.0%
+I0907 05:02:11.014886 140088028936000 tf_logging.py:115] 2019-09-07 05:02:11.014804: Step 340: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:11.015074: Step 340: Cross entropy = 0.001873
+I0907 05:02:11.015087 140088028936000 tf_logging.py:115] 2019-09-07 05:02:11.015074: Step 340: Cross entropy = 0.001873
+INFO:tensorflow:2019-09-07 05:02:11.050242: Step 340: Validation accuracy = 100.0% (N=100)
+I0907 05:02:11.050308 140088028936000 tf_logging.py:115] 2019-09-07 05:02:11.050242: Step 340: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:11.545993: Step 350: Train accuracy = 100.0%
+I0907 05:02:11.546053 140088028936000 tf_logging.py:115] 2019-09-07 05:02:11.545993: Step 350: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:11.546206: Step 350: Cross entropy = 0.001801
+I0907 05:02:11.546221 140088028936000 tf_logging.py:115] 2019-09-07 05:02:11.546206: Step 350: Cross entropy = 0.001801
+INFO:tensorflow:2019-09-07 05:02:11.581632: Step 350: Validation accuracy = 100.0% (N=100)
+I0907 05:02:11.581668 140088028936000 tf_logging.py:115] 2019-09-07 05:02:11.581632: Step 350: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:12.056783: Step 360: Train accuracy = 100.0%
+I0907 05:02:12.056843 140088028936000 tf_logging.py:115] 2019-09-07 05:02:12.056783: Step 360: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:12.056978: Step 360: Cross entropy = 0.002042
+I0907 05:02:12.057002 140088028936000 tf_logging.py:115] 2019-09-07 05:02:12.056978: Step 360: Cross entropy = 0.002042
+INFO:tensorflow:2019-09-07 05:02:12.133358: Step 360: Validation accuracy = 100.0% (N=100)
+I0907 05:02:12.133411 140088028936000 tf_logging.py:115] 2019-09-07 05:02:12.133358: Step 360: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:12.645057: Step 370: Train accuracy = 100.0%
+I0907 05:02:12.645122 140088028936000 tf_logging.py:115] 2019-09-07 05:02:12.645057: Step 370: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:12.645272: Step 370: Cross entropy = 0.001492
+I0907 05:02:12.645288 140088028936000 tf_logging.py:115] 2019-09-07 05:02:12.645272: Step 370: Cross entropy = 0.001492
+INFO:tensorflow:2019-09-07 05:02:12.681305: Step 370: Validation accuracy = 100.0% (N=100)
+I0907 05:02:12.681341 140088028936000 tf_logging.py:115] 2019-09-07 05:02:12.681305: Step 370: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:13.069509: Step 380: Train accuracy = 100.0%
+I0907 05:02:13.069612 140088028936000 tf_logging.py:115] 2019-09-07 05:02:13.069509: Step 380: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:13.069841: Step 380: Cross entropy = 0.001938
+I0907 05:02:13.069858 140088028936000 tf_logging.py:115] 2019-09-07 05:02:13.069841: Step 380: Cross entropy = 0.001938
+INFO:tensorflow:2019-09-07 05:02:13.106779: Step 380: Validation accuracy = 100.0% (N=100)
+I0907 05:02:13.106871 140088028936000 tf_logging.py:115] 2019-09-07 05:02:13.106779: Step 380: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:13.622431: Step 390: Train accuracy = 100.0%
+I0907 05:02:13.622543 140088028936000 tf_logging.py:115] 2019-09-07 05:02:13.622431: Step 390: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:13.622798: Step 390: Cross entropy = 0.001729
+I0907 05:02:13.622831 140088028936000 tf_logging.py:115] 2019-09-07 05:02:13.622798: Step 390: Cross entropy = 0.001729
+INFO:tensorflow:2019-09-07 05:02:13.701117: Step 390: Validation accuracy = 100.0% (N=100)
+I0907 05:02:13.701203 140088028936000 tf_logging.py:115] 2019-09-07 05:02:13.701117: Step 390: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:14.123388: Step 400: Train accuracy = 100.0%
+I0907 05:02:14.123456 140088028936000 tf_logging.py:115] 2019-09-07 05:02:14.123388: Step 400: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:14.123610: Step 400: Cross entropy = 0.001859
+I0907 05:02:14.123625 140088028936000 tf_logging.py:115] 2019-09-07 05:02:14.123610: Step 400: Cross entropy = 0.001859
+INFO:tensorflow:2019-09-07 05:02:14.162473: Step 400: Validation accuracy = 100.0% (N=100)
+I0907 05:02:14.162541 140088028936000 tf_logging.py:115] 2019-09-07 05:02:14.162473: Step 400: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:14.625989: Step 410: Train accuracy = 100.0%
+I0907 05:02:14.626060 140088028936000 tf_logging.py:115] 2019-09-07 05:02:14.625989: Step 410: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:14.626242: Step 410: Cross entropy = 0.001411
+I0907 05:02:14.626257 140088028936000 tf_logging.py:115] 2019-09-07 05:02:14.626242: Step 410: Cross entropy = 0.001411
+INFO:tensorflow:2019-09-07 05:02:14.664097: Step 410: Validation accuracy = 100.0% (N=100)
+I0907 05:02:14.664166 140088028936000 tf_logging.py:115] 2019-09-07 05:02:14.664097: Step 410: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:15.222156: Step 420: Train accuracy = 100.0%
+I0907 05:02:15.222247 140088028936000 tf_logging.py:115] 2019-09-07 05:02:15.222156: Step 420: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:15.222420: Step 420: Cross entropy = 0.001555
+I0907 05:02:15.222434 140088028936000 tf_logging.py:115] 2019-09-07 05:02:15.222420: Step 420: Cross entropy = 0.001555
+INFO:tensorflow:2019-09-07 05:02:15.256926: Step 420: Validation accuracy = 100.0% (N=100)
+I0907 05:02:15.256961 140088028936000 tf_logging.py:115] 2019-09-07 05:02:15.256926: Step 420: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:15.616097: Step 430: Train accuracy = 100.0%
+I0907 05:02:15.616132 140088028936000 tf_logging.py:115] 2019-09-07 05:02:15.616097: Step 430: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:15.616214: Step 430: Cross entropy = 0.001577
+I0907 05:02:15.616229 140088028936000 tf_logging.py:115] 2019-09-07 05:02:15.616214: Step 430: Cross entropy = 0.001577
+INFO:tensorflow:2019-09-07 05:02:15.651354: Step 430: Validation accuracy = 100.0% (N=100)
+I0907 05:02:15.651389 140088028936000 tf_logging.py:115] 2019-09-07 05:02:15.651354: Step 430: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:16.119285: Step 440: Train accuracy = 100.0%
+I0907 05:02:16.119354 140088028936000 tf_logging.py:115] 2019-09-07 05:02:16.119285: Step 440: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:16.119510: Step 440: Cross entropy = 0.001638
+I0907 05:02:16.119524 140088028936000 tf_logging.py:115] 2019-09-07 05:02:16.119510: Step 440: Cross entropy = 0.001638
+INFO:tensorflow:2019-09-07 05:02:16.157709: Step 440: Validation accuracy = 100.0% (N=100)
+I0907 05:02:16.157777 140088028936000 tf_logging.py:115] 2019-09-07 05:02:16.157709: Step 440: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:16.733005: Step 450: Train accuracy = 100.0%
+I0907 05:02:16.733108 140088028936000 tf_logging.py:115] 2019-09-07 05:02:16.733005: Step 450: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:16.733355: Step 450: Cross entropy = 0.001539
+I0907 05:02:16.733387 140088028936000 tf_logging.py:115] 2019-09-07 05:02:16.733355: Step 450: Cross entropy = 0.001539
+INFO:tensorflow:2019-09-07 05:02:16.805500: Step 450: Validation accuracy = 100.0% (N=100)
+I0907 05:02:16.805554 140088028936000 tf_logging.py:115] 2019-09-07 05:02:16.805500: Step 450: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:17.425466: Step 460: Train accuracy = 100.0%
+I0907 05:02:17.425584 140088028936000 tf_logging.py:115] 2019-09-07 05:02:17.425466: Step 460: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:17.425763: Step 460: Cross entropy = 0.001323
+I0907 05:02:17.425781 140088028936000 tf_logging.py:115] 2019-09-07 05:02:17.425763: Step 460: Cross entropy = 0.001323
+INFO:tensorflow:2019-09-07 05:02:17.503715: Step 460: Validation accuracy = 100.0% (N=100)
+I0907 05:02:17.503805 140088028936000 tf_logging.py:115] 2019-09-07 05:02:17.503715: Step 460: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:17.986678: Step 470: Train accuracy = 100.0%
+I0907 05:02:17.986781 140088028936000 tf_logging.py:115] 2019-09-07 05:02:17.986678: Step 470: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:17.987081: Step 470: Cross entropy = 0.001492
+I0907 05:02:17.987114 140088028936000 tf_logging.py:115] 2019-09-07 05:02:17.987081: Step 470: Cross entropy = 0.001492
+INFO:tensorflow:2019-09-07 05:02:18.063182: Step 470: Validation accuracy = 100.0% (N=100)
+I0907 05:02:18.063235 140088028936000 tf_logging.py:115] 2019-09-07 05:02:18.063182: Step 470: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:18.468271: Step 480: Train accuracy = 100.0%
+I0907 05:02:18.468309 140088028936000 tf_logging.py:115] 2019-09-07 05:02:18.468271: Step 480: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:18.468393: Step 480: Cross entropy = 0.001637
+I0907 05:02:18.468407 140088028936000 tf_logging.py:115] 2019-09-07 05:02:18.468393: Step 480: Cross entropy = 0.001637
+INFO:tensorflow:2019-09-07 05:02:18.502272: Step 480: Validation accuracy = 100.0% (N=100)
+I0907 05:02:18.502306 140088028936000 tf_logging.py:115] 2019-09-07 05:02:18.502272: Step 480: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:18.873889: Step 490: Train accuracy = 100.0%
+I0907 05:02:18.873923 140088028936000 tf_logging.py:115] 2019-09-07 05:02:18.873889: Step 490: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:18.874003: Step 490: Cross entropy = 0.001406
+I0907 05:02:18.874017 140088028936000 tf_logging.py:115] 2019-09-07 05:02:18.874003: Step 490: Cross entropy = 0.001406
+INFO:tensorflow:2019-09-07 05:02:18.907578: Step 490: Validation accuracy = 100.0% (N=100)
+I0907 05:02:18.907624 140088028936000 tf_logging.py:115] 2019-09-07 05:02:18.907578: Step 490: Validation accuracy = 100.0% (N=100)
+INFO:tensorflow:2019-09-07 05:02:19.304608: Step 499: Train accuracy = 100.0%
+I0907 05:02:19.304720 140088028936000 tf_logging.py:115] 2019-09-07 05:02:19.304608: Step 499: Train accuracy = 100.0%
+INFO:tensorflow:2019-09-07 05:02:19.304991: Step 499: Cross entropy = 0.001103
+I0907 05:02:19.305006 140088028936000 tf_logging.py:115] 2019-09-07 05:02:19.304991: Step 499: Cross entropy = 0.001103
+INFO:tensorflow:2019-09-07 05:02:19.343524: Step 499: Validation accuracy = 100.0% (N=100)
+I0907 05:02:19.343633 140088028936000 tf_logging.py:115] 2019-09-07 05:02:19.343524: Step 499: Validation accuracy = 100.0% (N=100)
+2019-09-07 05:02:19.856182: W tensorflow/core/graph/graph_constructor.cc:1265] Importing a graph with a lower producer version 26 into an existing graph with producer version 27. Shape inference will have run different parts of the graph with different producer versions.
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+I0907 05:02:21.433676 140088028936000 tf_logging.py:115] Saver not created because there are no variables in the graph to restore
+2019-09-07 05:02:21.556150: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-09-07 05:02:21.556213: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-09-07 05:02:21.556222: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-09-07 05:02:21.556227: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-09-07 05:02:21.556331: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10762 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0, compute capability: 3.7)
+INFO:tensorflow:Restoring parameters from /tmp/_retrain_checkpoint
+I0907 05:02:21.759081 140088028936000 tf_logging.py:115] Restoring parameters from /tmp/_retrain_checkpoint
+INFO:tensorflow:Final test accuracy = 100.0% (N=2)
+I0907 05:02:22.392315 140088028936000 tf_logging.py:115] Final test accuracy = 100.0% (N=2)
+INFO:tensorflow:Save final result to : /tmp/output_graph.pb
+I0907 05:02:22.412267 140088028936000 tf_logging.py:115] Save final result to : /tmp/output_graph.pb
+2019-09-07 05:02:22.469808: W tensorflow/core/graph/graph_constructor.cc:1265] Importing a graph with a lower producer version 26 into an existing graph with producer version 27. Shape inference will have run different parts of the graph with different producer versions.
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+I0907 05:02:24.002373 140088028936000 tf_logging.py:115] Saver not created because there are no variables in the graph to restore
+2019-09-07 05:02:24.165252: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-09-07 05:02:24.165314: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-09-07 05:02:24.165322: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-09-07 05:02:24.165328: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-09-07 05:02:24.165451: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10762 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0, compute capability: 3.7)
+INFO:tensorflow:Restoring parameters from /tmp/_retrain_checkpoint
+I0907 05:02:24.372946 140088028936000 tf_logging.py:115] Restoring parameters from /tmp/_retrain_checkpoint
+INFO:tensorflow:Froze 137 variables.
+I0907 05:02:24.986264 140088028936000 tf_logging.py:115] Froze 137 variables.
+INFO:tensorflow:Converted 137 variables to const ops.
+I0907 05:02:25.047995 140088028936000 tf_logging.py:115] Converted 137 variables to const ops.
+2019-09-07 05:02:26.904859: W tensorflow/core/graph/graph_constructor.cc:1265] Importing a graph with a lower producer version 26 into an existing graph with producer version 27. Shape inference will have run different parts of the graph with different producer versions.
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+I0907 05:02:28.422709 140088028936000 tf_logging.py:115] Saver not created because there are no variables in the graph to restore
+2019-09-07 05:02:28.555702: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-09-07 05:02:28.555800: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-09-07 05:02:28.555809: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-09-07 05:02:28.555814: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-09-07 05:02:28.555977: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10762 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0, compute capability: 3.7)
+INFO:tensorflow:Restoring parameters from /tmp/_retrain_checkpoint
+I0907 05:02:28.773063 140088028936000 tf_logging.py:115] Restoring parameters from /tmp/_retrain_checkpoint
+WARNING:tensorflow:From /opt/conda/lib/python3.6/site-packages/tensorflow/python/saved_model/simple_save.py:85: calling SavedModelBuilder.add_meta_graph_and_variables (from tensorflow.python.saved_model.builder_impl) with legacy_init_op is deprecated and will be removed in a future version.
+Instructions for updating:
+Pass your op to the equivalent parameter main_op instead.
+W0907 05:02:30.299846 140088028936000 tf_logging.py:125] From /opt/conda/lib/python3.6/site-packages/tensorflow/python/saved_model/simple_save.py:85: calling SavedModelBuilder.add_meta_graph_and_variables (from tensorflow.python.saved_model.builder_impl) with legacy_init_op is deprecated and will be removed in a future version.
+Instructions for updating:
+Pass your op to the equivalent parameter main_op instead.
+INFO:tensorflow:Assets added to graph.
+I0907 05:02:30.300213 140088028936000 tf_logging.py:115] Assets added to graph.
+INFO:tensorflow:No assets to write.
+I0907 05:02:30.300353 140088028936000 tf_logging.py:115] No assets to write.
+INFO:tensorflow:SavedModel written to: /mnt/results/trainediosbucket/training-tEXUQIcWg/model/saved_model/saved_model.pb
+I0907 05:02:42.904163 140088028936000 tf_logging.py:115] SavedModel written to: /mnt/results/trainediosbucket/training-tEXUQIcWg/model/saved_model/saved_model.pb
+CACLI-TRAINING-SUCCESS
+2019-09-07 05:02:47.051322: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2019-09-07 05:02:49.763929: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1432] Found device 0 with properties: 
+name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
+pciBusID: 0000:83:00.0
+totalMemory: 11.17GiB freeMemory: 11.11GiB
+2019-09-07 05:02:49.764311: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-09-07 05:02:50.058858: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-09-07 05:02:50.058912: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-09-07 05:02:50.058920: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-09-07 05:02:50.059035: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10762 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0, compute capability: 3.7)
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:523: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:524: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:527: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/opt/conda/lib/python3.6/site-packages/tensorflow/python/framework/dtypes.py:532: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+WARNING:root:Keras version 2.2.4 detected. Last version known to be fully compatible of Keras is 2.1.6 .
+WARNING:root:TensorFlow version 1.12.2 detected. Last version known to be fully compatible is 1.5.0 .
+2019-09-07 05:02:59.502301: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-09-07 05:02:59.502701: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-09-07 05:02:59.502724: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-09-07 05:02:59.502737: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-09-07 05:02:59.502912: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10762 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0, compute capability: 3.7)
+2019-09-07 05:03:02.928338: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-09-07 05:03:02.928411: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-09-07 05:03:02.928423: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-09-07 05:03:02.928431: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-09-07 05:03:02.928583: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10762 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0, compute capability: 3.7)
+2019-09-07 05:03:11.411845: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-09-07 05:03:11.412322: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-09-07 05:03:11.412376: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-09-07 05:03:11.412392: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-09-07 05:03:11.412615: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10762 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0, compute capability: 3.7)
+2019-09-07 05:03:14.889262: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-09-07 05:03:14.889339: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-09-07 05:03:14.889355: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-09-07 05:03:14.889367: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-09-07 05:03:14.889542: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10762 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0, compute capability: 3.7)
+WARNING: Logging before flag parsing goes to stderr.
+W0907 05:03:28.743560 140033523308352 __init__.py:56] Some hub symbols are not available because TensorFlow version is less than 1.14
+2019-09-07 05:03:31.595723: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-09-07 05:03:31.595810: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-09-07 05:03:31.595817: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-09-07 05:03:31.595822: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-09-07 05:03:31.595952: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10762 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0, compute capability: 3.7)
+2019-09-07 05:03:40.431550: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:501] Optimization results for grappler item: graph_to_optimize
+2019-09-07 05:03:40.432010: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   debug_stripper: Graph size after: 367 nodes (0), 366 edges (0), time = 1.228ms.
+2019-09-07 05:03:40.432030: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   model_pruner: Graph size after: 230 nodes (-137), 229 edges (-137), time = 2.863ms.
+2019-09-07 05:03:40.432040: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   constant folding: Graph size after: 230 nodes (0), 229 edges (0), time = 28.039ms.
+2019-09-07 05:03:40.432050: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   arithmetic_optimizer: Graph size after: 230 nodes (0), 229 edges (0), time = 32.687ms.
+2019-09-07 05:03:40.432059: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   dependency_optimizer: Graph size after: 230 nodes (0), 229 edges (0), time = 5.517ms.
+2019-09-07 05:03:40.432068: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   model_pruner: Graph size after: 230 nodes (0), 229 edges (0), time = 1.905ms.
+2019-09-07 05:03:40.432077: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   remapper: Graph size after: 419 nodes (189), 445 edges (216), time = 9.415ms.
+2019-09-07 05:03:40.432087: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   constant folding: Graph size after: 175 nodes (-244), 174 edges (-271), time = 108.392ms.
+2019-09-07 05:03:40.432096: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   arithmetic_optimizer: Graph size after: 175 nodes (0), 174 edges (0), time = 28.95ms.
+2019-09-07 05:03:40.432106: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   dependency_optimizer: Graph size after: 175 nodes (0), 174 edges (0), time = 6.031ms.
+2019-09-07 05:03:40.432123: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   debug_stripper: Graph size after: 175 nodes (0), 174 edges (0), time = 2.323ms.
+2019-09-07 05:03:40.432133: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   model_pruner: Graph size after: 175 nodes (0), 174 edges (0), time = 2.572ms.
+2019-09-07 05:03:40.432143: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   constant folding: Graph size after: 175 nodes (0), 174 edges (0), time = 33.461ms.
+2019-09-07 05:03:40.432153: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   arithmetic_optimizer: Graph size after: 175 nodes (0), 174 edges (0), time = 22.416ms.
+2019-09-07 05:03:40.432162: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   dependency_optimizer: Graph size after: 175 nodes (0), 174 edges (0), time = 4.986ms.
+2019-09-07 05:03:40.432171: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   model_pruner: Graph size after: 175 nodes (0), 174 edges (0), time = 2.326ms.
+2019-09-07 05:03:40.432180: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   remapper: Graph size after: 175 nodes (0), 174 edges (0), time = 1.988ms.
+2019-09-07 05:03:40.432190: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   constant folding: Graph size after: 175 nodes (0), 174 edges (0), time = 24.878ms.
+2019-09-07 05:03:40.432199: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   arithmetic_optimizer: Graph size after: 175 nodes (0), 174 edges (0), time = 22.909ms.
+2019-09-07 05:03:40.432209: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:503]   dependency_optimizer: Graph size after: 175 nodes (0), 174 edges (0), time = 6.653ms.
+2019-09-07 05:03:40.542257: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1511] Adding visible gpu devices: 0
+2019-09-07 05:03:40.542350: I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-09-07 05:03:40.542361: I tensorflow/core/common_runtime/gpu/gpu_device.cc:988]      0 
+2019-09-07 05:03:40.542369: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1001] 0:   N 
+2019-09-07 05:03:40.542535: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10762 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:83:00.0, compute capability: 3.7)
+Using TensorFlow version: 1.12.2
+Using contrib TFLiteConverter
+
+Loading the TF graph...
+Graph Loaded.
+Collecting all the 'Const' ops from the graph, by running it....
+Done.
+Now finding ops in the TF graph that can be dropped for inference
+Now starting translation to CoreML graph.
+Automatic shape interpretation succeeded for input blob Placeholder:0
+1/367: Analysing op name: final_retrain_ops/biases/final_biases ( type:  Const )
+2/367: Analysing op name: final_retrain_ops/biases/final_biases/read ( type:  Identity )
+3/367: Analysing op name: final_retrain_ops/weights/final_weights ( type:  Const )
+4/367: Analysing op name: final_retrain_ops/weights/final_weights/read ( type:  Identity )
+5/367: Analysing op name: module_apply_default/MobilenetV1/Logits/global_pool/reduction_indices ( type:  Const )
+6/367: Analysing op name: module_apply_default/hub_input/Sub/y ( type:  Const )
+7/367: Analysing op name: module_apply_default/hub_input/Mul/y ( type:  Const )
+8/367: Analysing op name: module/MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_variance ( type:  Const )
+9/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+10/367: Analysing op name: module/MobilenetV1/Conv2d_13_pointwise/BatchNorm/moving_mean ( type:  Const )
+11/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+12/367: Analysing op name: module/MobilenetV1/Conv2d_13_pointwise/BatchNorm/beta ( type:  Const )
+13/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+14/367: Analysing op name: module/MobilenetV1/Conv2d_13_pointwise/BatchNorm/gamma ( type:  Const )
+15/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+16/367: Analysing op name: module/MobilenetV1/Conv2d_13_pointwise/weights ( type:  Const )
+17/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+18/367: Analysing op name: module/MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_variance ( type:  Const )
+19/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+20/367: Analysing op name: module/MobilenetV1/Conv2d_13_depthwise/BatchNorm/moving_mean ( type:  Const )
+21/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+22/367: Analysing op name: module/MobilenetV1/Conv2d_13_depthwise/BatchNorm/beta ( type:  Const )
+23/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+24/367: Analysing op name: module/MobilenetV1/Conv2d_13_depthwise/BatchNorm/gamma ( type:  Const )
+25/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+26/367: Analysing op name: module/MobilenetV1/Conv2d_13_depthwise/depthwise_weights ( type:  Const )
+27/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+28/367: Analysing op name: module/MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_variance ( type:  Const )
+29/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+30/367: Analysing op name: module/MobilenetV1/Conv2d_12_pointwise/BatchNorm/moving_mean ( type:  Const )
+31/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+32/367: Analysing op name: module/MobilenetV1/Conv2d_12_pointwise/BatchNorm/beta ( type:  Const )
+33/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+34/367: Analysing op name: module/MobilenetV1/Conv2d_12_pointwise/BatchNorm/gamma ( type:  Const )
+35/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+36/367: Analysing op name: module/MobilenetV1/Conv2d_12_pointwise/weights ( type:  Const )
+37/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+38/367: Analysing op name: module/MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_variance ( type:  Const )
+39/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+40/367: Analysing op name: module/MobilenetV1/Conv2d_12_depthwise/BatchNorm/moving_mean ( type:  Const )
+41/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+42/367: Analysing op name: module/MobilenetV1/Conv2d_12_depthwise/BatchNorm/beta ( type:  Const )
+43/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+44/367: Analysing op name: module/MobilenetV1/Conv2d_12_depthwise/BatchNorm/gamma ( type:  Const )
+45/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+46/367: Analysing op name: module/MobilenetV1/Conv2d_12_depthwise/depthwise_weights ( type:  Const )
+47/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+48/367: Analysing op name: module/MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_variance ( type:  Const )
+49/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+50/367: Analysing op name: module/MobilenetV1/Conv2d_11_pointwise/BatchNorm/moving_mean ( type:  Const )
+51/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+52/367: Analysing op name: module/MobilenetV1/Conv2d_11_pointwise/BatchNorm/beta ( type:  Const )
+53/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+54/367: Analysing op name: module/MobilenetV1/Conv2d_11_pointwise/BatchNorm/gamma ( type:  Const )
+55/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+56/367: Analysing op name: module/MobilenetV1/Conv2d_11_pointwise/weights ( type:  Const )
+57/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+58/367: Analysing op name: module/MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_variance ( type:  Const )
+59/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+60/367: Analysing op name: module/MobilenetV1/Conv2d_11_depthwise/BatchNorm/moving_mean ( type:  Const )
+61/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+62/367: Analysing op name: module/MobilenetV1/Conv2d_11_depthwise/BatchNorm/beta ( type:  Const )
+63/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+64/367: Analysing op name: module/MobilenetV1/Conv2d_11_depthwise/BatchNorm/gamma ( type:  Const )
+65/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+66/367: Analysing op name: module/MobilenetV1/Conv2d_11_depthwise/depthwise_weights ( type:  Const )
+67/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+68/367: Analysing op name: module/MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_variance ( type:  Const )
+69/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+70/367: Analysing op name: module/MobilenetV1/Conv2d_10_pointwise/BatchNorm/moving_mean ( type:  Const )
+71/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+72/367: Analysing op name: module/MobilenetV1/Conv2d_10_pointwise/BatchNorm/beta ( type:  Const )
+73/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+74/367: Analysing op name: module/MobilenetV1/Conv2d_10_pointwise/BatchNorm/gamma ( type:  Const )
+75/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+76/367: Analysing op name: module/MobilenetV1/Conv2d_10_pointwise/weights ( type:  Const )
+77/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+78/367: Analysing op name: module/MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_variance ( type:  Const )
+79/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+80/367: Analysing op name: module/MobilenetV1/Conv2d_10_depthwise/BatchNorm/moving_mean ( type:  Const )
+81/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+82/367: Analysing op name: module/MobilenetV1/Conv2d_10_depthwise/BatchNorm/beta ( type:  Const )
+83/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+84/367: Analysing op name: module/MobilenetV1/Conv2d_10_depthwise/BatchNorm/gamma ( type:  Const )
+85/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+86/367: Analysing op name: module/MobilenetV1/Conv2d_10_depthwise/depthwise_weights ( type:  Const )
+87/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+88/367: Analysing op name: module/MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_variance ( type:  Const )
+89/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+90/367: Analysing op name: module/MobilenetV1/Conv2d_9_pointwise/BatchNorm/moving_mean ( type:  Const )
+91/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+92/367: Analysing op name: module/MobilenetV1/Conv2d_9_pointwise/BatchNorm/beta ( type:  Const )
+93/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+94/367: Analysing op name: module/MobilenetV1/Conv2d_9_pointwise/BatchNorm/gamma ( type:  Const )
+95/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+96/367: Analysing op name: module/MobilenetV1/Conv2d_9_pointwise/weights ( type:  Const )
+97/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+98/367: Analysing op name: module/MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_variance ( type:  Const )
+99/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+100/367: Analysing op name: module/MobilenetV1/Conv2d_9_depthwise/BatchNorm/moving_mean ( type:  Const )
+101/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+102/367: Analysing op name: module/MobilenetV1/Conv2d_9_depthwise/BatchNorm/beta ( type:  Const )
+103/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+104/367: Analysing op name: module/MobilenetV1/Conv2d_9_depthwise/BatchNorm/gamma ( type:  Const )
+105/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+106/367: Analysing op name: module/MobilenetV1/Conv2d_9_depthwise/depthwise_weights ( type:  Const )
+107/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+108/367: Analysing op name: module/MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_variance ( type:  Const )
+109/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+110/367: Analysing op name: module/MobilenetV1/Conv2d_8_pointwise/BatchNorm/moving_mean ( type:  Const )
+111/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+112/367: Analysing op name: module/MobilenetV1/Conv2d_8_pointwise/BatchNorm/beta ( type:  Const )
+113/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+114/367: Analysing op name: module/MobilenetV1/Conv2d_8_pointwise/BatchNorm/gamma ( type:  Const )
+115/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+116/367: Analysing op name: module/MobilenetV1/Conv2d_8_pointwise/weights ( type:  Const )
+117/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+118/367: Analysing op name: module/MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_variance ( type:  Const )
+119/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+120/367: Analysing op name: module/MobilenetV1/Conv2d_8_depthwise/BatchNorm/moving_mean ( type:  Const )
+121/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+122/367: Analysing op name: module/MobilenetV1/Conv2d_8_depthwise/BatchNorm/beta ( type:  Const )
+123/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+124/367: Analysing op name: module/MobilenetV1/Conv2d_8_depthwise/BatchNorm/gamma ( type:  Const )
+125/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+126/367: Analysing op name: module/MobilenetV1/Conv2d_8_depthwise/depthwise_weights ( type:  Const )
+127/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+128/367: Analysing op name: module/MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_variance ( type:  Const )
+129/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+130/367: Analysing op name: module/MobilenetV1/Conv2d_7_pointwise/BatchNorm/moving_mean ( type:  Const )
+131/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+132/367: Analysing op name: module/MobilenetV1/Conv2d_7_pointwise/BatchNorm/beta ( type:  Const )
+133/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+134/367: Analysing op name: module/MobilenetV1/Conv2d_7_pointwise/BatchNorm/gamma ( type:  Const )
+135/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+136/367: Analysing op name: module/MobilenetV1/Conv2d_7_pointwise/weights ( type:  Const )
+137/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+138/367: Analysing op name: module/MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_variance ( type:  Const )
+139/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+140/367: Analysing op name: module/MobilenetV1/Conv2d_7_depthwise/BatchNorm/moving_mean ( type:  Const )
+141/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+142/367: Analysing op name: module/MobilenetV1/Conv2d_7_depthwise/BatchNorm/beta ( type:  Const )
+143/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+144/367: Analysing op name: module/MobilenetV1/Conv2d_7_depthwise/BatchNorm/gamma ( type:  Const )
+145/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+146/367: Analysing op name: module/MobilenetV1/Conv2d_7_depthwise/depthwise_weights ( type:  Const )
+147/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+148/367: Analysing op name: module/MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_variance ( type:  Const )
+149/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+150/367: Analysing op name: module/MobilenetV1/Conv2d_6_pointwise/BatchNorm/moving_mean ( type:  Const )
+151/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+152/367: Analysing op name: module/MobilenetV1/Conv2d_6_pointwise/BatchNorm/beta ( type:  Const )
+153/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+154/367: Analysing op name: module/MobilenetV1/Conv2d_6_pointwise/BatchNorm/gamma ( type:  Const )
+155/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+156/367: Analysing op name: module/MobilenetV1/Conv2d_6_pointwise/weights ( type:  Const )
+157/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+158/367: Analysing op name: module/MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_variance ( type:  Const )
+159/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+160/367: Analysing op name: module/MobilenetV1/Conv2d_6_depthwise/BatchNorm/moving_mean ( type:  Const )
+161/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+162/367: Analysing op name: module/MobilenetV1/Conv2d_6_depthwise/BatchNorm/beta ( type:  Const )
+163/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+164/367: Analysing op name: module/MobilenetV1/Conv2d_6_depthwise/BatchNorm/gamma ( type:  Const )
+165/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+166/367: Analysing op name: module/MobilenetV1/Conv2d_6_depthwise/depthwise_weights ( type:  Const )
+167/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+168/367: Analysing op name: module/MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_variance ( type:  Const )
+169/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+170/367: Analysing op name: module/MobilenetV1/Conv2d_5_pointwise/BatchNorm/moving_mean ( type:  Const )
+171/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+172/367: Analysing op name: module/MobilenetV1/Conv2d_5_pointwise/BatchNorm/beta ( type:  Const )
+173/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+174/367: Analysing op name: module/MobilenetV1/Conv2d_5_pointwise/BatchNorm/gamma ( type:  Const )
+175/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+176/367: Analysing op name: module/MobilenetV1/Conv2d_5_pointwise/weights ( type:  Const )
+177/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+178/367: Analysing op name: module/MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_variance ( type:  Const )
+179/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+180/367: Analysing op name: module/MobilenetV1/Conv2d_5_depthwise/BatchNorm/moving_mean ( type:  Const )
+181/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+182/367: Analysing op name: module/MobilenetV1/Conv2d_5_depthwise/BatchNorm/beta ( type:  Const )
+183/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+184/367: Analysing op name: module/MobilenetV1/Conv2d_5_depthwise/BatchNorm/gamma ( type:  Const )
+185/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+186/367: Analysing op name: module/MobilenetV1/Conv2d_5_depthwise/depthwise_weights ( type:  Const )
+187/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+188/367: Analysing op name: module/MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_variance ( type:  Const )
+189/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+190/367: Analysing op name: module/MobilenetV1/Conv2d_4_pointwise/BatchNorm/moving_mean ( type:  Const )
+191/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+192/367: Analysing op name: module/MobilenetV1/Conv2d_4_pointwise/BatchNorm/beta ( type:  Const )
+193/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+194/367: Analysing op name: module/MobilenetV1/Conv2d_4_pointwise/BatchNorm/gamma ( type:  Const )
+195/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+196/367: Analysing op name: module/MobilenetV1/Conv2d_4_pointwise/weights ( type:  Const )
+197/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+198/367: Analysing op name: module/MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_variance ( type:  Const )
+199/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+200/367: Analysing op name: module/MobilenetV1/Conv2d_4_depthwise/BatchNorm/moving_mean ( type:  Const )
+201/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+202/367: Analysing op name: module/MobilenetV1/Conv2d_4_depthwise/BatchNorm/beta ( type:  Const )
+203/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+204/367: Analysing op name: module/MobilenetV1/Conv2d_4_depthwise/BatchNorm/gamma ( type:  Const )
+205/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+206/367: Analysing op name: module/MobilenetV1/Conv2d_4_depthwise/depthwise_weights ( type:  Const )
+207/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+208/367: Analysing op name: module/MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_variance ( type:  Const )
+209/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+210/367: Analysing op name: module/MobilenetV1/Conv2d_3_pointwise/BatchNorm/moving_mean ( type:  Const )
+211/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+212/367: Analysing op name: module/MobilenetV1/Conv2d_3_pointwise/BatchNorm/beta ( type:  Const )
+213/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+214/367: Analysing op name: module/MobilenetV1/Conv2d_3_pointwise/BatchNorm/gamma ( type:  Const )
+215/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+216/367: Analysing op name: module/MobilenetV1/Conv2d_3_pointwise/weights ( type:  Const )
+217/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+218/367: Analysing op name: module/MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_variance ( type:  Const )
+219/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+220/367: Analysing op name: module/MobilenetV1/Conv2d_3_depthwise/BatchNorm/moving_mean ( type:  Const )
+221/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+222/367: Analysing op name: module/MobilenetV1/Conv2d_3_depthwise/BatchNorm/beta ( type:  Const )
+223/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+224/367: Analysing op name: module/MobilenetV1/Conv2d_3_depthwise/BatchNorm/gamma ( type:  Const )
+225/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+226/367: Analysing op name: module/MobilenetV1/Conv2d_3_depthwise/depthwise_weights ( type:  Const )
+227/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+228/367: Analysing op name: module/MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_variance ( type:  Const )
+229/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+230/367: Analysing op name: module/MobilenetV1/Conv2d_2_pointwise/BatchNorm/moving_mean ( type:  Const )
+231/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+232/367: Analysing op name: module/MobilenetV1/Conv2d_2_pointwise/BatchNorm/beta ( type:  Const )
+233/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+234/367: Analysing op name: module/MobilenetV1/Conv2d_2_pointwise/BatchNorm/gamma ( type:  Const )
+235/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+236/367: Analysing op name: module/MobilenetV1/Conv2d_2_pointwise/weights ( type:  Const )
+237/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+238/367: Analysing op name: module/MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_variance ( type:  Const )
+239/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+240/367: Analysing op name: module/MobilenetV1/Conv2d_2_depthwise/BatchNorm/moving_mean ( type:  Const )
+241/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+242/367: Analysing op name: module/MobilenetV1/Conv2d_2_depthwise/BatchNorm/beta ( type:  Const )
+243/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+244/367: Analysing op name: module/MobilenetV1/Conv2d_2_depthwise/BatchNorm/gamma ( type:  Const )
+245/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+246/367: Analysing op name: module/MobilenetV1/Conv2d_2_depthwise/depthwise_weights ( type:  Const )
+247/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+248/367: Analysing op name: module/MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_variance ( type:  Const )
+249/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+250/367: Analysing op name: module/MobilenetV1/Conv2d_1_pointwise/BatchNorm/moving_mean ( type:  Const )
+251/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+252/367: Analysing op name: module/MobilenetV1/Conv2d_1_pointwise/BatchNorm/beta ( type:  Const )
+253/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+254/367: Analysing op name: module/MobilenetV1/Conv2d_1_pointwise/BatchNorm/gamma ( type:  Const )
+255/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/ReadVariableOp ( type:  Identity )
+256/367: Analysing op name: module/MobilenetV1/Conv2d_1_pointwise/weights ( type:  Const )
+257/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D/ReadVariableOp ( type:  Identity )
+258/367: Analysing op name: module/MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_variance ( type:  Const )
+259/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+260/367: Analysing op name: module/MobilenetV1/Conv2d_1_depthwise/BatchNorm/moving_mean ( type:  Const )
+261/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+262/367: Analysing op name: module/MobilenetV1/Conv2d_1_depthwise/BatchNorm/beta ( type:  Const )
+263/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+264/367: Analysing op name: module/MobilenetV1/Conv2d_1_depthwise/BatchNorm/gamma ( type:  Const )
+265/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/ReadVariableOp ( type:  Identity )
+266/367: Analysing op name: module/MobilenetV1/Conv2d_1_depthwise/depthwise_weights ( type:  Const )
+267/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise/ReadVariableOp ( type:  Identity )
+268/367: Analysing op name: module/MobilenetV1/Conv2d_0/BatchNorm/moving_variance ( type:  Const )
+269/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm/ReadVariableOp_1 ( type:  Identity )
+270/367: Analysing op name: module/MobilenetV1/Conv2d_0/BatchNorm/moving_mean ( type:  Const )
+271/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm/ReadVariableOp ( type:  Identity )
+272/367: Analysing op name: module/MobilenetV1/Conv2d_0/BatchNorm/beta ( type:  Const )
+273/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/ReadVariableOp_1 ( type:  Identity )
+274/367: Analysing op name: module/MobilenetV1/Conv2d_0/BatchNorm/gamma ( type:  Const )
+275/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/ReadVariableOp ( type:  Identity )
+276/367: Analysing op name: module/MobilenetV1/Conv2d_0/weights ( type:  Const )
+277/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_0/Conv2D/ReadVariableOp ( type:  Identity )
+278/367: Analysing op name: Placeholder ( type:  Placeholder )
+Skipping name of placeholder
+279/367: Analysing op name: module_apply_default/hub_input/Mul ( type:  Mul )
+280/367: Analysing op name: module_apply_default/hub_input/Sub ( type:  Sub )
+281/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_0/Conv2D ( type:  Conv2D )
+282/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_0/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+283/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_0/Relu6 ( type:  Relu6 )
+284/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+285/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+286/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_depthwise/Relu6 ( type:  Relu6 )
+287/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Conv2D ( type:  Conv2D )
+288/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+289/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_1_pointwise/Relu6 ( type:  Relu6 )
+290/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+291/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+292/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_depthwise/Relu6 ( type:  Relu6 )
+293/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Conv2D ( type:  Conv2D )
+294/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+295/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_2_pointwise/Relu6 ( type:  Relu6 )
+296/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+297/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+298/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_depthwise/Relu6 ( type:  Relu6 )
+299/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Conv2D ( type:  Conv2D )
+300/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+301/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_3_pointwise/Relu6 ( type:  Relu6 )
+302/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+303/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+304/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_depthwise/Relu6 ( type:  Relu6 )
+305/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Conv2D ( type:  Conv2D )
+306/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+307/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_4_pointwise/Relu6 ( type:  Relu6 )
+308/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+309/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+310/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_depthwise/Relu6 ( type:  Relu6 )
+311/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Conv2D ( type:  Conv2D )
+312/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+313/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_5_pointwise/Relu6 ( type:  Relu6 )
+314/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+315/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+316/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_depthwise/Relu6 ( type:  Relu6 )
+317/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Conv2D ( type:  Conv2D )
+318/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+319/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_6_pointwise/Relu6 ( type:  Relu6 )
+320/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+321/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+322/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_depthwise/Relu6 ( type:  Relu6 )
+323/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Conv2D ( type:  Conv2D )
+324/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+325/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_7_pointwise/Relu6 ( type:  Relu6 )
+326/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+327/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+328/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_depthwise/Relu6 ( type:  Relu6 )
+329/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Conv2D ( type:  Conv2D )
+330/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+331/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_8_pointwise/Relu6 ( type:  Relu6 )
+332/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+333/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+334/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_depthwise/Relu6 ( type:  Relu6 )
+335/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Conv2D ( type:  Conv2D )
+336/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+337/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_9_pointwise/Relu6 ( type:  Relu6 )
+338/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+339/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+340/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_depthwise/Relu6 ( type:  Relu6 )
+341/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Conv2D ( type:  Conv2D )
+342/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+343/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_10_pointwise/Relu6 ( type:  Relu6 )
+344/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+345/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+346/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_depthwise/Relu6 ( type:  Relu6 )
+347/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Conv2D ( type:  Conv2D )
+348/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+349/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_11_pointwise/Relu6 ( type:  Relu6 )
+350/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+351/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+352/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_depthwise/Relu6 ( type:  Relu6 )
+353/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Conv2D ( type:  Conv2D )
+354/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+355/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_12_pointwise/Relu6 ( type:  Relu6 )
+356/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_depthwise/depthwise ( type:  DepthwiseConv2dNative )
+357/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_depthwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+358/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_depthwise/Relu6 ( type:  Relu6 )
+359/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Conv2D ( type:  Conv2D )
+360/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_pointwise/BatchNorm/FusedBatchNorm ( type:  FusedBatchNorm )
+361/367: Analysing op name: module_apply_default/MobilenetV1/MobilenetV1/Conv2d_13_pointwise/Relu6 ( type:  Relu6 )
+362/367: Analysing op name: module_apply_default/MobilenetV1/Logits/global_pool ( type:  Mean )
+363/367: Analysing op name: module_apply_default/hub_output/feature_vector/SpatialSqueeze ( type:  Squeeze )
+364/367: Analysing op name: input/BottleneckInputPlaceholder ( type:  PlaceholderWithDefault )
+365/367: Analysing op name: final_retrain_ops/Wx_plus_b/MatMul ( type:  MatMul )
+366/367: Analysing op name: final_retrain_ops/Wx_plus_b/add ( type:  Add )
+367/367: Analysing op name: final_result ( type:  Softmax )
+Translation to CoreML spec completed. Now compiling and saving the CoreML model.
+
+ Core ML model generated. Saved at location: /mnt/results/trainediosbucket/training-tEXUQIcWg/model_ios/Model.mlmodel 
+
+Core ML input(s): 
+ [name: "Placeholder__0"
+type {
+  imageType {
+    width: 224
+    height: 224
+    colorSpace: RGB
+  }
+}
+]
+Core ML output(s): 
+ [name: "final_result__0"
+type {
+  dictionaryType {
+    stringKeyType {
+    }
+  }
+}
+, name: "classLabel"
+type {
+  stringType {
+  }
+}
+]
+Writing weight file /mnt/results/trainediosbucket/training-tEXUQIcWg/model_web/model.json...
