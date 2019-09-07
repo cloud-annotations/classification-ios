@@ -70,7 +70,6 @@ class NewsViewController: UIViewController {
         }
     
     }
-   
     
     func analyzeText( arr: [ String], keyword: String){
         let naturalLanguageUnderstanding = NaturalLanguageUnderstanding(version: "2019-07-12", apiKey: "zoJzrFwHBvke1PvG4jSs8pKD1BHOQ-Rzq0PBFSeb5epv")
