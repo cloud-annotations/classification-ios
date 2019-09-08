@@ -114,6 +114,14 @@ class CameraViewController: UIViewController {
                     Globals.Brand = "Soylent"
                 } else if(classifications[0].identifier == "rice krispie treat"){
                     Globals.Brand = "Kellogg's"
+                } else if(classifications[0].identifier == "honey"){
+                    Globals.Brand = "Honey App"
+                } else if(classifications[0].identifier == "starbucks"){
+                    Globals.Brand = "Starbucks"
+                } else if(classifications[0].identifier == "oreo"){
+                    Globals.Brand = "Nabisco"
+                } else if(classifications[0].identifier == "google"){
+                     Globals.Brand = "Google"
                 }
                 
                 let host = "https://newsapi.org/v2/everything?q="+CameraViewController.Globals.Brand+"%20drink&apiKey=e443b5309d904830bbe102d3a5af11ff&language=en&sortBy=popularity&pageSize=30&qInTitle="+CameraViewController.Globals.Product

@@ -9,8 +9,8 @@ class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         brandLabel.text = "Relevant News"
-        productLabel.text = CameraViewController.Globals.Product
-        let host = "https://newsapi.org/v2/everything?q="+CameraViewController.Globals.Product+"%20drink&apiKey=e443b5309d904830bbe102d3a5af11ff&language=en&sortBy=popularity&pageSize=30"
+        productLabel.text = CameraViewController.Globals.Brand
+        let host = "https://newsapi.org/v2/everything?q="+CameraViewController.Globals.Brand+"%20drink&apiKey=e443b5309d904830bbe102d3a5af11ff&language=en&sortBy=popularity&pageSize=30"
         
         if let url = URL(string: host){
             var request = URLRequest(url: url, timeoutInterval: 720)

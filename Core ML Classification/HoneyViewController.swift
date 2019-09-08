@@ -26,7 +26,7 @@ class HoneyViewController: UIViewController, UIScrollViewDelegate {
             productLabel.numberOfLines = 5
             productLabel.text = product["productTitle"]
             let productPrice = UILabel()
-            productPrice.text = product["productPrice"]
+            productPrice.text = "$"+product["productPrice"]!
             
             productStack.addArrangedSubview(productLabel)
             productStack.addArrangedSubview(productPrice)
