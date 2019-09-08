@@ -27,6 +27,7 @@
 		410B931D2323D88C0037283F /* Model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 410B931C2323D88C0037283F /* Model.mlmodel */; };
 		410B931F2323E18F0037283F /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410B931E2323E18F0037283F /* NewsViewController.swift */; };
 		62826B455BC849C924D2089C /* Pods_Core_ML_Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A616849A40CCFC5B963D5F8 /* Pods_Core_ML_Vision.framework */; };
+		D246C2C22324B11F00C6A86A /* NewsStoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246C2C12324B11F00C6A86A /* NewsStoriesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -67,6 +68,7 @@
 		8A616849A40CCFC5B963D5F8 /* Pods_Core_ML_Vision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_ML_Vision.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90CEE280056620D539933A6B /* Pods-Core ML Vision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core ML Vision.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Core ML Vision/Pods-Core ML Vision.debug.xcconfig"; sourceTree = "<group>"; };
 		CEBEE6F835D930641A59A012 /* Pods-Core ML Vision.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core ML Vision.release.xcconfig"; path = "Pods/Target Support Files/Pods-Core ML Vision/Pods-Core ML Vision.release.xcconfig"; sourceTree = "<group>"; };
+		D246C2C12324B11F00C6A86A /* NewsStoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStoriesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		2DBDD2931FCF7FAE004A6DC1 /* Core ML Classification */ = {
 			isa = PBXGroup;
 			children = (
+				D246C2C12324B11F00C6A86A /* NewsStoriesTableViewCell.swift */,
 				2D7DF31E204F4D1E00CC26D7 /* Supporting Files */,
 				410B931A2323D8050037283F /* model-w691w8x4 */,
 				2DBDD2941FCF7FAE004A6DC1 /* AppDelegate.swift */,
@@ -281,6 +284,7 @@
 			files = (
 				23CC92B320A1530F00F70DDC /* ProgressBar.swift in Sources */,
 				410B931D2323D88C0037283F /* Model.mlmodel in Sources */,
+				D246C2C22324B11F00C6A86A /* NewsStoriesTableViewCell.swift in Sources */,
 				2DC5F13D1FD609050063B2D5 /* ResultsTableViewController.swift in Sources */,
 				2DC5F13F1FD6093B0063B2D5 /* ResultsTableViewCell.swift in Sources */,
 				2D7DF31D204F4CA500CC26D7 /* SwiftSpinner.swift in Sources */,

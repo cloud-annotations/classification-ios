@@ -132,6 +132,7 @@ class CameraViewController: UIViewController {
                         } else if let p = data {
                             do{
                                 let json = try JSON(data: p)
+                                let numOfArticles = json["articles"].count
                                 for (_,value) in json["articles"]{
                                     let keyword = [CameraViewController.Globals.Brand]
                                     let str = value["description"].string!
@@ -140,7 +141,7 @@ class CameraViewController: UIViewController {
                                     
                                     let sentiment = SentimentOptions(targets: keyword)
                                     let features = Features(sentiment: sentiment)
-                                    let cool = naturalLanguageUnderstanding.analyze(features: features, text: str) {
+                                    naturalLanguageUnderstanding.analyze(features: features, text: str) {
                                         response, error in
                                         
                                         guard let analysis = response?.result else {
@@ -151,7 +152,8 @@ class CameraViewController: UIViewController {
                                         if let score = analysis.sentiment?.document?.score{
                                             print(score)
                                             DispatchQueue.main.async {
-                                                self.progressView.setProgress(self.progressView.progress+Float(score), animated: true)
+                                                self.progressView.setProgress(self.progressView.progress+(Float(score) / Float(numOfArticles)), animated: true)
+                                                sleep(5)
                                             }
                                         }
                                         
