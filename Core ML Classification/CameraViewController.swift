@@ -27,6 +27,7 @@ class CameraViewController: UIViewController {
     struct Globals {
         static var Brand:String = ""
         static var Product:String = ""
+        static var HoneyProducts:[[String:String]] = []
     }
     
     @IBOutlet weak var progressView: UIProgressView!
@@ -88,17 +89,12 @@ class CameraViewController: UIViewController {
         drawer.delegate = self
     }
     
-
-    
-    // MARK: - Image Classification
-    
     func classifyImage(_ image: UIImage, localThreshold: Double = 0.0) {
         guard let croppedImage = cropToCenter(image: image, targetSize: CGSize(width: 224, height: 224)) else {
             return
         }
         
         editedImage = croppedImage
-        
         showResultsUI(for: image)
         
         guard let cgImage = editedImage.cgImage else {
@@ -149,9 +145,8 @@ class CameraViewController: UIViewController {
                                         }
                                         
                                         if let score = analysis.sentiment?.document?.score{
-                                            print(score)
                                             DispatchQueue.main.async {
-                                                self.progressView.setProgress(self.progressView.progress+Float(score), animated: true)
+                                                self.progressView.setProgress(self.progressView.progress+Float(score/20), animated: true)
                                             }
                                         }
                                         
@@ -165,9 +160,7 @@ class CameraViewController: UIViewController {
                             print("No data received in response.")
                         }
                     }
-                    print("----------------------------------------")
-                    print(CameraViewController.Globals.Brand)
-                    print("----------------------------------------")
+                    
                     task.resume()
                 }
                 
@@ -184,10 +177,12 @@ class CameraViewController: UIViewController {
                             do{
                                 let json = try JSON(data: p)
                                 for (_,product) in json["data"]["searchProduct"]["products"] {
-                                    /*print(product["imageUrlPrimaryTransformed"]["small"])
-                                    print(product["title"])
-                                    print(product["brand"])
-                                    print(product["priceCurrent"].doubleValue / 100.0)*/
+                                    Globals.HoneyProducts.append([
+                                        "productImage":product["imageUrlPrimaryTransformed"]["small"].string ?? "",
+                                        "productTitle":product["title"].string ?? "",
+                                        "productBrand":product["brand"].string ?? "",
+                                        "productPrice":String(product["priceCurrent"].doubleValue/100.0)
+                                    ])
                                 }
                             } catch {
                                 
@@ -351,18 +346,18 @@ class CameraViewController: UIViewController {
     }
     
     func showResultsUI(for image: UIImage) {
-        imageView.image = image
+        /*imageView.image = image
         imageView.isHidden = false
         simulatorTextView.isHidden = true
         closeButton.isHidden = false
         captureButton.isHidden = true
         choosePhotoButton.isHidden = true
         updateModelButton.isHidden = true
-        focusView.isHidden = true
+        focusView.isHidden = true*/
     }
     
     func resetUI() {
-        heatmaps = [String: HeatmapImages]()
+        /*heatmaps = [String: HeatmapImages]()
         if captureSession != nil {
             simulatorTextView.isHidden = true
             imageView.isHidden = true
@@ -375,12 +370,12 @@ class CameraViewController: UIViewController {
             focusView.isHidden = true
         }
         heatmapView.isHidden = true
-        outlineView.isHidden = true
+        //outlineView.isHidden = true
         alphaSlider.isHidden = true
-        closeButton.isHidden = true
+        //closeButton.isHidden = true
         choosePhotoButton.isHidden = false
         updateModelButton.isHidden = false
-        dismissResults()
+        //dismissResults()*/
     }
     
     // MARK: - IBActions
@@ -392,6 +387,7 @@ class CameraViewController: UIViewController {
     
     @IBAction func capturePhoto() {
         photoOutput.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+        progressView.setProgress(0.5, animated: true)
     }
     
     

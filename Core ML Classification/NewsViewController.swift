@@ -8,9 +8,9 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var newsStack: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        brandLabel.text = CameraViewController.Globals.Brand
+        brandLabel.text = "Relevant News"
         productLabel.text = CameraViewController.Globals.Product
-        let host = "https://newsapi.org/v2/everything?q="+CameraViewController.Globals.Brand+"%20drink&apiKey=e443b5309d904830bbe102d3a5af11ff&language=en&sortBy=popularity&pageSize=30&qInTitle="+CameraViewController.Globals.Product
+        let host = "https://newsapi.org/v2/everything?q="+CameraViewController.Globals.Product+"%20drink&apiKey=e443b5309d904830bbe102d3a5af11ff&language=en&sortBy=popularity&pageSize=30"
         
         if let url = URL(string: host){
             var request = URLRequest(url: url, timeoutInterval: 720)
@@ -25,9 +25,17 @@ class NewsViewController: UIViewController {
                         for (_,value) in json["articles"]{
                             DispatchQueue.main.async {
                                 let titleLabel = UILabel()
-                                titleLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
+                                titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
                                 titleLabel.text = value["title"].string
+                                titleLabel.numberOfLines = 4
+                                
+                                let contentLabel = UILabel()
+                                contentLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+                                contentLabel.text = value["content"].string
+                                contentLabel.numberOfLines = 40
+                                
                                 self.newsStack.addArrangedSubview(titleLabel)
+                                self.newsStack.addArrangedSubview(contentLabel)
                             }
                             
                             let keyword = [CameraViewController.Globals.Brand]
