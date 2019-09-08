@@ -7,4 +7,6 @@ target 'Core ML Vision' do
 
   # Pods for Core ML Vision
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'IBMWatsonAssistantV1', '~> 2.3.0'
+  pod 'IBMWatsonNaturalLanguageUnderstandingV1', '~> 2.1.1'
 end

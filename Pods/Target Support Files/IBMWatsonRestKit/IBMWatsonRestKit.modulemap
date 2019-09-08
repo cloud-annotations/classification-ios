@@ -1,0 +1,6 @@
+framework module RestKit {
+  umbrella header "IBMWatsonRestKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

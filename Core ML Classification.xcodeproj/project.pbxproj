@@ -26,6 +26,7 @@
 		410B931B2323D8050037283F /* model-w691w8x4 in Resources */ = {isa = PBXBuildFile; fileRef = 410B931A2323D8050037283F /* model-w691w8x4 */; };
 		410B931D2323D88C0037283F /* Model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 410B931C2323D88C0037283F /* Model.mlmodel */; };
 		410B931F2323E18F0037283F /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 410B931E2323E18F0037283F /* NewsViewController.swift */; };
+		415396F623247866006C616D /* HoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415396F523247865006C616D /* HoneyViewController.swift */; };
 		62826B455BC849C924D2089C /* Pods_Core_ML_Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A616849A40CCFC5B963D5F8 /* Pods_Core_ML_Vision.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		410B931A2323D8050037283F /* model-w691w8x4 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "model-w691w8x4"; sourceTree = "<group>"; };
 		410B931C2323D88C0037283F /* Model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Model.mlmodel; sourceTree = "<group>"; };
 		410B931E2323E18F0037283F /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		415396F523247865006C616D /* HoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoneyViewController.swift; sourceTree = "<group>"; };
 		8A616849A40CCFC5B963D5F8 /* Pods_Core_ML_Vision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_ML_Vision.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90CEE280056620D539933A6B /* Pods-Core ML Vision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core ML Vision.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Core ML Vision/Pods-Core ML Vision.debug.xcconfig"; sourceTree = "<group>"; };
 		CEBEE6F835D930641A59A012 /* Pods-Core ML Vision.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core ML Vision.release.xcconfig"; path = "Pods/Target Support Files/Pods-Core ML Vision/Pods-Core ML Vision.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				410B931E2323E18F0037283F /* NewsViewController.swift */,
 				237A0D5621274ABE003FA1F9 /* CameraViewController+Heatmap.swift */,
 				2DBEDF451FD20672003F17C8 /* Main.storyboard */,
+				415396F523247865006C616D /* HoneyViewController.swift */,
 				410B931C2323D88C0037283F /* Model.mlmodel */,
 				2DBDD29E1FCF7FAE004A6DC1 /* Assets.xcassets */,
 				2DBDD2A01FCF7FAE004A6DC1 /* LaunchScreen.storyboard */,
@@ -239,10 +242,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Core ML Vision/Pods-Core ML Vision-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IBMWatsonAssistantV1/Assistant.framework",
+				"${BUILT_PRODUCTS_DIR}/IBMWatsonNaturalLanguageUnderstandingV1/NaturalLanguageUnderstanding.framework",
+				"${BUILT_PRODUCTS_DIR}/IBMWatsonRestKit/RestKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Assistant.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NaturalLanguageUnderstanding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RestKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +291,7 @@
 				2D7DF31D204F4CA500CC26D7 /* SwiftSpinner.swift in Sources */,
 				2D7870C11FE1CF6F0018BFE9 /* PulleyPassthroughScrollView.swift in Sources */,
 				2DBDD2951FCF7FAE004A6DC1 /* AppDelegate.swift in Sources */,
+				415396F623247866006C616D /* HoneyViewController.swift in Sources */,
 				2D7870C51FE1CFDE0018BFE9 /* UIView+constrainToParent.swift in Sources */,
 				237A0D5721274ABE003FA1F9 /* CameraViewController+Heatmap.swift in Sources */,
 				23D8615B2125C31500B9D5AF /* CameraViewController.swift in Sources */,

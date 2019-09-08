@@ -7,69 +7,455 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4011309D584FD307AB3DB0A2EECF07C5 /* Pods-Core ML Vision-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 684140EF472F337366EE3D418F5DB4CF /* Pods-Core ML Vision-dummy.m */; };
-		77491999A18B9ACFB4D59801294D8300 /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 750DB8278285D9AA7AE2676EBA1598BC /* SwiftyJSON-dummy.m */; };
-		A2E6092A9CC3080F4CA90E329D465AD4 /* Pods-Core ML Vision-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E333A4085A0A7F84CB0FB2A43B3DC5F3 /* Pods-Core ML Vision-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D2A8890575E24E0D7E5D105A6EAF21E3 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CA7CFF9EB8463DEAAC7B9E1C691227 /* SwiftyJSON.swift */; };
-		DB80AEE66C8D42046F37F89E570339C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		F669354DB8B3EB08B8E9CEB9690ABE03 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FF09CCB69C40B5A7AD0C1A35F77E609 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F6B4CB6A746F993EA8ADD8053D3182F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		016795AB96B8A95C82E273251E7A867F /* SystemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E74D221F8114671B003DFD99FF1B45A /* SystemResponse.swift */; };
+		025404573D90BCC01E34CB2563C02033 /* CreateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39870342793E0042C6FF5746385B9AF5 /* CreateValue.swift */; };
+		0497FAB74F41C95E74E6C8245993221D /* SynonymCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E53980A5FEBBDE53DA09F4D2145663 /* SynonymCollection.swift */; };
+		0630AED7D776D4A552761081D04A5FFE /* CategoriesResultExplanation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4914B36724E817836A7A96246B593D7 /* CategoriesResultExplanation.swift */; };
+		08FC80586F4A75EAB33A5FB08A74F1FC /* CategoriesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8168BE35F5A638FCFF603FFB9A5A2216 /* CategoriesResult.swift */; };
+		09B5A3C9AB37E118FD275D12AA72EF80 /* UpdateSynonym.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951E1FE865850DE0D4AB9C29A748E48 /* UpdateSynonym.swift */; };
+		09DE4D27DA1FF312EC3EB4AD4C3EB77B /* SemanticRolesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D9CCEDDD646B106B506D0B9F3DEFAD /* SemanticRolesEntity.swift */; };
+		0AB555BBC6AA7785192634960B22633A /* SemanticRolesResultSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0303923B71EBD054A2161F3A3EE24239 /* SemanticRolesResultSubject.swift */; };
+		13D4A6D5BB5D9E98DE0FE90F66D6A6AC /* MetadataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF1DDC760A3ED8B8EED74146C948EE4 /* MetadataResult.swift */; };
+		15B838A51533E9665561B993BBDE1B8C /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0390A70AB3802782B4B5C3EFBD45E01D /* Value.swift */; };
+		15D733CF6E9CD567109D5799B5AD84BE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88BE1A75B5872B7078CECA16A4028DE /* Model.swift */; };
+		16054D0E40A6C8EDFC811F7F3D899729 /* DialogNodeOutputOptionsElementValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D88E00A5D6C800988F73AD2FD4EBAAB /* DialogNodeOutputOptionsElementValue.swift */; };
+		18E8F6FEB3F25F0B60B5D93422208BE2 /* CreateWorkspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7459972E196007EC536930C7BA8236CD /* CreateWorkspace.swift */; };
+		1A55C1A0D7E117B7584999EEBB9375BB /* NaturalLanguageUnderstanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55BD9BAC01AC2A6FA3692D91338D732 /* NaturalLanguageUnderstanding.swift */; };
+		1ED85180887304E25E1F3BE720E4D91B /* ExampleCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5291E1A7FE8AA6EC92137006EA8EA2 /* ExampleCollection.swift */; };
+		1EE08A99C4172B704EB235DE5BB84D58 /* ConceptsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF1F03C9D57030CE012CFFE181D6A91 /* ConceptsResult.swift */; };
+		212370185091DDBE3E154897A2A19182 /* CodableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9022844C0002CD7EC960773860A408EC /* CodableExtensions.swift */; };
+		22A32D07E60167B6697803D004756DAE /* IntentCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEAD560BB03574541FFB313521186E5 /* IntentCollection.swift */; };
+		2334EA8BDF414B8449AA258E90DF3848 /* FeatureSentimentResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB335271432705D2FCE2701235D9BD9E /* FeatureSentimentResults.swift */; };
+		25359451ED07D0674EB826B187968323 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE41F11E9615CCB4D42A29B893973751 /* Example.swift */; };
+		2909B12C4BF9A09C3F37B07BA42975F8 /* UpdateDialogNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03726770BD3671211D0D6D98ED5F6A3E /* UpdateDialogNode.swift */; };
+		2B638A3C62EA9DE1C049CC3FAEA87C1B /* DialogNodeOutputGeneric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179EDC0959FF22D2A9FDB4E09E206EA2 /* DialogNodeOutputGeneric.swift */; };
+		2C5A4117F8179A879C682E6D6EB4DE28 /* KeywordsResultSentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C9B21110100D7E1AD52D5047854D31 /* KeywordsResultSentiment.swift */; };
+		2C8324B93B8E9A9306D20B74A0819F60 /* InsecureConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47CE8FFAF65EBAC56C82D14826CD764 /* InsecureConnection.swift */; };
+		2DB0F2055CEDAB87E156A07A3F72C192 /* Counterexample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1944888203C0CF922361CD5BD5D89DC5 /* Counterexample.swift */; };
+		2E9CC009BC0098FB5A1F1C646B27BA10 /* ConceptsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3ED047F9337EDCED7EFF59653EFA69 /* ConceptsOptions.swift */; };
+		322182E755CA623F6489D6A9F6059D9C /* RuntimeIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E88BC6C58B4D19B6A5C52A2AE6FF789 /* RuntimeIntent.swift */; };
+		33149DBB1E8BDF7409FC9F3CEDE3FACD /* WorkspaceSystemSettingsTooling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45925B0114F3412BD2FC02118EE3BAAF /* WorkspaceSystemSettingsTooling.swift */; };
+		3503F55A8132DBFC02369BA1C7AF0E1D /* Pods-Core ML Vision-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 684140EF472F337366EE3D418F5DB4CF /* Pods-Core ML Vision-dummy.m */; };
+		35271CC06879028C08B823395CD67D1E /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F435D756958ED66D58D2C5D2475AB /* MultipartFormData.swift */; };
+		36E1461D49E1A9BCE2F0A0D5D3398B10 /* RuntimeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698A870803CFD24B697BA3D5156BEEBE /* RuntimeEntity.swift */; };
+		36ED331B79B2F81348140B0AB1BBDD72 /* DialogSuggestionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5542BB74A32077F9A07AD38F94A175B /* DialogSuggestionValue.swift */; };
+		37E275A5E81F04CD32302F500D69CBED /* AnalysisResultsUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3ECD690E2F9275FB8CACA7BBB39155 /* AnalysisResultsUsage.swift */; };
+		384685E6BCC468993F77773A167B323F /* DialogRuntimeResponseGeneric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED1732D4043D870BA1084DE6DED5715 /* DialogRuntimeResponseGeneric.swift */; };
+		38AF8BD931B2B1BB6E9D2224607E6B00 /* WorkspaceSystemSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B4F2929494C2A5B09567983C9949C7 /* WorkspaceSystemSettings.swift */; };
+		3DE08406C6B62E4F0C0CF4F8B0083A6F /* CounterexampleCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A8A843AAA3EF5BB38E9D2D7382983 /* CounterexampleCollection.swift */; };
+		3E9938FCD4B11B93594BD4C3F900A667 /* DialogNodeOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742A1B8810033DB6B909519DC99F5775 /* DialogNodeOutput.swift */; };
+		3F16EB9BCE05F9285E6B05C83EC209C4 /* DocumentEmotionResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F8AD96CB1879463F6A58A79E31B700 /* DocumentEmotionResults.swift */; };
+		4081005B0DA38A0E556E2D02FB1A23A7 /* SyntaxResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CC4699A8CAE084663A2B47519D9066 /* SyntaxResult.swift */; };
+		4439BE79F28C3F314A9E16B39DEB8C7B /* DialogSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954D289CCD4774D48A4B8A7A8A0D4F29 /* DialogSuggestion.swift */; };
+		44FD9F2489EB7A117C7C481D11189B42 /* CategoriesOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9895C4E789318A143B1E5F7A1576B506 /* CategoriesOptions.swift */; };
+		4579AF96082AAA620FF4CD16998F0724 /* DialogNodeOutputOptionsElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF1CF7263DEB470AFEA302341D50FE2 /* DialogNodeOutputOptionsElement.swift */; };
+		45B12C69D2311F7A1CAB3E22F9D35A7C /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FAB23F2443A22D3229A4EC359DD1C4 /* Author.swift */; };
+		48040DD7902880B8E62EE6AC18072212 /* DisambiguationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE2EB3CAD2AAD13A1443915204A4F06 /* DisambiguationResult.swift */; };
+		484348FCFDD73793A739A5A96F7E903D /* SentenceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D530525C1BD11B767E6F451E21F821E /* SentenceResult.swift */; };
+		4C02717966ED72F55208206B4A9F174A /* Intent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD111806DC77B2A4E72209DBAF093BD /* Intent.swift */; };
+		4CAC12D3E7BC7776501A071F3D67A689 /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBFC251FAB373915F07E5EEB6E2C0C3 /* Workspace.swift */; };
+		4E0D542A339DC3F52130B9CCF7D5610E /* SwiftyJSON-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FFF422DF534FE97C0B5CC1E3CA1E6C /* SwiftyJSON-dummy.m */; };
+		5095F2624220895F06906D9DF60A7778 /* DialogNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E5B7C16C56DCACCF319CDDEC8B11C7 /* DialogNode.swift */; };
+		53E3A8895374C5D244EAAB4D1A3CB33F /* CaptureGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF4AE731D3BD042C59935B841C47E81 /* CaptureGroup.swift */; };
+		54407A82164D7334A04612945A10292B /* RelationArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98C0D3F23B4CE30607B81C90BC219D9 /* RelationArgument.swift */; };
+		56EB563C0ABDF57F4F3AA1AAB8366228 /* SentimentOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BCF2AB8B33B042A5E6CAA74EE19566 /* SentimentOptions.swift */; };
+		590520C4A1B583CC37D25A4B2E298E27 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A717E8370DD353363C2A907034E1F9 /* JSON.swift */; };
+		5A612F54A1E7FFACE85A44816E2BAD70 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D30AE23A90E3675E9DCF8517EFCD39 /* Shared.swift */; };
+		5AFD0B5ADCC2E0EC2B21BA8FF5193281 /* MessageInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5FCAF535C73EC2F1350B603EAE3113 /* MessageInput.swift */; };
+		5C6562A795A0E2A270638200CDD937CD /* RestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048E77E47A47942EE2F63CD5B45DC9DF /* RestResponse.swift */; };
+		5F0E3EC638D15F4FF9C5784D165A51D4 /* MessageContextMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C186C96EAE1CFA206A635094C19D35 /* MessageContextMetadata.swift */; };
+		5F30467FD1E387F70BCE5320AD2467A1 /* RelationsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C125926C0C5B18EFD0FFBC6CA7F914 /* RelationsResult.swift */; };
+		5F339CF92A7ECEB45FBFB033DDB95F0C /* TargetedSentimentResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27539BEFDD9CE5E0BD65EC5B5B68472D /* TargetedSentimentResults.swift */; };
+		62860F85B34B627E15B3886EBD16F1AC /* EmotionOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4C3BDDF98ABD90E207B6A0CF0C0C31 /* EmotionOptions.swift */; };
+		6614B344AD4A9854A89CCC94CB4E48D2 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2752D1A1FFDA35308296A00A340618 /* RestKit.framework */; };
+		661E66EEBD62FA6CF146DF3EB6A331A9 /* EntityMentionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B28D8C7EA3630361F14F3890DE79AE3 /* EntityMentionCollection.swift */; };
+		6782347C38440AA463BCD8C1DA1AFA96 /* CreateIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE97E14D3C656BEB841D36AB35DD238 /* CreateIntent.swift */; };
+		6AE11A358B2111EC1047EC0EC184FBC5 /* Synonym.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EFF9C6105A75F6F40C383D9CF88F99 /* Synonym.swift */; };
+		6C3C91C837D31B12B6CEAD3D751331A1 /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9FB0D775E1E3684A4B121E7718EDE6 /* Parameters.swift */; };
+		6DEC59BEFF473929F520F9D0D9CACB79 /* EntitiesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2EF153D3C9AC2816F6CE41B2E45FA4 /* EntitiesResult.swift */; };
+		6E6E7BCDCFAFFB0DDF6D04EC03419869 /* IBMWatsonNaturalLanguageUnderstandingV1-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE218F86CB877EA77DBACF90FA83C038 /* IBMWatsonNaturalLanguageUnderstandingV1-dummy.m */; };
+		6FF0EE19F6280D090C67C6B829A36CD6 /* CategoriesRelevantText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DFDFFC0E5129701B1A50EB1E56F3D0 /* CategoriesRelevantText.swift */; };
+		73B238F224A95216A842DC44D3C2114D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE230D46590F18D612A53B4B959F840E /* Foundation.framework */; };
+		74827F22C010575BB5A7497ADD50885F /* CreateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5591448ECEEC2A3081383673E0C4B251 /* CreateEntity.swift */; };
+		74E8A7B3BA8883E929EEA2936C4B0F01 /* TargetedEmotionResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1DCEE25D3B04136FAE8AA390FF3160 /* TargetedEmotionResults.swift */; };
+		7568FF46476288B11E08AA21E3939F04 /* EntityMention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D15F025D8B59BDACC9597876317B44 /* EntityMention.swift */; };
+		764BA9B30E0ACC8A65F717A73F21AD1E /* DialogNodeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70948235F0278A06AF803FB2DAC79465 /* DialogNodeAction.swift */; };
+		76B86F4083E0E3FD055E5EF4364262F2 /* RelationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C875201A8C105EAEFCB7C68D116891E1 /* RelationEntity.swift */; };
+		77E9D8A00CC71D53E8D2B989F7B016EF /* UpdateWorkspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC159CD3DAD17FA72ADEF1387CB322 /* UpdateWorkspace.swift */; };
+		78E3BA592A14314E8C2F1C196F158C1B /* UpdateCounterexample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347AC509AB28A0C413E4A0334E5449B0 /* UpdateCounterexample.swift */; };
+		7A0F5999A039EBA137D45AD130157C1B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE230D46590F18D612A53B4B959F840E /* Foundation.framework */; };
+		7CD48AA5B1E416E9D1A4807F2BC09FCA /* UpdateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4786508FCC0D7422304EB1AF31EC20 /* UpdateEntity.swift */; };
+		7D0E12FE693447D258EE2A711A248F61 /* AnalysisResultsEmotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CED2E8B0CF0EEBC942A5E9C69503A8 /* AnalysisResultsEmotion.swift */; };
+		7D2E381AAD3DB5529C0DC3AB61BFFB2E /* Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D3BB7A8CD9B11E48C835C3F89DB523 /* Features.swift */; };
+		7DFC113F7C042B495267AAB9ED5C8DD9 /* ParametersFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38D73A176011060923FD94BF94AD704 /* ParametersFeatures.swift */; };
+		83B54CD5329B6382878F51B1CB6A300C /* SemanticRolesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C787520D4A312D4464C146EC1D9AEB56 /* SemanticRolesObject.swift */; };
+		84289EEE04FD40BCF9B8BAA93253BFD5 /* EntitiesResultDisambiguation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C484B952219758340F97D76FA5A9C6 /* EntitiesResultDisambiguation.swift */; };
+		843CA34870A2A6CD55625053334E9E2D /* InsecureConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB998099C575861475645416EC2784D6 /* InsecureConnection.swift */; };
+		84B10B13AED27C5A78C32B0A776BC488 /* ListModelsResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130FD0C946CBD94B753C2A8BB75FEC21 /* ListModelsResults.swift */; };
+		863B4B85EC8101B3228AF83120F95CA4 /* SemanticRolesAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43A3B20558F7A1ECFA1754985A58FED /* SemanticRolesAction.swift */; };
+		88F25B974C556011941342F537E6D2EC /* EntitiesOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED5CC0A2711B4E8493A2FB224A59EE5 /* EntitiesOptions.swift */; };
+		8CA99788BCAB7138035B987306D4B999 /* Assistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D3E1D3D647BD972681058D031DE8BD /* Assistant.swift */; };
+		8DA91573D92AD4C207BADDC2B8FA33F3 /* KeywordsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323008FAE0406D25C701770FEEB003D0 /* KeywordsResult.swift */; };
+		8DACA3AB7B54D3751EEF3CF34928E606 /* SyntaxOptionsTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216B42185FE40F762F19CBE4E8A18073 /* SyntaxOptionsTokens.swift */; };
+		8E26353C493000B01FBAC0450D381605 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0259D3C5E61142B5F254100D6838F557 /* LogMessage.swift */; };
+		90720023681398C21F5AB5AEA0F86D63 /* LogCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C492572009DED13DFA6A306F8CA05 /* LogCollection.swift */; };
+		919A71A9051F1E3A7EB3DEE14E56CBF9 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE5B84379B5BA508194005D343BCC1 /* SwiftyJSON.swift */; };
+		92809E8078B2597904B9F781E05571EB /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2752D1A1FFDA35308296A00A340618 /* RestKit.framework */; };
+		95D879EA10D6163ADF647728297D7504 /* Usage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EAA6C66870ACE8F724A631CB59DD0A /* Usage.swift */; };
+		9713805B36D405C9A9B88BBA5D3B2A64 /* RestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1461D1CD5A113C22CB1A441E21357D62 /* RestRequest.swift */; };
+		9774D192C9C17F6746BE4DFE41DF6FFE /* SemanticRolesResultObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3978B10075A922C749ABE76B4C377BC /* SemanticRolesResultObject.swift */; };
+		9B37481F583B082CD15B698480D99CC2 /* AnalysisResultsMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B09826EF514D51AD02FCBA6B6B5F6B /* AnalysisResultsMetadata.swift */; };
+		9C57755F03A353C6296F80D884FB9286 /* TargetedEmotionResultsEmotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B4D5AC0CB18D886BDCD4CD5381D7A /* TargetedEmotionResultsEmotion.swift */; };
+		9E48EB1749FF0E5D7918623798E228E8 /* DialogNodeVisitedDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4195506E72F417748A79DE17BB6DF5F4 /* DialogNodeVisitedDetails.swift */; };
+		9FEB0DA73774EDA15A4B77C8C749A3EA /* IBMWatsonAssistantV1-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B1097FF5FBBFF887E301109B29969712 /* IBMWatsonAssistantV1-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1537F5C33FCAE559E9E06D9F6889BE1 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E36AA0C73D0D8E5220937EE2A7D987 /* Feed.swift */; };
+		A5615F417CEE4688972B3708DFEAC494 /* IBMWatsonRestKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 459860BDEE5550D869D4AFAC4FFDE2FD /* IBMWatsonRestKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A6F0488561D38403A1EEDB8E9E4155F2 /* MessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8A6DC704A7A17C192324C2A8E0CFD6 /* MessageRequest.swift */; };
+		A7DFE14E8650D3EBD4612EDB08E57032 /* DocumentSentimentResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C9208751ED424ADE7518EFF05B430F /* DocumentSentimentResults.swift */; };
+		AAE09161FB62F252870F3B4D0CD57224 /* DocumentEmotionResultsEmotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784B7B6D470ABC9596F8DB37FFA78473 /* DocumentEmotionResultsEmotion.swift */; };
+		AB10E30BFE0C60ED3972413990CEA2A7 /* TokenResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A086AEF38A10DBB9552BB3458CF7F71 /* TokenResult.swift */; };
+		AB906BE1A83ACE98556CACC9E3F8698D /* SemanticRolesSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE69566923B9CB6A7733A60C8E5C6C8 /* SemanticRolesSubject.swift */; };
+		AC8E5BB305D5ED23A4BF1042467F144B /* DialogNodeOutputTextValuesElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E426889D3856352A34D46984F47B3 /* DialogNodeOutputTextValuesElement.swift */; };
+		ACC6EF5F9A8DA7E2BF821C8D7673A536 /* DialogNodeCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A32EC4D58874D51F5DF2147B1B05AAA /* DialogNodeCollection.swift */; };
+		AEA0D8B7278E513EB45999DE0D8C9A7C /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A58495B43AE6540242C48CB5C38F0 /* Pagination.swift */; };
+		AF0EBFE2524029417760D3A995858CB5 /* SemanticRolesResultAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476824B6B9856407A645379326D3FF0F /* SemanticRolesResultAction.swift */; };
+		B02F1C4AB0E807185F5717242455B5C4 /* SwiftyJSON-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BB3421A003CFAA2F7533751B154D9F4 /* SwiftyJSON-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3453385056E51CEF494F57F4C01BD98 /* Mention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DE23002746AF56782BCAC5A5C6750C /* Mention.swift */; };
+		B4153FC53D882C33296831F077836FC9 /* SemanticRolesResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834E63EC70DE9EBFF7E47409D956081E /* SemanticRolesResult.swift */; };
+		B6D06695D9EB7C92089067831BC5EF83 /* DeleteModelResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70A3FDE24EFAF1513520149E9C0E9B6 /* DeleteModelResults.swift */; };
+		B6FA467C07B6B6C7911BCF065348E124 /* MessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAB9CF1A538A51877E9E40517A115B2 /* MessageResponse.swift */; };
+		BD36159B40092783D10ADD59C80DEBE2 /* EntityCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967176AE7945D0733DAE7D441BBAF1F5 /* EntityCollection.swift */; };
+		C2EA6499F46B6A6E01A5EF4614F7B9AE /* ValueCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDD00330C7CEC1B29EDF76098472436 /* ValueCollection.swift */; };
+		C3BD62A471E217B63D4DB29D64D844DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE230D46590F18D612A53B4B959F840E /* Foundation.framework */; };
+		CB19DD033450672AB1FF2F54D0EFC999 /* SyntaxOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA95AF4D9D1C52F1FE5348C73B0DED3 /* SyntaxOptions.swift */; };
+		CC009395AB16810746E8282586968480 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385258EE793700ED50C6EB8AB6F69DAE /* Log.swift */; };
+		CFB424F94CC0200C55B92FC3F4F9DB0D /* DialogNodeOutputModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E103E5A4CF5E933E84D4888A6DC155 /* DialogNodeOutputModifiers.swift */; };
+		D064D5A57E60CD91D18FEF07C4A83F19 /* KeywordsResultEmotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2683C6C242B2A64D484C717C793AA0 /* KeywordsResultEmotion.swift */; };
+		D097C6CFB9041219AC3FC74118540A76 /* IBMWatsonAssistantV1-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7D7970259FB09137CE89D36B1A4D98 /* IBMWatsonAssistantV1-dummy.m */; };
+		D27401600D47B0CE1F73FB062B98E563 /* EntityMention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CDB51EF1B2029053FC3966CF4C56A4 /* EntityMention.swift */; };
+		D2E7C86E7FA021A8A95D0A3493568B47 /* EntitiesResultSentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DF87FEDA4C92374D9DFE68829A4CFC /* EntitiesResultSentiment.swift */; };
+		D373395FC8835870CC8AF21D40F1A441 /* SemanticRolesKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC0BE2D14FE398FABC2AD5FEB0B102F /* SemanticRolesKeyword.swift */; };
+		D44118BF61429D746AF90A86683F2481 /* UpdateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E4CC1E58F354E7A0F48E864A9993B2 /* UpdateValue.swift */; };
+		D9381D7A18115554CAF9A924F9FF3354 /* OutputData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB200DA67E5915763D5C66FA014EDFF /* OutputData.swift */; };
+		DA3364741E446573E8BF5B5A7633355A /* IBMWatsonRestKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B0B09D57D712BA80E1398AD326F24E /* IBMWatsonRestKit-dummy.m */; };
+		DCDA96E538771F853D9D87CB1D3BD943 /* SentimentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE8B8976E1783ADEB6F56F2D6515CA9 /* SentimentResult.swift */; };
+		DD027F72D818D3FFF0C48774D82354BC /* RelationsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EAEA74BE638AD89618FF52EB79A22A /* RelationsOptions.swift */; };
+		DE325465582C4D74B5F0F967C666F017 /* LogPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B25739B087B0CAADB00FAEB47D4769E /* LogPagination.swift */; };
+		E437C7F2B7672A883443D059D50A652C /* SemanticRolesVerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F347D0FB8E4752E8AC12EC399152C0 /* SemanticRolesVerb.swift */; };
+		E6CEFC0FE72E1B34556219333B3DCE61 /* WorkspaceSystemSettingsDisambiguation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB8216074CD08E87EE46DAA9091D19B /* WorkspaceSystemSettingsDisambiguation.swift */; };
+		E70A6AE43A82AE4C3E6112E53FEBBC4D /* AnalysisResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2ED972424A3DBC89D1472030A77F83 /* AnalysisResults.swift */; };
+		E8E910BB063B8B6B03DDC40779BDA503 /* DialogNodeNextStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7933D834A9FC1C419B0C2B7A742133DF /* DialogNodeNextStep.swift */; };
+		E930FFC5512F6304EDACBF51E039AAA5 /* KeywordsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982C6487FDA6FF01F52E2921A6AFE62 /* KeywordsOptions.swift */; };
+		EA1051079ED1EA725C6786209DD29020 /* Pods-Core ML Vision-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E333A4085A0A7F84CB0FB2A43B3DC5F3 /* Pods-Core ML Vision-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC54B2AD9BC2A38D83671B3D948F0D37 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F8742258FFD6C4D0B60B95FD7B6C4C /* Authentication.swift */; };
+		ED1CE05AF3D7D1B1B0894A587632D5C1 /* EntitiesResultEmotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE85DFC11B37C4F8AEC663EE4417908 /* EntitiesResultEmotion.swift */; };
+		EF0BF64F9116E2284175036970197BD3 /* WorkspaceCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD7C350C27248C0325839962389B96F /* WorkspaceCollection.swift */; };
+		EF1E5B2C980CD8D4429B324D3A0F9D03 /* AnalysisResultsSentiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA940E9380F95C1FBDCEF45627F4AEA /* AnalysisResultsSentiment.swift */; };
+		F0D9EB6789E6AC88471473602059455D /* UpdateIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FBA12AB1654F75771195A2BC242339 /* UpdateIntent.swift */; };
+		F10E45651B1F8055ED7343953C323D38 /* IBMWatsonNaturalLanguageUnderstandingV1-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7718F3CE330BEBC8EA38D5249DCC3D09 /* IBMWatsonNaturalLanguageUnderstandingV1-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F24AC953DF6C34E491A9064A357BF041 /* UpdateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB9160E442D63839C2C8D610AA1D84A /* UpdateExample.swift */; };
+		F5619401D073ABC069354EF41EC91CA0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE230D46590F18D612A53B4B959F840E /* Foundation.framework */; };
+		F5FCC23CFFBAE80C8D6104930B4A69C7 /* EmotionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74CFD5242F8F003630E00AB47D650FF2 /* EmotionResult.swift */; };
+		F62EBD787CC4DE2D0AB3C23FAB95E952 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F3B17E13B8C379F2CB41757D3F44DE /* Context.swift */; };
+		F8EE4611BF3F77ECB0AA91A6F87753B9 /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08CC8AC294BEFBF9ED55002C22C7BEE /* Shared.swift */; };
+		F9BDF220E26C44572407EE78DB288173 /* RestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7C79AC2570D14C2B713EC47D47430D /* RestError.swift */; };
+		F9D23A212DEA65181507299CA7B39181 /* EmotionScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276712003A35E13A5FED081F8E161952 /* EmotionScores.swift */; };
+		FC98E9ED367C1C7A06409FF58637DA56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE230D46590F18D612A53B4B959F840E /* Foundation.framework */; };
+		FD9A0434FC9E2A8692343E343025F52A /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BBEC4EC0F42DFF34AA0183C23366CE /* Entity.swift */; };
+		FDBFBDC7E9F18EC372D77714C15D858D /* MetadataOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C9675D6DD3EFB841514D2503BA228C /* MetadataOptions.swift */; };
+		FF4604B1316C37330F8F09F6C5918E5F /* SemanticRolesOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D358FD86E22D620B344F0DA21500FB9C /* SemanticRolesOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F43CE30340F2D88BE477A5B4C4F3A414 /* PBXContainerItemProxy */ = {
+		33AAA098CCA23F18FD804ED49EB18283 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F009C294A44C96EFEFECD0AB66637668;
+			remoteGlobalIDString = 65ED57938E8F65C348CF0714911D1ABA;
 			remoteInfo = SwiftyJSON;
+		};
+		6392BB14A79D744954A03DA953357980 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F6E9B4FAA6ADF3E00FDA16535BF2690;
+			remoteInfo = IBMWatsonNaturalLanguageUnderstandingV1;
+		};
+		7C5FCDF9FE1E4C2FEF137512FAA66642 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F50E7325F19C9A48B8DD0F0F49DF6CC;
+			remoteInfo = IBMWatsonRestKit;
+		};
+		87EDE0D7E00E7F15C94182ECA9297591 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4197BF0F9EB822992D73B4972D754602;
+			remoteInfo = IBMWatsonAssistantV1;
+		};
+		E38CFA65C26DC3F484EB14FAEB688CCA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F50E7325F19C9A48B8DD0F0F49DF6CC;
+			remoteInfo = IBMWatsonRestKit;
+		};
+		EC63905EF739762F1AA5F4CAADFA55A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F50E7325F19C9A48B8DD0F0F49DF6CC;
+			remoteInfo = IBMWatsonRestKit;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		00D6AC3DDD0BEC6A0AFB6513BA26D378 /* Pods-Core ML Vision.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Core ML Vision.modulemap"; sourceTree = "<group>"; };
-		07D5E220B29BBD9A8234800B934B614E /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		01EAEA74BE638AD89618FF52EB79A22A /* RelationsOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RelationsOptions.swift; path = Source/NaturalLanguageUnderstandingV1/Models/RelationsOptions.swift; sourceTree = "<group>"; };
+		0259D3C5E61142B5F254100D6838F557 /* LogMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LogMessage.swift; path = Source/AssistantV1/Models/LogMessage.swift; sourceTree = "<group>"; };
+		0303923B71EBD054A2161F3A3EE24239 /* SemanticRolesResultSubject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SemanticRolesResultSubject.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SemanticRolesResultSubject.swift; sourceTree = "<group>"; };
+		03726770BD3671211D0D6D98ED5F6A3E /* UpdateDialogNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateDialogNode.swift; path = Source/AssistantV1/Models/UpdateDialogNode.swift; sourceTree = "<group>"; };
+		0390A70AB3802782B4B5C3EFBD45E01D /* Value.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Value.swift; path = Source/AssistantV1/Models/Value.swift; sourceTree = "<group>"; };
+		048E77E47A47942EE2F63CD5B45DC9DF /* RestResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RestResponse.swift; path = Sources/RestKit/RestResponse.swift; sourceTree = "<group>"; };
+		052206C3FFB606ADE199B31BC8D29F66 /* IBMWatsonRestKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IBMWatsonRestKit-prefix.pch"; sourceTree = "<group>"; };
+		06CDB51EF1B2029053FC3966CF4C56A4 /* EntityMention.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EntityMention.swift; path = Source/NaturalLanguageUnderstandingV1/Models/EntityMention.swift; sourceTree = "<group>"; };
+		08DE23002746AF56782BCAC5A5C6750C /* Mention.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mention.swift; path = Source/AssistantV1/Models/Mention.swift; sourceTree = "<group>"; };
+		09BCF2AB8B33B042A5E6CAA74EE19566 /* SentimentOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SentimentOptions.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SentimentOptions.swift; sourceTree = "<group>"; };
+		0AC0BE2D14FE398FABC2AD5FEB0B102F /* SemanticRolesKeyword.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SemanticRolesKeyword.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SemanticRolesKeyword.swift; sourceTree = "<group>"; };
 		0B02A6F870CEE871DB488666FBA57B90 /* Pods-Core ML Vision-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Core ML Vision-acknowledgements.plist"; sourceTree = "<group>"; };
-		5340F8285D58D6F0BFC8C8575E074BEB /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
-		535CCFAED789E4C0D26CFC097A1C4F3A /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
-		53CA7CFF9EB8463DEAAC7B9E1C691227 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON/SwiftyJSON.swift; sourceTree = "<group>"; };
+		0B28D8C7EA3630361F14F3890DE79AE3 /* EntityMentionCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EntityMentionCollection.swift; path = Source/AssistantV1/Models/EntityMentionCollection.swift; sourceTree = "<group>"; };
+		0E7C79AC2570D14C2B713EC47D47430D /* RestError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RestError.swift; path = Sources/RestKit/RestError.swift; sourceTree = "<group>"; };
+		0FEAD560BB03574541FFB313521186E5 /* IntentCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntentCollection.swift; path = Source/AssistantV1/Models/IntentCollection.swift; sourceTree = "<group>"; };
+		107A8A843AAA3EF5BB38E9D2D7382983 /* CounterexampleCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CounterexampleCollection.swift; path = Source/AssistantV1/Models/CounterexampleCollection.swift; sourceTree = "<group>"; };
+		11E5B7C16C56DCACCF319CDDEC8B11C7 /* DialogNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogNode.swift; path = Source/AssistantV1/Models/DialogNode.swift; sourceTree = "<group>"; };
+		130FD0C946CBD94B753C2A8BB75FEC21 /* ListModelsResults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ListModelsResults.swift; path = Source/NaturalLanguageUnderstandingV1/Models/ListModelsResults.swift; sourceTree = "<group>"; };
+		1461D1CD5A113C22CB1A441E21357D62 /* RestRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RestRequest.swift; path = Sources/RestKit/RestRequest.swift; sourceTree = "<group>"; };
+		1537D2F6C39196DCD5F6AFD4393F6F18 /* IBMWatsonRestKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IBMWatsonRestKit.xcconfig; sourceTree = "<group>"; };
+		179EDC0959FF22D2A9FDB4E09E206EA2 /* DialogNodeOutputGeneric.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogNodeOutputGeneric.swift; path = Source/AssistantV1/Models/DialogNodeOutputGeneric.swift; sourceTree = "<group>"; };
+		18F93D7B5E811D35119A4D46DECAA79B /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
+		1944888203C0CF922361CD5BD5D89DC5 /* Counterexample.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Counterexample.swift; path = Source/AssistantV1/Models/Counterexample.swift; sourceTree = "<group>"; };
+		19FAB23F2443A22D3229A4EC359DD1C4 /* Author.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Author.swift; path = Source/NaturalLanguageUnderstandingV1/Models/Author.swift; sourceTree = "<group>"; };
+		1A086AEF38A10DBB9552BB3458CF7F71 /* TokenResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/TokenResult.swift; sourceTree = "<group>"; };
+		1AF1F03C9D57030CE012CFFE181D6A91 /* ConceptsResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConceptsResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/ConceptsResult.swift; sourceTree = "<group>"; };
+		1B1DCEE25D3B04136FAE8AA390FF3160 /* TargetedEmotionResults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TargetedEmotionResults.swift; path = Source/NaturalLanguageUnderstandingV1/Models/TargetedEmotionResults.swift; sourceTree = "<group>"; };
+		1C2752D1A1FFDA35308296A00A340618 /* RestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DE85DFC11B37C4F8AEC663EE4417908 /* EntitiesResultEmotion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EntitiesResultEmotion.swift; path = Source/NaturalLanguageUnderstandingV1/Models/EntitiesResultEmotion.swift; sourceTree = "<group>"; };
+		1F9F435D756958ED66D58D2C5D2475AB /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Sources/RestKit/MultipartFormData.swift; sourceTree = "<group>"; };
+		216B42185FE40F762F19CBE4E8A18073 /* SyntaxOptionsTokens.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SyntaxOptionsTokens.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SyntaxOptionsTokens.swift; sourceTree = "<group>"; };
+		26CE5B84379B5BA508194005D343BCC1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON/SwiftyJSON.swift; sourceTree = "<group>"; };
+		27539BEFDD9CE5E0BD65EC5B5B68472D /* TargetedSentimentResults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TargetedSentimentResults.swift; path = Source/NaturalLanguageUnderstandingV1/Models/TargetedSentimentResults.swift; sourceTree = "<group>"; };
+		276712003A35E13A5FED081F8E161952 /* EmotionScores.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmotionScores.swift; path = Source/NaturalLanguageUnderstandingV1/Models/EmotionScores.swift; sourceTree = "<group>"; };
+		27C9675D6DD3EFB841514D2503BA228C /* MetadataOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataOptions.swift; path = Source/NaturalLanguageUnderstandingV1/Models/MetadataOptions.swift; sourceTree = "<group>"; };
+		29C9B21110100D7E1AD52D5047854D31 /* KeywordsResultSentiment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeywordsResultSentiment.swift; path = Source/NaturalLanguageUnderstandingV1/Models/KeywordsResultSentiment.swift; sourceTree = "<group>"; };
+		2B2EF153D3C9AC2816F6CE41B2E45FA4 /* EntitiesResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EntitiesResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/EntitiesResult.swift; sourceTree = "<group>"; };
+		2E74D221F8114671B003DFD99FF1B45A /* SystemResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SystemResponse.swift; path = Source/AssistantV1/Models/SystemResponse.swift; sourceTree = "<group>"; };
+		2E88BC6C58B4D19B6A5C52A2AE6FF789 /* RuntimeIntent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuntimeIntent.swift; path = Source/AssistantV1/Models/RuntimeIntent.swift; sourceTree = "<group>"; };
+		31B0B09D57D712BA80E1398AD326F24E /* IBMWatsonRestKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IBMWatsonRestKit-dummy.m"; sourceTree = "<group>"; };
+		323008FAE0406D25C701770FEEB003D0 /* KeywordsResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeywordsResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/KeywordsResult.swift; sourceTree = "<group>"; };
+		347AC509AB28A0C413E4A0334E5449B0 /* UpdateCounterexample.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateCounterexample.swift; path = Source/AssistantV1/Models/UpdateCounterexample.swift; sourceTree = "<group>"; };
+		34F347D0FB8E4752E8AC12EC399152C0 /* SemanticRolesVerb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SemanticRolesVerb.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SemanticRolesVerb.swift; sourceTree = "<group>"; };
+		352B4D5AC0CB18D886BDCD4CD5381D7A /* TargetedEmotionResultsEmotion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TargetedEmotionResultsEmotion.swift; path = Source/NaturalLanguageUnderstandingV1/Models/TargetedEmotionResultsEmotion.swift; sourceTree = "<group>"; };
+		385258EE793700ED50C6EB8AB6F69DAE /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Source/AssistantV1/Models/Log.swift; sourceTree = "<group>"; };
+		38E0D295D5AD1AA9FB5A3DE1AD9D9B43 /* IBMWatsonRestKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IBMWatsonRestKit.modulemap; sourceTree = "<group>"; };
+		39870342793E0042C6FF5746385B9AF5 /* CreateValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreateValue.swift; path = Source/AssistantV1/Models/CreateValue.swift; sourceTree = "<group>"; };
+		3A32EC4D58874D51F5DF2147B1B05AAA /* DialogNodeCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogNodeCollection.swift; path = Source/AssistantV1/Models/DialogNodeCollection.swift; sourceTree = "<group>"; };
+		3AD97FC6903AD82600100F5970A7A0A7 /* IBMWatsonNaturalLanguageUnderstandingV1.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IBMWatsonNaturalLanguageUnderstandingV1.modulemap; sourceTree = "<group>"; };
+		3D530525C1BD11B767E6F451E21F821E /* SentenceResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SentenceResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SentenceResult.swift; sourceTree = "<group>"; };
+		4195506E72F417748A79DE17BB6DF5F4 /* DialogNodeVisitedDetails.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogNodeVisitedDetails.swift; path = Source/AssistantV1/Models/DialogNodeVisitedDetails.swift; sourceTree = "<group>"; };
+		42D3BB7A8CD9B11E48C835C3F89DB523 /* Features.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Features.swift; path = Source/NaturalLanguageUnderstandingV1/Models/Features.swift; sourceTree = "<group>"; };
+		45925B0114F3412BD2FC02118EE3BAAF /* WorkspaceSystemSettingsTooling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WorkspaceSystemSettingsTooling.swift; path = Source/AssistantV1/Models/WorkspaceSystemSettingsTooling.swift; sourceTree = "<group>"; };
+		459860BDEE5550D869D4AFAC4FFDE2FD /* IBMWatsonRestKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IBMWatsonRestKit-umbrella.h"; sourceTree = "<group>"; };
+		45C484B952219758340F97D76FA5A9C6 /* EntitiesResultDisambiguation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EntitiesResultDisambiguation.swift; path = Source/NaturalLanguageUnderstandingV1/Models/EntitiesResultDisambiguation.swift; sourceTree = "<group>"; };
+		45E4CC1E58F354E7A0F48E864A9993B2 /* UpdateValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateValue.swift; path = Source/AssistantV1/Models/UpdateValue.swift; sourceTree = "<group>"; };
+		476824B6B9856407A645379326D3FF0F /* SemanticRolesResultAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SemanticRolesResultAction.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SemanticRolesResultAction.swift; sourceTree = "<group>"; };
+		48C186C96EAE1CFA206A635094C19D35 /* MessageContextMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageContextMetadata.swift; path = Source/AssistantV1/Models/MessageContextMetadata.swift; sourceTree = "<group>"; };
+		48CED2E8B0CF0EEBC942A5E9C69503A8 /* AnalysisResultsEmotion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnalysisResultsEmotion.swift; path = Source/NaturalLanguageUnderstandingV1/Models/AnalysisResultsEmotion.swift; sourceTree = "<group>"; };
+		4BE97E14D3C656BEB841D36AB35DD238 /* CreateIntent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreateIntent.swift; path = Source/AssistantV1/Models/CreateIntent.swift; sourceTree = "<group>"; };
+		4C7D7970259FB09137CE89D36B1A4D98 /* IBMWatsonAssistantV1-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IBMWatsonAssistantV1-dummy.m"; sourceTree = "<group>"; };
+		4E4C3BDDF98ABD90E207B6A0CF0C0C31 /* EmotionOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmotionOptions.swift; path = Source/NaturalLanguageUnderstandingV1/Models/EmotionOptions.swift; sourceTree = "<group>"; };
+		53F3B17E13B8C379F2CB41757D3F44DE /* Context.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Context.swift; path = Source/AssistantV1/Models/Context.swift; sourceTree = "<group>"; };
 		54DBC35EF7E8D67FB95F5D0F94281EC4 /* Pods-Core ML Vision.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Core ML Vision.debug.xcconfig"; sourceTree = "<group>"; };
-		57C4865B2CFE50660D4620FFFEA41EC7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5591448ECEEC2A3081383673E0C4B251 /* CreateEntity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreateEntity.swift; path = Source/AssistantV1/Models/CreateEntity.swift; sourceTree = "<group>"; };
+		58D30AE23A90E3675E9DCF8517EFCD39 /* Shared.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Shared.swift; path = Source/SupportingFiles/Shared.swift; sourceTree = "<group>"; };
+		5B09F8DEACA72F2ACF308F24C1408BBD /* Assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Assistant.framework; path = IBMWatsonAssistantV1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B25739B087B0CAADB00FAEB47D4769E /* LogPagination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LogPagination.swift; path = Source/AssistantV1/Models/LogPagination.swift; sourceTree = "<group>"; };
+		5BB3421A003CFAA2F7533751B154D9F4 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		5CE8B8976E1783ADEB6F56F2D6515CA9 /* SentimentResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SentimentResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SentimentResult.swift; sourceTree = "<group>"; };
+		5CF1DDC760A3ED8B8EED74146C948EE4 /* MetadataResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MetadataResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/MetadataResult.swift; sourceTree = "<group>"; };
+		63E53980A5FEBBDE53DA09F4D2145663 /* SynonymCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SynonymCollection.swift; path = Source/AssistantV1/Models/SynonymCollection.swift; sourceTree = "<group>"; };
+		64BA04552FF744BFA4A0787B9DEDD191 /* IBMWatsonAssistantV1.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = IBMWatsonAssistantV1.modulemap; sourceTree = "<group>"; };
+		65A717E8370DD353363C2A907034E1F9 /* JSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSON.swift; path = Sources/RestKit/JSON.swift; sourceTree = "<group>"; };
+		669E6D11C3919F380B3774D5C46285B9 /* NaturalLanguageUnderstanding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NaturalLanguageUnderstanding.framework; path = IBMWatsonNaturalLanguageUnderstandingV1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		684140EF472F337366EE3D418F5DB4CF /* Pods-Core ML Vision-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Core ML Vision-dummy.m"; sourceTree = "<group>"; };
-		750DB8278285D9AA7AE2676EBA1598BC /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
-		7FF09CCB69C40B5A7AD0C1A35F77E609 /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
+		68FBA12AB1654F75771195A2BC242339 /* UpdateIntent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateIntent.swift; path = Source/AssistantV1/Models/UpdateIntent.swift; sourceTree = "<group>"; };
+		6982C6487FDA6FF01F52E2921A6AFE62 /* KeywordsOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeywordsOptions.swift; path = Source/NaturalLanguageUnderstandingV1/Models/KeywordsOptions.swift; sourceTree = "<group>"; };
+		698A870803CFD24B697BA3D5156BEEBE /* RuntimeEntity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RuntimeEntity.swift; path = Source/AssistantV1/Models/RuntimeEntity.swift; sourceTree = "<group>"; };
+		6C5291E1A7FE8AA6EC92137006EA8EA2 /* ExampleCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleCollection.swift; path = Source/AssistantV1/Models/ExampleCollection.swift; sourceTree = "<group>"; };
+		6DDD00330C7CEC1B29EDF76098472436 /* ValueCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ValueCollection.swift; path = Source/AssistantV1/Models/ValueCollection.swift; sourceTree = "<group>"; };
+		6DF4AE731D3BD042C59935B841C47E81 /* CaptureGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CaptureGroup.swift; path = Source/AssistantV1/Models/CaptureGroup.swift; sourceTree = "<group>"; };
+		70948235F0278A06AF803FB2DAC79465 /* DialogNodeAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogNodeAction.swift; path = Source/AssistantV1/Models/DialogNodeAction.swift; sourceTree = "<group>"; };
+		70DC3F040EE64D6CCB7767A734C240E0 /* RestKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RestKit.framework; path = IBMWatsonRestKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73B4F2929494C2A5B09567983C9949C7 /* WorkspaceSystemSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WorkspaceSystemSettings.swift; path = Source/AssistantV1/Models/WorkspaceSystemSettings.swift; sourceTree = "<group>"; };
+		742A1B8810033DB6B909519DC99F5775 /* DialogNodeOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogNodeOutput.swift; path = Source/AssistantV1/Models/DialogNodeOutput.swift; sourceTree = "<group>"; };
+		7459972E196007EC536930C7BA8236CD /* CreateWorkspace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreateWorkspace.swift; path = Source/AssistantV1/Models/CreateWorkspace.swift; sourceTree = "<group>"; };
+		74CFD5242F8F003630E00AB47D650FF2 /* EmotionResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmotionResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/EmotionResult.swift; sourceTree = "<group>"; };
+		7718F3CE330BEBC8EA38D5249DCC3D09 /* IBMWatsonNaturalLanguageUnderstandingV1-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IBMWatsonNaturalLanguageUnderstandingV1-umbrella.h"; sourceTree = "<group>"; };
+		784B7B6D470ABC9596F8DB37FFA78473 /* DocumentEmotionResultsEmotion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DocumentEmotionResultsEmotion.swift; path = Source/NaturalLanguageUnderstandingV1/Models/DocumentEmotionResultsEmotion.swift; sourceTree = "<group>"; };
+		7933D834A9FC1C419B0C2B7A742133DF /* DialogNodeNextStep.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogNodeNextStep.swift; path = Source/AssistantV1/Models/DialogNodeNextStep.swift; sourceTree = "<group>"; };
+		7AB9160E442D63839C2C8D610AA1D84A /* UpdateExample.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateExample.swift; path = Source/AssistantV1/Models/UpdateExample.swift; sourceTree = "<group>"; };
+		7CA8CB0F90792530B6CDE6348629A951 /* Pods_Core_ML_Vision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Core_ML_Vision.framework; path = "Pods-Core ML Vision.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E9FB0D775E1E3684A4B121E7718EDE6 /* Parameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parameters.swift; path = Source/NaturalLanguageUnderstandingV1/Models/Parameters.swift; sourceTree = "<group>"; };
+		7ED1732D4043D870BA1084DE6DED5715 /* DialogRuntimeResponseGeneric.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogRuntimeResponseGeneric.swift; path = Source/AssistantV1/Models/DialogRuntimeResponseGeneric.swift; sourceTree = "<group>"; };
+		80F8AD96CB1879463F6A58A79E31B700 /* DocumentEmotionResults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DocumentEmotionResults.swift; path = Source/NaturalLanguageUnderstandingV1/Models/DocumentEmotionResults.swift; sourceTree = "<group>"; };
+		8168BE35F5A638FCFF603FFB9A5A2216 /* CategoriesResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CategoriesResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/CategoriesResult.swift; sourceTree = "<group>"; };
+		82CC4699A8CAE084663A2B47519D9066 /* SyntaxResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SyntaxResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SyntaxResult.swift; sourceTree = "<group>"; };
+		834E63EC70DE9EBFF7E47409D956081E /* SemanticRolesResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SemanticRolesResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SemanticRolesResult.swift; sourceTree = "<group>"; };
+		87FFF422DF534FE97C0B5CC1E3CA1E6C /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
+		8AD111806DC77B2A4E72209DBAF093BD /* Intent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Intent.swift; path = Source/AssistantV1/Models/Intent.swift; sourceTree = "<group>"; };
 		8B8E182F87D0E530C9CB91DB89FF665F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D4786508FCC0D7422304EB1AF31EC20 /* UpdateEntity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateEntity.swift; path = Source/AssistantV1/Models/UpdateEntity.swift; sourceTree = "<group>"; };
+		8D88E00A5D6C800988F73AD2FD4EBAAB /* DialogNodeOutputOptionsElementValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogNodeOutputOptionsElementValue.swift; path = Source/AssistantV1/Models/DialogNodeOutputOptionsElementValue.swift; sourceTree = "<group>"; };
+		8EA95AF4D9D1C52F1FE5348C73B0DED3 /* SyntaxOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SyntaxOptions.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SyntaxOptions.swift; sourceTree = "<group>"; };
+		9022844C0002CD7EC960773860A408EC /* CodableExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CodableExtensions.swift; path = Sources/RestKit/CodableExtensions.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		965470515EA765C01BE8D33FDC0E63AD /* Pods_Core_ML_Vision.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Core_ML_Vision.framework; path = "Pods-Core ML Vision.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		954D289CCD4774D48A4B8A7A8A0D4F29 /* DialogSuggestion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogSuggestion.swift; path = Source/AssistantV1/Models/DialogSuggestion.swift; sourceTree = "<group>"; };
+		967176AE7945D0733DAE7D441BBAF1F5 /* EntityCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EntityCollection.swift; path = Source/AssistantV1/Models/EntityCollection.swift; sourceTree = "<group>"; };
+		9895C4E789318A143B1E5F7A1576B506 /* CategoriesOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CategoriesOptions.swift; path = Source/NaturalLanguageUnderstandingV1/Models/CategoriesOptions.swift; sourceTree = "<group>"; };
+		999ED96928E2B55333C116E2CCEF9D54 /* IBMWatsonAssistantV1.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IBMWatsonAssistantV1.xcconfig; sourceTree = "<group>"; };
+		9B5FCAF535C73EC2F1350B603EAE3113 /* MessageInput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageInput.swift; path = Source/AssistantV1/Models/MessageInput.swift; sourceTree = "<group>"; };
+		9BD7C350C27248C0325839962389B96F /* WorkspaceCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WorkspaceCollection.swift; path = Source/AssistantV1/Models/WorkspaceCollection.swift; sourceTree = "<group>"; };
+		A1EE8B01D985266E742A64A9D73C8F8C /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A243AD5497D6653D484FC143F0286F23 /* IBMWatsonNaturalLanguageUnderstandingV1.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IBMWatsonNaturalLanguageUnderstandingV1.xcconfig; sourceTree = "<group>"; };
+		A2C9208751ED424ADE7518EFF05B430F /* DocumentSentimentResults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DocumentSentimentResults.swift; path = Source/NaturalLanguageUnderstandingV1/Models/DocumentSentimentResults.swift; sourceTree = "<group>"; };
+		A38D73A176011060923FD94BF94AD704 /* ParametersFeatures.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParametersFeatures.swift; path = Source/NaturalLanguageUnderstandingV1/Models/ParametersFeatures.swift; sourceTree = "<group>"; };
+		A3D3E1D3D647BD972681058D031DE8BD /* Assistant.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Assistant.swift; path = Source/AssistantV1/Assistant.swift; sourceTree = "<group>"; };
+		A98C0D3F23B4CE30607B81C90BC219D9 /* RelationArgument.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RelationArgument.swift; path = Source/NaturalLanguageUnderstandingV1/Models/RelationArgument.swift; sourceTree = "<group>"; };
+		A9E36AA0C73D0D8E5220937EE2A7D987 /* Feed.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Feed.swift; path = Source/NaturalLanguageUnderstandingV1/Models/Feed.swift; sourceTree = "<group>"; };
+		AA2ED972424A3DBC89D1472030A77F83 /* AnalysisResults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnalysisResults.swift; path = Source/NaturalLanguageUnderstandingV1/Models/AnalysisResults.swift; sourceTree = "<group>"; };
+		ADAB9CF1A538A51877E9E40517A115B2 /* MessageResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageResponse.swift; path = Source/AssistantV1/Models/MessageResponse.swift; sourceTree = "<group>"; };
+		AEE69566923B9CB6A7733A60C8E5C6C8 /* SemanticRolesSubject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SemanticRolesSubject.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SemanticRolesSubject.swift; sourceTree = "<group>"; };
+		B1097FF5FBBFF887E301109B29969712 /* IBMWatsonAssistantV1-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IBMWatsonAssistantV1-umbrella.h"; sourceTree = "<group>"; };
+		B3D15F025D8B59BDACC9597876317B44 /* EntityMention.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EntityMention.swift; path = Source/AssistantV1/Models/EntityMention.swift; sourceTree = "<group>"; };
+		B70A3FDE24EFAF1513520149E9C0E9B6 /* DeleteModelResults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DeleteModelResults.swift; path = Source/NaturalLanguageUnderstandingV1/Models/DeleteModelResults.swift; sourceTree = "<group>"; };
+		B951E1FE865850DE0D4AB9C29A748E48 /* UpdateSynonym.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateSynonym.swift; path = Source/AssistantV1/Models/UpdateSynonym.swift; sourceTree = "<group>"; };
+		B9BBEC4EC0F42DFF34AA0183C23366CE /* Entity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Entity.swift; path = Source/AssistantV1/Models/Entity.swift; sourceTree = "<group>"; };
+		BC6A58495B43AE6540242C48CB5C38F0 /* Pagination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pagination.swift; path = Source/AssistantV1/Models/Pagination.swift; sourceTree = "<group>"; };
 		BF1E32B4D51DF51C69D04DA30412BA74 /* Pods-Core ML Vision.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Core ML Vision.release.xcconfig"; sourceTree = "<group>"; };
+		C1DFDFFC0E5129701B1A50EB1E56F3D0 /* CategoriesRelevantText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CategoriesRelevantText.swift; path = Source/NaturalLanguageUnderstandingV1/Models/CategoriesRelevantText.swift; sourceTree = "<group>"; };
+		C3978B10075A922C749ABE76B4C377BC /* SemanticRolesResultObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SemanticRolesResultObject.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SemanticRolesResultObject.swift; sourceTree = "<group>"; };
+		C787520D4A312D4464C146EC1D9AEB56 /* SemanticRolesObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SemanticRolesObject.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SemanticRolesObject.swift; sourceTree = "<group>"; };
+		C7D9CCEDDD646B106B506D0B9F3DEFAD /* SemanticRolesEntity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SemanticRolesEntity.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SemanticRolesEntity.swift; sourceTree = "<group>"; };
+		C875201A8C105EAEFCB7C68D116891E1 /* RelationEntity.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RelationEntity.swift; path = Source/NaturalLanguageUnderstandingV1/Models/RelationEntity.swift; sourceTree = "<group>"; };
+		C88BE1A75B5872B7078CECA16A4028DE /* Model.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Source/NaturalLanguageUnderstandingV1/Models/Model.swift; sourceTree = "<group>"; };
+		CA8A6DC704A7A17C192324C2A8E0CFD6 /* MessageRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MessageRequest.swift; path = Source/AssistantV1/Models/MessageRequest.swift; sourceTree = "<group>"; };
+		CB998099C575861475645416EC2784D6 /* InsecureConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InsecureConnection.swift; path = Source/SupportingFiles/InsecureConnection.swift; sourceTree = "<group>"; };
+		CE2683C6C242B2A64D484C717C793AA0 /* KeywordsResultEmotion.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeywordsResultEmotion.swift; path = Source/NaturalLanguageUnderstandingV1/Models/KeywordsResultEmotion.swift; sourceTree = "<group>"; };
+		CE41F11E9615CCB4D42A29B893973751 /* Example.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Example.swift; path = Source/AssistantV1/Models/Example.swift; sourceTree = "<group>"; };
 		CEB4974344A55E7D6B1C90A03E459B53 /* Pods-Core ML Vision-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Core ML Vision-resources.sh"; sourceTree = "<group>"; };
+		D12E426889D3856352A34D46984F47B3 /* DialogNodeOutputTextValuesElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogNodeOutputTextValuesElement.swift; path = Source/AssistantV1/Models/DialogNodeOutputTextValuesElement.swift; sourceTree = "<group>"; };
+		D1DF87FEDA4C92374D9DFE68829A4CFC /* EntitiesResultSentiment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EntitiesResultSentiment.swift; path = Source/NaturalLanguageUnderstandingV1/Models/EntitiesResultSentiment.swift; sourceTree = "<group>"; };
+		D2B09826EF514D51AD02FCBA6B6B5F6B /* AnalysisResultsMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnalysisResultsMetadata.swift; path = Source/NaturalLanguageUnderstandingV1/Models/AnalysisResultsMetadata.swift; sourceTree = "<group>"; };
+		D358FD86E22D620B344F0DA21500FB9C /* SemanticRolesOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SemanticRolesOptions.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SemanticRolesOptions.swift; sourceTree = "<group>"; };
+		D43A3B20558F7A1ECFA1754985A58FED /* SemanticRolesAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SemanticRolesAction.swift; path = Source/NaturalLanguageUnderstandingV1/Models/SemanticRolesAction.swift; sourceTree = "<group>"; };
+		D57D93DF9A2617B0826254EFC4F64D15 /* IBMWatsonNaturalLanguageUnderstandingV1-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IBMWatsonNaturalLanguageUnderstandingV1-prefix.pch"; sourceTree = "<group>"; };
+		D6C125926C0C5B18EFD0FFBC6CA7F914 /* RelationsResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RelationsResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/RelationsResult.swift; sourceTree = "<group>"; };
+		D7EB093B17B16B9BB4EDC93E59184B1C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9EAA6C66870ACE8F724A631CB59DD0A /* Usage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Usage.swift; path = Source/NaturalLanguageUnderstandingV1/Models/Usage.swift; sourceTree = "<group>"; };
 		DCCFE12A0B63A6A128D2FB5DAD582E5E /* Pods-Core ML Vision-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Core ML Vision-acknowledgements.markdown"; sourceTree = "<group>"; };
-		E0FD32C81EACD0ED91DBABD1EE13FD20 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
+		DE230D46590F18D612A53B4B959F840E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DE3ECD690E2F9275FB8CACA7BBB39155 /* AnalysisResultsUsage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnalysisResultsUsage.swift; path = Source/NaturalLanguageUnderstandingV1/Models/AnalysisResultsUsage.swift; sourceTree = "<group>"; };
+		E08CC8AC294BEFBF9ED55002C22C7BEE /* Shared.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Shared.swift; path = Source/SupportingFiles/Shared.swift; sourceTree = "<group>"; };
+		E10A60FDD3DF03FD209F997BAEDCAE10 /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
+		E1BE039FC04345A08CD03CBD05FDA8D3 /* SwiftyJSON.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.xcconfig; sourceTree = "<group>"; };
+		E2EFF9C6105A75F6F40C383D9CF88F99 /* Synonym.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Synonym.swift; path = Source/AssistantV1/Models/Synonym.swift; sourceTree = "<group>"; };
 		E333A4085A0A7F84CB0FB2A43B3DC5F3 /* Pods-Core ML Vision-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Core ML Vision-umbrella.h"; sourceTree = "<group>"; };
+		E46D227815DC201768BCB34A3B60AC2C /* IBMWatsonAssistantV1-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IBMWatsonAssistantV1-prefix.pch"; sourceTree = "<group>"; };
+		E4914B36724E817836A7A96246B593D7 /* CategoriesResultExplanation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CategoriesResultExplanation.swift; path = Source/NaturalLanguageUnderstandingV1/Models/CategoriesResultExplanation.swift; sourceTree = "<group>"; };
+		E5542BB74A32077F9A07AD38F94A175B /* DialogSuggestionValue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogSuggestionValue.swift; path = Source/AssistantV1/Models/DialogSuggestionValue.swift; sourceTree = "<group>"; };
+		E55BD9BAC01AC2A6FA3692D91338D732 /* NaturalLanguageUnderstanding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NaturalLanguageUnderstanding.swift; path = Source/NaturalLanguageUnderstandingV1/NaturalLanguageUnderstanding.swift; sourceTree = "<group>"; };
 		E76EDE4D5F48F13977D874246A985612 /* Pods-Core ML Vision-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Core ML Vision-frameworks.sh"; sourceTree = "<group>"; };
+		E86C492572009DED13DFA6A306F8CA05 /* LogCollection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LogCollection.swift; path = Source/AssistantV1/Models/LogCollection.swift; sourceTree = "<group>"; };
+		E8F8742258FFD6C4D0B60B95FD7B6C4C /* Authentication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Authentication.swift; path = Sources/RestKit/Authentication.swift; sourceTree = "<group>"; };
+		ECB8216074CD08E87EE46DAA9091D19B /* WorkspaceSystemSettingsDisambiguation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WorkspaceSystemSettingsDisambiguation.swift; path = Source/AssistantV1/Models/WorkspaceSystemSettingsDisambiguation.swift; sourceTree = "<group>"; };
+		ECBFC251FAB373915F07E5EEB6E2C0C3 /* Workspace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Workspace.swift; path = Source/AssistantV1/Models/Workspace.swift; sourceTree = "<group>"; };
+		EDB200DA67E5915763D5C66FA014EDFF /* OutputData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OutputData.swift; path = Source/AssistantV1/Models/OutputData.swift; sourceTree = "<group>"; };
+		EDCC159CD3DAD17FA72ADEF1387CB322 /* UpdateWorkspace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UpdateWorkspace.swift; path = Source/AssistantV1/Models/UpdateWorkspace.swift; sourceTree = "<group>"; };
+		EE218F86CB877EA77DBACF90FA83C038 /* IBMWatsonNaturalLanguageUnderstandingV1-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IBMWatsonNaturalLanguageUnderstandingV1-dummy.m"; sourceTree = "<group>"; };
+		EF3ED047F9337EDCED7EFF59653EFA69 /* ConceptsOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConceptsOptions.swift; path = Source/NaturalLanguageUnderstandingV1/Models/ConceptsOptions.swift; sourceTree = "<group>"; };
+		EFA940E9380F95C1FBDCEF45627F4AEA /* AnalysisResultsSentiment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnalysisResultsSentiment.swift; path = Source/NaturalLanguageUnderstandingV1/Models/AnalysisResultsSentiment.swift; sourceTree = "<group>"; };
+		EFF1CF7263DEB470AFEA302341D50FE2 /* DialogNodeOutputOptionsElement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogNodeOutputOptionsElement.swift; path = Source/AssistantV1/Models/DialogNodeOutputOptionsElement.swift; sourceTree = "<group>"; };
+		F1D241240BAF14B5A8E00948D85A813C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F47CE8FFAF65EBAC56C82D14826CD764 /* InsecureConnection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InsecureConnection.swift; path = Source/SupportingFiles/InsecureConnection.swift; sourceTree = "<group>"; };
+		F5E103E5A4CF5E933E84D4888A6DC155 /* DialogNodeOutputModifiers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialogNodeOutputModifiers.swift; path = Source/AssistantV1/Models/DialogNodeOutputModifiers.swift; sourceTree = "<group>"; };
+		F6BAEAC0BB3A1855D18881C7919E2849 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7CC01B5803889E3190DC52A62B3D35A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB335271432705D2FCE2701235D9BD9E /* FeatureSentimentResults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FeatureSentimentResults.swift; path = Source/NaturalLanguageUnderstandingV1/Models/FeatureSentimentResults.swift; sourceTree = "<group>"; };
+		FCE2EB3CAD2AAD13A1443915204A4F06 /* DisambiguationResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DisambiguationResult.swift; path = Source/NaturalLanguageUnderstandingV1/Models/DisambiguationResult.swift; sourceTree = "<group>"; };
+		FED5CC0A2711B4E8493A2FB224A59EE5 /* EntitiesOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EntitiesOptions.swift; path = Source/NaturalLanguageUnderstandingV1/Models/EntitiesOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5DE3479FC72D44F9246CF30F2A80AD61 /* Frameworks */ = {
+		4EDFBECBD6C656E4C139DDEA7ABEFE45 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6B4CB6A746F993EA8ADD8053D3182F8 /* Foundation.framework in Frameworks */,
+				F5619401D073ABC069354EF41EC91CA0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E873F700E7CBB6CF0EBF6DF5A17FBEF0 /* Frameworks */ = {
+		83ADD7574D84D2D9F4FF364DDBA80DB7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB80AEE66C8D42046F37F89E570339C3 /* Foundation.framework in Frameworks */,
+				C3BD62A471E217B63D4DB29D64D844DA /* Foundation.framework in Frameworks */,
+				92809E8078B2597904B9F781E05571EB /* RestKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D4E405D3E62126EEA3C72F93895454B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73B238F224A95216A842DC44D3C2114D /* Foundation.framework in Frameworks */,
+				6614B344AD4A9854A89CCC94CB4E48D2 /* RestKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F74039162F2596BD5367870BA774CED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A0F5999A039EBA137D45AD130157C1B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCE9EBA2ABD512BEFA4B8E783CA7D6F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC98E9ED367C1C7A06409FF58637DA56 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		033F2F15E659F66AA58B0E83D15A39C5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3AD97FC6903AD82600100F5970A7A0A7 /* IBMWatsonNaturalLanguageUnderstandingV1.modulemap */,
+				A243AD5497D6653D484FC143F0286F23 /* IBMWatsonNaturalLanguageUnderstandingV1.xcconfig */,
+				EE218F86CB877EA77DBACF90FA83C038 /* IBMWatsonNaturalLanguageUnderstandingV1-dummy.m */,
+				D57D93DF9A2617B0826254EFC4F64D15 /* IBMWatsonNaturalLanguageUnderstandingV1-prefix.pch */,
+				7718F3CE330BEBC8EA38D5249DCC3D09 /* IBMWatsonNaturalLanguageUnderstandingV1-umbrella.h */,
+				F1D241240BAF14B5A8E00948D85A813C /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IBMWatsonNaturalLanguageUnderstandingV1";
+			sourceTree = "<group>";
+		};
 		2E04E2875BA20A1DF757FD69F812BA22 /* Pods-Core ML Vision */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +474,20 @@
 			path = "Target Support Files/Pods-Core ML Vision";
 			sourceTree = "<group>";
 		};
+		35FFE42C358358939C2A2B42D8DA9824 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				64BA04552FF744BFA4A0787B9DEDD191 /* IBMWatsonAssistantV1.modulemap */,
+				999ED96928E2B55333C116E2CCEF9D54 /* IBMWatsonAssistantV1.xcconfig */,
+				4C7D7970259FB09137CE89D36B1A4D98 /* IBMWatsonAssistantV1-dummy.m */,
+				E46D227815DC201768BCB34A3B60AC2C /* IBMWatsonAssistantV1-prefix.pch */,
+				B1097FF5FBBFF887E301109B29969712 /* IBMWatsonAssistantV1-umbrella.h */,
+				F7CC01B5803889E3190DC52A62B3D35A /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IBMWatsonAssistantV1";
+			sourceTree = "<group>";
+		};
 		3A6E4625059C511C8DBAACB48176919B /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,121 +496,350 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
+		416CC078676325C35CC88A88B68F6627 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */,
+				5B09F8DEACA72F2ACF308F24C1408BBD /* Assistant.framework */,
+				669E6D11C3919F380B3774D5C46285B9 /* NaturalLanguageUnderstanding.framework */,
+				7CA8CB0F90792530B6CDE6348629A951 /* Pods_Core_ML_Vision.framework */,
+				70DC3F040EE64D6CCB7767A734C240E0 /* RestKit.framework */,
+				A1EE8B01D985266E742A64A9D73C8F8C /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49D3E8E69BBF3C82E6B9A7BF3C1C6DF9 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				DE230D46590F18D612A53B4B959F840E /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		769176AED78170486F773F9BC4474176 /* SwiftyJSON */ = {
+		7B410F4B24A18F9B1D74048A7D45F33C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				53CA7CFF9EB8463DEAAC7B9E1C691227 /* SwiftyJSON.swift */,
-				B13DA4EDADF45239B7E2894BA6A8B976 /* Support Files */,
+				9CA90DA828ADB24844381754C73ABFDF /* IBMWatsonAssistantV1 */,
+				E8EAA2049E8B2709C09F316D7EC0FFDA /* IBMWatsonNaturalLanguageUnderstandingV1 */,
+				EE24247C328AF92344953AB0F6EB8358 /* IBMWatsonRestKit */,
+				DA2E43BC7A3F8130F240AA950F7AB240 /* SwiftyJSON */,
 			);
-			name = SwiftyJSON;
-			path = SwiftyJSON;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				BD1E3C710F12F4B4C092FC8E2AD22110 /* Pods */,
-				E8DC893BB3F2947303791080BEE2A0CD /* Products */,
+				A5711CD249B57C3EE3689B79CF7118DA /* Frameworks */,
+				7B410F4B24A18F9B1D74048A7D45F33C /* Pods */,
+				416CC078676325C35CC88A88B68F6627 /* Products */,
 				3A6E4625059C511C8DBAACB48176919B /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		B13DA4EDADF45239B7E2894BA6A8B976 /* Support Files */ = {
+		954C7B524F3CA099609F0BE8DA37625E /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				57C4865B2CFE50660D4620FFFEA41EC7 /* Info.plist */,
-				535CCFAED789E4C0D26CFC097A1C4F3A /* SwiftyJSON.modulemap */,
-				E0FD32C81EACD0ED91DBABD1EE13FD20 /* SwiftyJSON.xcconfig */,
-				750DB8278285D9AA7AE2676EBA1598BC /* SwiftyJSON-dummy.m */,
-				5340F8285D58D6F0BFC8C8575E074BEB /* SwiftyJSON-prefix.pch */,
-				7FF09CCB69C40B5A7AD0C1A35F77E609 /* SwiftyJSON-umbrella.h */,
+				D7EB093B17B16B9BB4EDC93E59184B1C /* Info.plist */,
+				E10A60FDD3DF03FD209F997BAEDCAE10 /* SwiftyJSON.modulemap */,
+				E1BE039FC04345A08CD03CBD05FDA8D3 /* SwiftyJSON.xcconfig */,
+				87FFF422DF534FE97C0B5CC1E3CA1E6C /* SwiftyJSON-dummy.m */,
+				18F93D7B5E811D35119A4D46DECAA79B /* SwiftyJSON-prefix.pch */,
+				5BB3421A003CFAA2F7533751B154D9F4 /* SwiftyJSON-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SwiftyJSON";
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		9CA90DA828ADB24844381754C73ABFDF /* IBMWatsonAssistantV1 */ = {
 			isa = PBXGroup;
 			children = (
-				5E0D919E635D23B70123790B8308F8EF /* iOS */,
+				A3D3E1D3D647BD972681058D031DE8BD /* Assistant.swift */,
+				6DF4AE731D3BD042C59935B841C47E81 /* CaptureGroup.swift */,
+				53F3B17E13B8C379F2CB41757D3F44DE /* Context.swift */,
+				1944888203C0CF922361CD5BD5D89DC5 /* Counterexample.swift */,
+				107A8A843AAA3EF5BB38E9D2D7382983 /* CounterexampleCollection.swift */,
+				5591448ECEEC2A3081383673E0C4B251 /* CreateEntity.swift */,
+				4BE97E14D3C656BEB841D36AB35DD238 /* CreateIntent.swift */,
+				39870342793E0042C6FF5746385B9AF5 /* CreateValue.swift */,
+				7459972E196007EC536930C7BA8236CD /* CreateWorkspace.swift */,
+				11E5B7C16C56DCACCF319CDDEC8B11C7 /* DialogNode.swift */,
+				70948235F0278A06AF803FB2DAC79465 /* DialogNodeAction.swift */,
+				3A32EC4D58874D51F5DF2147B1B05AAA /* DialogNodeCollection.swift */,
+				7933D834A9FC1C419B0C2B7A742133DF /* DialogNodeNextStep.swift */,
+				742A1B8810033DB6B909519DC99F5775 /* DialogNodeOutput.swift */,
+				179EDC0959FF22D2A9FDB4E09E206EA2 /* DialogNodeOutputGeneric.swift */,
+				F5E103E5A4CF5E933E84D4888A6DC155 /* DialogNodeOutputModifiers.swift */,
+				EFF1CF7263DEB470AFEA302341D50FE2 /* DialogNodeOutputOptionsElement.swift */,
+				8D88E00A5D6C800988F73AD2FD4EBAAB /* DialogNodeOutputOptionsElementValue.swift */,
+				D12E426889D3856352A34D46984F47B3 /* DialogNodeOutputTextValuesElement.swift */,
+				4195506E72F417748A79DE17BB6DF5F4 /* DialogNodeVisitedDetails.swift */,
+				7ED1732D4043D870BA1084DE6DED5715 /* DialogRuntimeResponseGeneric.swift */,
+				954D289CCD4774D48A4B8A7A8A0D4F29 /* DialogSuggestion.swift */,
+				E5542BB74A32077F9A07AD38F94A175B /* DialogSuggestionValue.swift */,
+				B9BBEC4EC0F42DFF34AA0183C23366CE /* Entity.swift */,
+				967176AE7945D0733DAE7D441BBAF1F5 /* EntityCollection.swift */,
+				B3D15F025D8B59BDACC9597876317B44 /* EntityMention.swift */,
+				0B28D8C7EA3630361F14F3890DE79AE3 /* EntityMentionCollection.swift */,
+				CE41F11E9615CCB4D42A29B893973751 /* Example.swift */,
+				6C5291E1A7FE8AA6EC92137006EA8EA2 /* ExampleCollection.swift */,
+				F47CE8FFAF65EBAC56C82D14826CD764 /* InsecureConnection.swift */,
+				8AD111806DC77B2A4E72209DBAF093BD /* Intent.swift */,
+				0FEAD560BB03574541FFB313521186E5 /* IntentCollection.swift */,
+				385258EE793700ED50C6EB8AB6F69DAE /* Log.swift */,
+				E86C492572009DED13DFA6A306F8CA05 /* LogCollection.swift */,
+				0259D3C5E61142B5F254100D6838F557 /* LogMessage.swift */,
+				5B25739B087B0CAADB00FAEB47D4769E /* LogPagination.swift */,
+				08DE23002746AF56782BCAC5A5C6750C /* Mention.swift */,
+				48C186C96EAE1CFA206A635094C19D35 /* MessageContextMetadata.swift */,
+				9B5FCAF535C73EC2F1350B603EAE3113 /* MessageInput.swift */,
+				CA8A6DC704A7A17C192324C2A8E0CFD6 /* MessageRequest.swift */,
+				ADAB9CF1A538A51877E9E40517A115B2 /* MessageResponse.swift */,
+				EDB200DA67E5915763D5C66FA014EDFF /* OutputData.swift */,
+				BC6A58495B43AE6540242C48CB5C38F0 /* Pagination.swift */,
+				698A870803CFD24B697BA3D5156BEEBE /* RuntimeEntity.swift */,
+				2E88BC6C58B4D19B6A5C52A2AE6FF789 /* RuntimeIntent.swift */,
+				E08CC8AC294BEFBF9ED55002C22C7BEE /* Shared.swift */,
+				E2EFF9C6105A75F6F40C383D9CF88F99 /* Synonym.swift */,
+				63E53980A5FEBBDE53DA09F4D2145663 /* SynonymCollection.swift */,
+				2E74D221F8114671B003DFD99FF1B45A /* SystemResponse.swift */,
+				347AC509AB28A0C413E4A0334E5449B0 /* UpdateCounterexample.swift */,
+				03726770BD3671211D0D6D98ED5F6A3E /* UpdateDialogNode.swift */,
+				8D4786508FCC0D7422304EB1AF31EC20 /* UpdateEntity.swift */,
+				7AB9160E442D63839C2C8D610AA1D84A /* UpdateExample.swift */,
+				68FBA12AB1654F75771195A2BC242339 /* UpdateIntent.swift */,
+				B951E1FE865850DE0D4AB9C29A748E48 /* UpdateSynonym.swift */,
+				45E4CC1E58F354E7A0F48E864A9993B2 /* UpdateValue.swift */,
+				EDCC159CD3DAD17FA72ADEF1387CB322 /* UpdateWorkspace.swift */,
+				0390A70AB3802782B4B5C3EFBD45E01D /* Value.swift */,
+				6DDD00330C7CEC1B29EDF76098472436 /* ValueCollection.swift */,
+				ECBFC251FAB373915F07E5EEB6E2C0C3 /* Workspace.swift */,
+				9BD7C350C27248C0325839962389B96F /* WorkspaceCollection.swift */,
+				73B4F2929494C2A5B09567983C9949C7 /* WorkspaceSystemSettings.swift */,
+				ECB8216074CD08E87EE46DAA9091D19B /* WorkspaceSystemSettingsDisambiguation.swift */,
+				45925B0114F3412BD2FC02118EE3BAAF /* WorkspaceSystemSettingsTooling.swift */,
+				35FFE42C358358939C2A2B42D8DA9824 /* Support Files */,
+			);
+			name = IBMWatsonAssistantV1;
+			path = IBMWatsonAssistantV1;
+			sourceTree = "<group>";
+		};
+		A5711CD249B57C3EE3689B79CF7118DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C2752D1A1FFDA35308296A00A340618 /* RestKit.framework */,
+				49D3E8E69BBF3C82E6B9A7BF3C1C6DF9 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BD1E3C710F12F4B4C092FC8E2AD22110 /* Pods */ = {
+		B6885C424FF4B82926B69DEA9EEDD690 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				769176AED78170486F773F9BC4474176 /* SwiftyJSON */,
+				38E0D295D5AD1AA9FB5A3DE1AD9D9B43 /* IBMWatsonRestKit.modulemap */,
+				1537D2F6C39196DCD5F6AFD4393F6F18 /* IBMWatsonRestKit.xcconfig */,
+				31B0B09D57D712BA80E1398AD326F24E /* IBMWatsonRestKit-dummy.m */,
+				052206C3FFB606ADE199B31BC8D29F66 /* IBMWatsonRestKit-prefix.pch */,
+				459860BDEE5550D869D4AFAC4FFDE2FD /* IBMWatsonRestKit-umbrella.h */,
+				F6BAEAC0BB3A1855D18881C7919E2849 /* Info.plist */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/IBMWatsonRestKit";
 			sourceTree = "<group>";
 		};
-		E8DC893BB3F2947303791080BEE2A0CD /* Products */ = {
+		DA2E43BC7A3F8130F240AA950F7AB240 /* SwiftyJSON */ = {
 			isa = PBXGroup;
 			children = (
-				965470515EA765C01BE8D33FDC0E63AD /* Pods_Core_ML_Vision.framework */,
-				07D5E220B29BBD9A8234800B934B614E /* SwiftyJSON.framework */,
+				26CE5B84379B5BA508194005D343BCC1 /* SwiftyJSON.swift */,
+				954C7B524F3CA099609F0BE8DA37625E /* Support Files */,
 			);
-			name = Products;
+			name = SwiftyJSON;
+			path = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		E8EAA2049E8B2709C09F316D7EC0FFDA /* IBMWatsonNaturalLanguageUnderstandingV1 */ = {
+			isa = PBXGroup;
+			children = (
+				AA2ED972424A3DBC89D1472030A77F83 /* AnalysisResults.swift */,
+				48CED2E8B0CF0EEBC942A5E9C69503A8 /* AnalysisResultsEmotion.swift */,
+				D2B09826EF514D51AD02FCBA6B6B5F6B /* AnalysisResultsMetadata.swift */,
+				EFA940E9380F95C1FBDCEF45627F4AEA /* AnalysisResultsSentiment.swift */,
+				DE3ECD690E2F9275FB8CACA7BBB39155 /* AnalysisResultsUsage.swift */,
+				19FAB23F2443A22D3229A4EC359DD1C4 /* Author.swift */,
+				9895C4E789318A143B1E5F7A1576B506 /* CategoriesOptions.swift */,
+				C1DFDFFC0E5129701B1A50EB1E56F3D0 /* CategoriesRelevantText.swift */,
+				8168BE35F5A638FCFF603FFB9A5A2216 /* CategoriesResult.swift */,
+				E4914B36724E817836A7A96246B593D7 /* CategoriesResultExplanation.swift */,
+				EF3ED047F9337EDCED7EFF59653EFA69 /* ConceptsOptions.swift */,
+				1AF1F03C9D57030CE012CFFE181D6A91 /* ConceptsResult.swift */,
+				B70A3FDE24EFAF1513520149E9C0E9B6 /* DeleteModelResults.swift */,
+				FCE2EB3CAD2AAD13A1443915204A4F06 /* DisambiguationResult.swift */,
+				80F8AD96CB1879463F6A58A79E31B700 /* DocumentEmotionResults.swift */,
+				784B7B6D470ABC9596F8DB37FFA78473 /* DocumentEmotionResultsEmotion.swift */,
+				A2C9208751ED424ADE7518EFF05B430F /* DocumentSentimentResults.swift */,
+				4E4C3BDDF98ABD90E207B6A0CF0C0C31 /* EmotionOptions.swift */,
+				74CFD5242F8F003630E00AB47D650FF2 /* EmotionResult.swift */,
+				276712003A35E13A5FED081F8E161952 /* EmotionScores.swift */,
+				FED5CC0A2711B4E8493A2FB224A59EE5 /* EntitiesOptions.swift */,
+				2B2EF153D3C9AC2816F6CE41B2E45FA4 /* EntitiesResult.swift */,
+				45C484B952219758340F97D76FA5A9C6 /* EntitiesResultDisambiguation.swift */,
+				1DE85DFC11B37C4F8AEC663EE4417908 /* EntitiesResultEmotion.swift */,
+				D1DF87FEDA4C92374D9DFE68829A4CFC /* EntitiesResultSentiment.swift */,
+				06CDB51EF1B2029053FC3966CF4C56A4 /* EntityMention.swift */,
+				42D3BB7A8CD9B11E48C835C3F89DB523 /* Features.swift */,
+				FB335271432705D2FCE2701235D9BD9E /* FeatureSentimentResults.swift */,
+				A9E36AA0C73D0D8E5220937EE2A7D987 /* Feed.swift */,
+				CB998099C575861475645416EC2784D6 /* InsecureConnection.swift */,
+				6982C6487FDA6FF01F52E2921A6AFE62 /* KeywordsOptions.swift */,
+				323008FAE0406D25C701770FEEB003D0 /* KeywordsResult.swift */,
+				CE2683C6C242B2A64D484C717C793AA0 /* KeywordsResultEmotion.swift */,
+				29C9B21110100D7E1AD52D5047854D31 /* KeywordsResultSentiment.swift */,
+				130FD0C946CBD94B753C2A8BB75FEC21 /* ListModelsResults.swift */,
+				27C9675D6DD3EFB841514D2503BA228C /* MetadataOptions.swift */,
+				5CF1DDC760A3ED8B8EED74146C948EE4 /* MetadataResult.swift */,
+				C88BE1A75B5872B7078CECA16A4028DE /* Model.swift */,
+				E55BD9BAC01AC2A6FA3692D91338D732 /* NaturalLanguageUnderstanding.swift */,
+				7E9FB0D775E1E3684A4B121E7718EDE6 /* Parameters.swift */,
+				A38D73A176011060923FD94BF94AD704 /* ParametersFeatures.swift */,
+				A98C0D3F23B4CE30607B81C90BC219D9 /* RelationArgument.swift */,
+				C875201A8C105EAEFCB7C68D116891E1 /* RelationEntity.swift */,
+				01EAEA74BE638AD89618FF52EB79A22A /* RelationsOptions.swift */,
+				D6C125926C0C5B18EFD0FFBC6CA7F914 /* RelationsResult.swift */,
+				D43A3B20558F7A1ECFA1754985A58FED /* SemanticRolesAction.swift */,
+				C7D9CCEDDD646B106B506D0B9F3DEFAD /* SemanticRolesEntity.swift */,
+				0AC0BE2D14FE398FABC2AD5FEB0B102F /* SemanticRolesKeyword.swift */,
+				C787520D4A312D4464C146EC1D9AEB56 /* SemanticRolesObject.swift */,
+				D358FD86E22D620B344F0DA21500FB9C /* SemanticRolesOptions.swift */,
+				834E63EC70DE9EBFF7E47409D956081E /* SemanticRolesResult.swift */,
+				476824B6B9856407A645379326D3FF0F /* SemanticRolesResultAction.swift */,
+				C3978B10075A922C749ABE76B4C377BC /* SemanticRolesResultObject.swift */,
+				0303923B71EBD054A2161F3A3EE24239 /* SemanticRolesResultSubject.swift */,
+				AEE69566923B9CB6A7733A60C8E5C6C8 /* SemanticRolesSubject.swift */,
+				34F347D0FB8E4752E8AC12EC399152C0 /* SemanticRolesVerb.swift */,
+				3D530525C1BD11B767E6F451E21F821E /* SentenceResult.swift */,
+				09BCF2AB8B33B042A5E6CAA74EE19566 /* SentimentOptions.swift */,
+				5CE8B8976E1783ADEB6F56F2D6515CA9 /* SentimentResult.swift */,
+				58D30AE23A90E3675E9DCF8517EFCD39 /* Shared.swift */,
+				8EA95AF4D9D1C52F1FE5348C73B0DED3 /* SyntaxOptions.swift */,
+				216B42185FE40F762F19CBE4E8A18073 /* SyntaxOptionsTokens.swift */,
+				82CC4699A8CAE084663A2B47519D9066 /* SyntaxResult.swift */,
+				1B1DCEE25D3B04136FAE8AA390FF3160 /* TargetedEmotionResults.swift */,
+				352B4D5AC0CB18D886BDCD4CD5381D7A /* TargetedEmotionResultsEmotion.swift */,
+				27539BEFDD9CE5E0BD65EC5B5B68472D /* TargetedSentimentResults.swift */,
+				1A086AEF38A10DBB9552BB3458CF7F71 /* TokenResult.swift */,
+				D9EAA6C66870ACE8F724A631CB59DD0A /* Usage.swift */,
+				033F2F15E659F66AA58B0E83D15A39C5 /* Support Files */,
+			);
+			name = IBMWatsonNaturalLanguageUnderstandingV1;
+			path = IBMWatsonNaturalLanguageUnderstandingV1;
+			sourceTree = "<group>";
+		};
+		EE24247C328AF92344953AB0F6EB8358 /* IBMWatsonRestKit */ = {
+			isa = PBXGroup;
+			children = (
+				E8F8742258FFD6C4D0B60B95FD7B6C4C /* Authentication.swift */,
+				9022844C0002CD7EC960773860A408EC /* CodableExtensions.swift */,
+				65A717E8370DD353363C2A907034E1F9 /* JSON.swift */,
+				1F9F435D756958ED66D58D2C5D2475AB /* MultipartFormData.swift */,
+				0E7C79AC2570D14C2B713EC47D47430D /* RestError.swift */,
+				1461D1CD5A113C22CB1A441E21357D62 /* RestRequest.swift */,
+				048E77E47A47942EE2F63CD5B45DC9DF /* RestResponse.swift */,
+				B6885C424FF4B82926B69DEA9EEDD690 /* Support Files */,
+			);
+			name = IBMWatsonRestKit;
+			path = IBMWatsonRestKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1114C3703D06B9C2E927934497BC4788 /* Headers */ = {
+		015BBE6E4094557154513D367776E695 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F669354DB8B3EB08B8E9CEB9690ABE03 /* SwiftyJSON-umbrella.h in Headers */,
+				B02F1C4AB0E807185F5717242455B5C4 /* SwiftyJSON-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E046642F9BC79C0754A0BD699F29504B /* Headers */ = {
+		08A7E0CC368B842525549FDE0B2B7B3F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2E6092A9CC3080F4CA90E329D465AD4 /* Pods-Core ML Vision-umbrella.h in Headers */,
+				EA1051079ED1EA725C6786209DD29020 /* Pods-Core ML Vision-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1469590C80B266A849BCE8111FD88E5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FEB0DA73774EDA15A4B77C8C749A3EA /* IBMWatsonAssistantV1-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B00FE129A5AF1E9139C2209EA3A34AFE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F10E45651B1F8055ED7343953C323D38 /* IBMWatsonNaturalLanguageUnderstandingV1-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3D7B75C4C8661B57038908F94D49AC5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5615F417CEE4688972B3708DFEAC494 /* IBMWatsonRestKit-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		C3B83998E657DAFF0FA9A6D736934395 /* Pods-Core ML Vision */ = {
+		4197BF0F9EB822992D73B4972D754602 /* IBMWatsonAssistantV1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 78BD06C23A929D921AE002F735950CC0 /* Build configuration list for PBXNativeTarget "Pods-Core ML Vision" */;
+			buildConfigurationList = 49A18BF13C6ABB98C13D8EA17D100D9C /* Build configuration list for PBXNativeTarget "IBMWatsonAssistantV1" */;
 			buildPhases = (
-				55D9CB702CC0424C04C69F0F29D81A1C /* Sources */,
-				E873F700E7CBB6CF0EBF6DF5A17FBEF0 /* Frameworks */,
-				E046642F9BC79C0754A0BD699F29504B /* Headers */,
+				D58C28FAF6EA6B56B8174FDCB9E422CC /* Sources */,
+				8D4E405D3E62126EEA3C72F93895454B /* Frameworks */,
+				A1469590C80B266A849BCE8111FD88E5 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2BDF0FB279ADF6536704249D4F749034 /* PBXTargetDependency */,
+				7217B4D73312818643B446DE2735EC19 /* PBXTargetDependency */,
 			);
-			name = "Pods-Core ML Vision";
-			productName = "Pods-Core ML Vision";
-			productReference = 965470515EA765C01BE8D33FDC0E63AD /* Pods_Core_ML_Vision.framework */;
+			name = IBMWatsonAssistantV1;
+			productName = IBMWatsonAssistantV1;
+			productReference = 5B09F8DEACA72F2ACF308F24C1408BBD /* Assistant.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F009C294A44C96EFEFECD0AB66637668 /* SwiftyJSON */ = {
+		5F6E9B4FAA6ADF3E00FDA16535BF2690 /* IBMWatsonNaturalLanguageUnderstandingV1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 10E9141B7F3CE2FD30302760DF95CC16 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
+			buildConfigurationList = 927461FBB5D9D41864D2821795CE4AF5 /* Build configuration list for PBXNativeTarget "IBMWatsonNaturalLanguageUnderstandingV1" */;
 			buildPhases = (
-				1546093E699C3627D4FA94EDBE6120D6 /* Sources */,
-				5DE3479FC72D44F9246CF30F2A80AD61 /* Frameworks */,
-				1114C3703D06B9C2E927934497BC4788 /* Headers */,
+				743380E9E3E8AF535619B828AB6874ED /* Sources */,
+				83ADD7574D84D2D9F4FF364DDBA80DB7 /* Frameworks */,
+				B00FE129A5AF1E9139C2209EA3A34AFE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C695BC80BE99AE772098F3F4B879AACA /* PBXTargetDependency */,
+			);
+			name = IBMWatsonNaturalLanguageUnderstandingV1;
+			productName = IBMWatsonNaturalLanguageUnderstandingV1;
+			productReference = 669E6D11C3919F380B3774D5C46285B9 /* NaturalLanguageUnderstanding.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		65ED57938E8F65C348CF0714911D1ABA /* SwiftyJSON */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B74B0CC080DDC40518DD26DD885BAD3 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */;
+			buildPhases = (
+				28747ABE324EAD22436E22D74CFBAA42 /* Sources */,
+				4EDFBECBD6C656E4C139DDEA7ABEFE45 /* Frameworks */,
+				015BBE6E4094557154513D367776E695 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -218,7 +847,45 @@
 			);
 			name = SwiftyJSON;
 			productName = SwiftyJSON;
-			productReference = 07D5E220B29BBD9A8234800B934B614E /* SwiftyJSON.framework */;
+			productReference = A1EE8B01D985266E742A64A9D73C8F8C /* SwiftyJSON.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		686446E608782AEDA066A255B14B0C06 /* Pods-Core ML Vision */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B150FB84F5A8C48586F9ED2A06EF9D42 /* Build configuration list for PBXNativeTarget "Pods-Core ML Vision" */;
+			buildPhases = (
+				CAACAB9977F5CE5CA02B431358B09E0A /* Sources */,
+				8F74039162F2596BD5367870BA774CED /* Frameworks */,
+				08A7E0CC368B842525549FDE0B2B7B3F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E94DDD084F4BF8693F21380CC485F84B /* PBXTargetDependency */,
+				29CC272B0D03C2D25F2C1ACA47CF3666 /* PBXTargetDependency */,
+				5E1E08DBCDA390A8E2F07B7174750EAD /* PBXTargetDependency */,
+				FB0C9F238DDFE58ABD4982E577C35016 /* PBXTargetDependency */,
+			);
+			name = "Pods-Core ML Vision";
+			productName = "Pods-Core ML Vision";
+			productReference = 7CA8CB0F90792530B6CDE6348629A951 /* Pods_Core_ML_Vision.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6F50E7325F19C9A48B8DD0F0F49DF6CC /* IBMWatsonRestKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86BD453152DFFCD556CA63BD4BE53CCC /* Build configuration list for PBXNativeTarget "IBMWatsonRestKit" */;
+			buildPhases = (
+				1498517DF31A258232BB827C3B551F56 /* Sources */,
+				DCE9EBA2ABD512BEFA4B8E783CA7D6F4 /* Frameworks */,
+				E3D7B75C4C8661B57038908F94D49AC5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IBMWatsonRestKit;
+			productName = IBMWatsonRestKit;
+			productReference = 70DC3F040EE64D6CCB7767A734C240E0 /* RestKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -238,42 +905,238 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = E8DC893BB3F2947303791080BEE2A0CD /* Products */;
+			productRefGroup = 416CC078676325C35CC88A88B68F6627 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C3B83998E657DAFF0FA9A6D736934395 /* Pods-Core ML Vision */,
-				F009C294A44C96EFEFECD0AB66637668 /* SwiftyJSON */,
+				4197BF0F9EB822992D73B4972D754602 /* IBMWatsonAssistantV1 */,
+				5F6E9B4FAA6ADF3E00FDA16535BF2690 /* IBMWatsonNaturalLanguageUnderstandingV1 */,
+				6F50E7325F19C9A48B8DD0F0F49DF6CC /* IBMWatsonRestKit */,
+				686446E608782AEDA066A255B14B0C06 /* Pods-Core ML Vision */,
+				65ED57938E8F65C348CF0714911D1ABA /* SwiftyJSON */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1546093E699C3627D4FA94EDBE6120D6 /* Sources */ = {
+		1498517DF31A258232BB827C3B551F56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77491999A18B9ACFB4D59801294D8300 /* SwiftyJSON-dummy.m in Sources */,
-				D2A8890575E24E0D7E5D105A6EAF21E3 /* SwiftyJSON.swift in Sources */,
+				EC54B2AD9BC2A38D83671B3D948F0D37 /* Authentication.swift in Sources */,
+				212370185091DDBE3E154897A2A19182 /* CodableExtensions.swift in Sources */,
+				DA3364741E446573E8BF5B5A7633355A /* IBMWatsonRestKit-dummy.m in Sources */,
+				590520C4A1B583CC37D25A4B2E298E27 /* JSON.swift in Sources */,
+				35271CC06879028C08B823395CD67D1E /* MultipartFormData.swift in Sources */,
+				F9BDF220E26C44572407EE78DB288173 /* RestError.swift in Sources */,
+				9713805B36D405C9A9B88BBA5D3B2A64 /* RestRequest.swift in Sources */,
+				5C6562A795A0E2A270638200CDD937CD /* RestResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55D9CB702CC0424C04C69F0F29D81A1C /* Sources */ = {
+		28747ABE324EAD22436E22D74CFBAA42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4011309D584FD307AB3DB0A2EECF07C5 /* Pods-Core ML Vision-dummy.m in Sources */,
+				4E0D542A339DC3F52130B9CCF7D5610E /* SwiftyJSON-dummy.m in Sources */,
+				919A71A9051F1E3A7EB3DEE14E56CBF9 /* SwiftyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		743380E9E3E8AF535619B828AB6874ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E70A6AE43A82AE4C3E6112E53FEBBC4D /* AnalysisResults.swift in Sources */,
+				7D0E12FE693447D258EE2A711A248F61 /* AnalysisResultsEmotion.swift in Sources */,
+				9B37481F583B082CD15B698480D99CC2 /* AnalysisResultsMetadata.swift in Sources */,
+				EF1E5B2C980CD8D4429B324D3A0F9D03 /* AnalysisResultsSentiment.swift in Sources */,
+				37E275A5E81F04CD32302F500D69CBED /* AnalysisResultsUsage.swift in Sources */,
+				45B12C69D2311F7A1CAB3E22F9D35A7C /* Author.swift in Sources */,
+				44FD9F2489EB7A117C7C481D11189B42 /* CategoriesOptions.swift in Sources */,
+				6FF0EE19F6280D090C67C6B829A36CD6 /* CategoriesRelevantText.swift in Sources */,
+				08FC80586F4A75EAB33A5FB08A74F1FC /* CategoriesResult.swift in Sources */,
+				0630AED7D776D4A552761081D04A5FFE /* CategoriesResultExplanation.swift in Sources */,
+				2E9CC009BC0098FB5A1F1C646B27BA10 /* ConceptsOptions.swift in Sources */,
+				1EE08A99C4172B704EB235DE5BB84D58 /* ConceptsResult.swift in Sources */,
+				B6D06695D9EB7C92089067831BC5EF83 /* DeleteModelResults.swift in Sources */,
+				48040DD7902880B8E62EE6AC18072212 /* DisambiguationResult.swift in Sources */,
+				3F16EB9BCE05F9285E6B05C83EC209C4 /* DocumentEmotionResults.swift in Sources */,
+				AAE09161FB62F252870F3B4D0CD57224 /* DocumentEmotionResultsEmotion.swift in Sources */,
+				A7DFE14E8650D3EBD4612EDB08E57032 /* DocumentSentimentResults.swift in Sources */,
+				62860F85B34B627E15B3886EBD16F1AC /* EmotionOptions.swift in Sources */,
+				F5FCC23CFFBAE80C8D6104930B4A69C7 /* EmotionResult.swift in Sources */,
+				F9D23A212DEA65181507299CA7B39181 /* EmotionScores.swift in Sources */,
+				88F25B974C556011941342F537E6D2EC /* EntitiesOptions.swift in Sources */,
+				6DEC59BEFF473929F520F9D0D9CACB79 /* EntitiesResult.swift in Sources */,
+				84289EEE04FD40BCF9B8BAA93253BFD5 /* EntitiesResultDisambiguation.swift in Sources */,
+				ED1CE05AF3D7D1B1B0894A587632D5C1 /* EntitiesResultEmotion.swift in Sources */,
+				D2E7C86E7FA021A8A95D0A3493568B47 /* EntitiesResultSentiment.swift in Sources */,
+				D27401600D47B0CE1F73FB062B98E563 /* EntityMention.swift in Sources */,
+				7D2E381AAD3DB5529C0DC3AB61BFFB2E /* Features.swift in Sources */,
+				2334EA8BDF414B8449AA258E90DF3848 /* FeatureSentimentResults.swift in Sources */,
+				A1537F5C33FCAE559E9E06D9F6889BE1 /* Feed.swift in Sources */,
+				6E6E7BCDCFAFFB0DDF6D04EC03419869 /* IBMWatsonNaturalLanguageUnderstandingV1-dummy.m in Sources */,
+				843CA34870A2A6CD55625053334E9E2D /* InsecureConnection.swift in Sources */,
+				E930FFC5512F6304EDACBF51E039AAA5 /* KeywordsOptions.swift in Sources */,
+				8DA91573D92AD4C207BADDC2B8FA33F3 /* KeywordsResult.swift in Sources */,
+				D064D5A57E60CD91D18FEF07C4A83F19 /* KeywordsResultEmotion.swift in Sources */,
+				2C5A4117F8179A879C682E6D6EB4DE28 /* KeywordsResultSentiment.swift in Sources */,
+				84B10B13AED27C5A78C32B0A776BC488 /* ListModelsResults.swift in Sources */,
+				FDBFBDC7E9F18EC372D77714C15D858D /* MetadataOptions.swift in Sources */,
+				13D4A6D5BB5D9E98DE0FE90F66D6A6AC /* MetadataResult.swift in Sources */,
+				15D733CF6E9CD567109D5799B5AD84BE /* Model.swift in Sources */,
+				1A55C1A0D7E117B7584999EEBB9375BB /* NaturalLanguageUnderstanding.swift in Sources */,
+				6C3C91C837D31B12B6CEAD3D751331A1 /* Parameters.swift in Sources */,
+				7DFC113F7C042B495267AAB9ED5C8DD9 /* ParametersFeatures.swift in Sources */,
+				54407A82164D7334A04612945A10292B /* RelationArgument.swift in Sources */,
+				76B86F4083E0E3FD055E5EF4364262F2 /* RelationEntity.swift in Sources */,
+				DD027F72D818D3FFF0C48774D82354BC /* RelationsOptions.swift in Sources */,
+				5F30467FD1E387F70BCE5320AD2467A1 /* RelationsResult.swift in Sources */,
+				863B4B85EC8101B3228AF83120F95CA4 /* SemanticRolesAction.swift in Sources */,
+				09DE4D27DA1FF312EC3EB4AD4C3EB77B /* SemanticRolesEntity.swift in Sources */,
+				D373395FC8835870CC8AF21D40F1A441 /* SemanticRolesKeyword.swift in Sources */,
+				83B54CD5329B6382878F51B1CB6A300C /* SemanticRolesObject.swift in Sources */,
+				FF4604B1316C37330F8F09F6C5918E5F /* SemanticRolesOptions.swift in Sources */,
+				B4153FC53D882C33296831F077836FC9 /* SemanticRolesResult.swift in Sources */,
+				AF0EBFE2524029417760D3A995858CB5 /* SemanticRolesResultAction.swift in Sources */,
+				9774D192C9C17F6746BE4DFE41DF6FFE /* SemanticRolesResultObject.swift in Sources */,
+				0AB555BBC6AA7785192634960B22633A /* SemanticRolesResultSubject.swift in Sources */,
+				AB906BE1A83ACE98556CACC9E3F8698D /* SemanticRolesSubject.swift in Sources */,
+				E437C7F2B7672A883443D059D50A652C /* SemanticRolesVerb.swift in Sources */,
+				484348FCFDD73793A739A5A96F7E903D /* SentenceResult.swift in Sources */,
+				56EB563C0ABDF57F4F3AA1AAB8366228 /* SentimentOptions.swift in Sources */,
+				DCDA96E538771F853D9D87CB1D3BD943 /* SentimentResult.swift in Sources */,
+				5A612F54A1E7FFACE85A44816E2BAD70 /* Shared.swift in Sources */,
+				CB19DD033450672AB1FF2F54D0EFC999 /* SyntaxOptions.swift in Sources */,
+				8DACA3AB7B54D3751EEF3CF34928E606 /* SyntaxOptionsTokens.swift in Sources */,
+				4081005B0DA38A0E556E2D02FB1A23A7 /* SyntaxResult.swift in Sources */,
+				74E8A7B3BA8883E929EEA2936C4B0F01 /* TargetedEmotionResults.swift in Sources */,
+				9C57755F03A353C6296F80D884FB9286 /* TargetedEmotionResultsEmotion.swift in Sources */,
+				5F339CF92A7ECEB45FBFB033DDB95F0C /* TargetedSentimentResults.swift in Sources */,
+				AB10E30BFE0C60ED3972413990CEA2A7 /* TokenResult.swift in Sources */,
+				95D879EA10D6163ADF647728297D7504 /* Usage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAACAB9977F5CE5CA02B431358B09E0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3503F55A8132DBFC02369BA1C7AF0E1D /* Pods-Core ML Vision-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D58C28FAF6EA6B56B8174FDCB9E422CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CA99788BCAB7138035B987306D4B999 /* Assistant.swift in Sources */,
+				53E3A8895374C5D244EAAB4D1A3CB33F /* CaptureGroup.swift in Sources */,
+				F62EBD787CC4DE2D0AB3C23FAB95E952 /* Context.swift in Sources */,
+				2DB0F2055CEDAB87E156A07A3F72C192 /* Counterexample.swift in Sources */,
+				3DE08406C6B62E4F0C0CF4F8B0083A6F /* CounterexampleCollection.swift in Sources */,
+				74827F22C010575BB5A7497ADD50885F /* CreateEntity.swift in Sources */,
+				6782347C38440AA463BCD8C1DA1AFA96 /* CreateIntent.swift in Sources */,
+				025404573D90BCC01E34CB2563C02033 /* CreateValue.swift in Sources */,
+				18E8F6FEB3F25F0B60B5D93422208BE2 /* CreateWorkspace.swift in Sources */,
+				5095F2624220895F06906D9DF60A7778 /* DialogNode.swift in Sources */,
+				764BA9B30E0ACC8A65F717A73F21AD1E /* DialogNodeAction.swift in Sources */,
+				ACC6EF5F9A8DA7E2BF821C8D7673A536 /* DialogNodeCollection.swift in Sources */,
+				E8E910BB063B8B6B03DDC40779BDA503 /* DialogNodeNextStep.swift in Sources */,
+				3E9938FCD4B11B93594BD4C3F900A667 /* DialogNodeOutput.swift in Sources */,
+				2B638A3C62EA9DE1C049CC3FAEA87C1B /* DialogNodeOutputGeneric.swift in Sources */,
+				CFB424F94CC0200C55B92FC3F4F9DB0D /* DialogNodeOutputModifiers.swift in Sources */,
+				4579AF96082AAA620FF4CD16998F0724 /* DialogNodeOutputOptionsElement.swift in Sources */,
+				16054D0E40A6C8EDFC811F7F3D899729 /* DialogNodeOutputOptionsElementValue.swift in Sources */,
+				AC8E5BB305D5ED23A4BF1042467F144B /* DialogNodeOutputTextValuesElement.swift in Sources */,
+				9E48EB1749FF0E5D7918623798E228E8 /* DialogNodeVisitedDetails.swift in Sources */,
+				384685E6BCC468993F77773A167B323F /* DialogRuntimeResponseGeneric.swift in Sources */,
+				4439BE79F28C3F314A9E16B39DEB8C7B /* DialogSuggestion.swift in Sources */,
+				36ED331B79B2F81348140B0AB1BBDD72 /* DialogSuggestionValue.swift in Sources */,
+				FD9A0434FC9E2A8692343E343025F52A /* Entity.swift in Sources */,
+				BD36159B40092783D10ADD59C80DEBE2 /* EntityCollection.swift in Sources */,
+				7568FF46476288B11E08AA21E3939F04 /* EntityMention.swift in Sources */,
+				661E66EEBD62FA6CF146DF3EB6A331A9 /* EntityMentionCollection.swift in Sources */,
+				25359451ED07D0674EB826B187968323 /* Example.swift in Sources */,
+				1ED85180887304E25E1F3BE720E4D91B /* ExampleCollection.swift in Sources */,
+				D097C6CFB9041219AC3FC74118540A76 /* IBMWatsonAssistantV1-dummy.m in Sources */,
+				2C8324B93B8E9A9306D20B74A0819F60 /* InsecureConnection.swift in Sources */,
+				4C02717966ED72F55208206B4A9F174A /* Intent.swift in Sources */,
+				22A32D07E60167B6697803D004756DAE /* IntentCollection.swift in Sources */,
+				CC009395AB16810746E8282586968480 /* Log.swift in Sources */,
+				90720023681398C21F5AB5AEA0F86D63 /* LogCollection.swift in Sources */,
+				8E26353C493000B01FBAC0450D381605 /* LogMessage.swift in Sources */,
+				DE325465582C4D74B5F0F967C666F017 /* LogPagination.swift in Sources */,
+				B3453385056E51CEF494F57F4C01BD98 /* Mention.swift in Sources */,
+				5F0E3EC638D15F4FF9C5784D165A51D4 /* MessageContextMetadata.swift in Sources */,
+				5AFD0B5ADCC2E0EC2B21BA8FF5193281 /* MessageInput.swift in Sources */,
+				A6F0488561D38403A1EEDB8E9E4155F2 /* MessageRequest.swift in Sources */,
+				B6FA467C07B6B6C7911BCF065348E124 /* MessageResponse.swift in Sources */,
+				D9381D7A18115554CAF9A924F9FF3354 /* OutputData.swift in Sources */,
+				AEA0D8B7278E513EB45999DE0D8C9A7C /* Pagination.swift in Sources */,
+				36E1461D49E1A9BCE2F0A0D5D3398B10 /* RuntimeEntity.swift in Sources */,
+				322182E755CA623F6489D6A9F6059D9C /* RuntimeIntent.swift in Sources */,
+				F8EE4611BF3F77ECB0AA91A6F87753B9 /* Shared.swift in Sources */,
+				6AE11A358B2111EC1047EC0EC184FBC5 /* Synonym.swift in Sources */,
+				0497FAB74F41C95E74E6C8245993221D /* SynonymCollection.swift in Sources */,
+				016795AB96B8A95C82E273251E7A867F /* SystemResponse.swift in Sources */,
+				78E3BA592A14314E8C2F1C196F158C1B /* UpdateCounterexample.swift in Sources */,
+				2909B12C4BF9A09C3F37B07BA42975F8 /* UpdateDialogNode.swift in Sources */,
+				7CD48AA5B1E416E9D1A4807F2BC09FCA /* UpdateEntity.swift in Sources */,
+				F24AC953DF6C34E491A9064A357BF041 /* UpdateExample.swift in Sources */,
+				F0D9EB6789E6AC88471473602059455D /* UpdateIntent.swift in Sources */,
+				09B5A3C9AB37E118FD275D12AA72EF80 /* UpdateSynonym.swift in Sources */,
+				D44118BF61429D746AF90A86683F2481 /* UpdateValue.swift in Sources */,
+				77E9D8A00CC71D53E8D2B989F7B016EF /* UpdateWorkspace.swift in Sources */,
+				15B838A51533E9665561B993BBDE1B8C /* Value.swift in Sources */,
+				C2EA6499F46B6A6E01A5EF4614F7B9AE /* ValueCollection.swift in Sources */,
+				4CAC12D3E7BC7776501A071F3D67A689 /* Workspace.swift in Sources */,
+				EF0BF64F9116E2284175036970197BD3 /* WorkspaceCollection.swift in Sources */,
+				38AF8BD931B2B1BB6E9D2224607E6B00 /* WorkspaceSystemSettings.swift in Sources */,
+				E6CEFC0FE72E1B34556219333B3DCE61 /* WorkspaceSystemSettingsDisambiguation.swift in Sources */,
+				33149DBB1E8BDF7409FC9F3CEDE3FACD /* WorkspaceSystemSettingsTooling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2BDF0FB279ADF6536704249D4F749034 /* PBXTargetDependency */ = {
+		29CC272B0D03C2D25F2C1ACA47CF3666 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IBMWatsonNaturalLanguageUnderstandingV1;
+			target = 5F6E9B4FAA6ADF3E00FDA16535BF2690 /* IBMWatsonNaturalLanguageUnderstandingV1 */;
+			targetProxy = 6392BB14A79D744954A03DA953357980 /* PBXContainerItemProxy */;
+		};
+		5E1E08DBCDA390A8E2F07B7174750EAD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IBMWatsonRestKit;
+			target = 6F50E7325F19C9A48B8DD0F0F49DF6CC /* IBMWatsonRestKit */;
+			targetProxy = EC63905EF739762F1AA5F4CAADFA55A8 /* PBXContainerItemProxy */;
+		};
+		7217B4D73312818643B446DE2735EC19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IBMWatsonRestKit;
+			target = 6F50E7325F19C9A48B8DD0F0F49DF6CC /* IBMWatsonRestKit */;
+			targetProxy = E38CFA65C26DC3F484EB14FAEB688CCA /* PBXContainerItemProxy */;
+		};
+		C695BC80BE99AE772098F3F4B879AACA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IBMWatsonRestKit;
+			target = 6F50E7325F19C9A48B8DD0F0F49DF6CC /* IBMWatsonRestKit */;
+			targetProxy = 7C5FCDF9FE1E4C2FEF137512FAA66642 /* PBXContainerItemProxy */;
+		};
+		E94DDD084F4BF8693F21380CC485F84B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IBMWatsonAssistantV1;
+			target = 4197BF0F9EB822992D73B4972D754602 /* IBMWatsonAssistantV1 */;
+			targetProxy = 87EDE0D7E00E7F15C94182ECA9297591 /* PBXContainerItemProxy */;
+		};
+		FB0C9F238DDFE58ABD4982E577C35016 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftyJSON;
-			target = F009C294A44C96EFEFECD0AB66637668 /* SwiftyJSON */;
-			targetProxy = F43CE30340F2D88BE477A5B4C4F3A414 /* PBXContainerItemProxy */;
+			target = 65ED57938E8F65C348CF0714911D1ABA /* SwiftyJSON */;
+			targetProxy = 33AAA098CCA23F18FD804ED49EB18283 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -336,9 +1199,9 @@
 			};
 			name = Release;
 		};
-		0EA26C6CA81D62222419E641C3342889 /* Debug */ = {
+		0AEFE880ECE542C2CBB9DD27321542CE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0FD32C81EACD0ED91DBABD1EE13FD20 /* SwiftyJSON.xcconfig */;
+			baseConfigurationReference = E1BE039FC04345A08CD03CBD05FDA8D3 /* SwiftyJSON.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -360,15 +1223,82 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3314ACFE2D20DC692C525339F32B5344 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A243AD5497D6653D484FC143F0286F23 /* IBMWatsonNaturalLanguageUnderstandingV1.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IBMWatsonNaturalLanguageUnderstandingV1/IBMWatsonNaturalLanguageUnderstandingV1-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IBMWatsonNaturalLanguageUnderstandingV1/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IBMWatsonNaturalLanguageUnderstandingV1/IBMWatsonNaturalLanguageUnderstandingV1.modulemap";
+				PRODUCT_MODULE_NAME = NaturalLanguageUnderstanding;
+				PRODUCT_NAME = NaturalLanguageUnderstanding;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		8B2007999B8FFD190BCA886902F9DCE1 /* Debug */ = {
+		3690E5D3255D0BD7556A9A6E9E859D5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 999ED96928E2B55333C116E2CCEF9D54 /* IBMWatsonAssistantV1.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IBMWatsonAssistantV1/IBMWatsonAssistantV1-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IBMWatsonAssistantV1/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IBMWatsonAssistantV1/IBMWatsonAssistantV1.modulemap";
+				PRODUCT_MODULE_NAME = Assistant;
+				PRODUCT_NAME = Assistant;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3B69B5A38272FAF5A50357B9DA25970D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 54DBC35EF7E8D67FB95F5D0F94281EC4 /* Pods-Core ML Vision.debug.xcconfig */;
 			buildSettings = {
@@ -403,6 +1333,74 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		51EF5DE54AAFABB6E560A3C28BD523DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A243AD5497D6653D484FC143F0286F23 /* IBMWatsonNaturalLanguageUnderstandingV1.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IBMWatsonNaturalLanguageUnderstandingV1/IBMWatsonNaturalLanguageUnderstandingV1-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IBMWatsonNaturalLanguageUnderstandingV1/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IBMWatsonNaturalLanguageUnderstandingV1/IBMWatsonNaturalLanguageUnderstandingV1.modulemap";
+				PRODUCT_MODULE_NAME = NaturalLanguageUnderstanding;
+				PRODUCT_NAME = NaturalLanguageUnderstanding;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		689D86D5132EC968590341FA936095D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 999ED96928E2B55333C116E2CCEF9D54 /* IBMWatsonAssistantV1.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IBMWatsonAssistantV1/IBMWatsonAssistantV1-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IBMWatsonAssistantV1/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IBMWatsonAssistantV1/IBMWatsonAssistantV1.modulemap";
+				PRODUCT_MODULE_NAME = Assistant;
+				PRODUCT_NAME = Assistant;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		9DAE5233986C01ADB6E67169C53A3FD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -467,7 +1465,40 @@
 			};
 			name = Debug;
 		};
-		C90F23463C8D7D1EB03A36B2474DF7AE /* Release */ = {
+		C23BEC46E286800F5B2356EE185B437A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1537D2F6C39196DCD5F6AFD4393F6F18 /* IBMWatsonRestKit.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IBMWatsonRestKit/IBMWatsonRestKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IBMWatsonRestKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IBMWatsonRestKit/IBMWatsonRestKit.modulemap";
+				PRODUCT_MODULE_NAME = RestKit;
+				PRODUCT_NAME = RestKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CD729F444027CE9EA0A984DBE8B9D459 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BF1E32B4D51DF51C69D04DA30412BA74 /* Pods-Core ML Vision.release.xcconfig */;
 			buildSettings = {
@@ -503,9 +1534,43 @@
 			};
 			name = Release;
 		};
-		E3187E4CA3874FEF377ACFEA33688BED /* Release */ = {
+		F5A2217A829AEE877EB0CE9453867CED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0FD32C81EACD0ED91DBABD1EE13FD20 /* SwiftyJSON.xcconfig */;
+			baseConfigurationReference = 1537D2F6C39196DCD5F6AFD4393F6F18 /* IBMWatsonRestKit.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/IBMWatsonRestKit/IBMWatsonRestKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IBMWatsonRestKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/IBMWatsonRestKit/IBMWatsonRestKit.modulemap";
+				PRODUCT_MODULE_NAME = RestKit;
+				PRODUCT_NAME = RestKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F792E5D1E069D184D4EDBCF2A59A8A85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1BE039FC04345A08CD03CBD05FDA8D3 /* SwiftyJSON.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -527,23 +1592,22 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		10E9141B7F3CE2FD30302760DF95CC16 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
+		1B74B0CC080DDC40518DD26DD885BAD3 /* Build configuration list for PBXNativeTarget "SwiftyJSON" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0EA26C6CA81D62222419E641C3342889 /* Debug */,
-				E3187E4CA3874FEF377ACFEA33688BED /* Release */,
+				F792E5D1E069D184D4EDBCF2A59A8A85 /* Debug */,
+				0AEFE880ECE542C2CBB9DD27321542CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -557,11 +1621,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		78BD06C23A929D921AE002F735950CC0 /* Build configuration list for PBXNativeTarget "Pods-Core ML Vision" */ = {
+		49A18BF13C6ABB98C13D8EA17D100D9C /* Build configuration list for PBXNativeTarget "IBMWatsonAssistantV1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8B2007999B8FFD190BCA886902F9DCE1 /* Debug */,
-				C90F23463C8D7D1EB03A36B2474DF7AE /* Release */,
+				3690E5D3255D0BD7556A9A6E9E859D5B /* Debug */,
+				689D86D5132EC968590341FA936095D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86BD453152DFFCD556CA63BD4BE53CCC /* Build configuration list for PBXNativeTarget "IBMWatsonRestKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C23BEC46E286800F5B2356EE185B437A /* Debug */,
+				F5A2217A829AEE877EB0CE9453867CED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		927461FBB5D9D41864D2821795CE4AF5 /* Build configuration list for PBXNativeTarget "IBMWatsonNaturalLanguageUnderstandingV1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3314ACFE2D20DC692C525339F32B5344 /* Debug */,
+				51EF5DE54AAFABB6E560A3C28BD523DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B150FB84F5A8C48586F9ED2A06EF9D42 /* Build configuration list for PBXNativeTarget "Pods-Core ML Vision" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B69B5A38272FAF5A50357B9DA25970D /* Debug */,
+				CD729F444027CE9EA0A984DBE8B9D459 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

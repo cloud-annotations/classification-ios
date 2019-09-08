@@ -1,16 +1,29 @@
 PODS:
+  - IBMWatsonAssistantV1 (2.3.0):
+    - IBMWatsonRestKit (~> 3.0.0)
+  - IBMWatsonNaturalLanguageUnderstandingV1 (2.1.1):
+    - IBMWatsonRestKit (~> 3.0.0)
+  - IBMWatsonRestKit (3.0.3)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - IBMWatsonAssistantV1 (~> 2.3.0)
+  - IBMWatsonNaturalLanguageUnderstandingV1 (~> 2.1.1)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - IBMWatsonAssistantV1
+    - IBMWatsonNaturalLanguageUnderstandingV1
+    - IBMWatsonRestKit
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  IBMWatsonAssistantV1: d6c16c23c54aeefaee5de8972e5b410d812abf4c
+  IBMWatsonNaturalLanguageUnderstandingV1: fea795883627b34494636ce4e20f6ff9201196e6
+  IBMWatsonRestKit: 47dcac7ccc12e0d15a948b79e481e0e0abacb057
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 839a8ed01c75a3720497b60cba3a8adf901d829e
+PODFILE CHECKSUM: 088e62529a35d890ee34fd176dfbc8d93f821280
 
 COCOAPODS: 1.5.3
