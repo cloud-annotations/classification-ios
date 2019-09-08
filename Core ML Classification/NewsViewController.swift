@@ -17,10 +17,11 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         brandLabel.text = CameraViewController.Globals.Brand
         productLabel.text = CameraViewController.Globals.Product
-        let host = "https://newsapi.org/v2/everything?q="+CameraViewController.Globals.Brand+"&apiKey=e443b5309d904830bbe102d3a5af11ff&language=en&sortBy=popularity&pageSize=30&qInTitle="+CameraViewController.Globals.Product
+        let host = "https://newsapi.org/v2/everything?q="+CameraViewController.Globals.Brand+"%20drink&apiKey=e443b5309d904830bbe102d3a5af11ff&language=en&sortBy=popularity&pageSize=30&qInTitle="+CameraViewController.Globals.Product
         
         if let url = URL(string: host){
             var request = URLRequest(url: url, timeoutInterval: 720)
+            var agg = 0.0
             request.httpMethod = "GET"
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                 if let error = error {
@@ -28,13 +29,17 @@ class NewsViewController: UIViewController {
                 } else if let p = data {
                     do{
                         let json = try JSON(data: p)
-                        for (key,value) in json["articles"]{
+                        for (_,value) in json["articles"]{
                             DispatchQueue.main.async {
                                 let titleLabel = UILabel()
                                 titleLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
                                 titleLabel.text = value["title"].string
                                 self.newsStack.addArrangedSubview(titleLabel)
                             }
+//                            print(value["description"].string)
+                            let textAnalyzeVal = self.analyzeText(str: value["description"].string!, keyword: CameraViewController.Globals.Brand)
+                            print(textAnalyzeVal)
+                            agg = agg + textAnalyzeVal
                         }
                     } catch {
                         
@@ -43,6 +48,10 @@ class NewsViewController: UIViewController {
                     print("No data received in response.")
                 }
             }
+            print("----------------------------------------")
+            print(agg)
+            print(CameraViewController.Globals.Brand)
+            print("----------------------------------------")
             task.resume()
         }
         
@@ -69,42 +78,49 @@ class NewsViewController: UIViewController {
             }
             task2.resume()
         }
-        self.testNLP()
+//        self.testNLP()
     }
     
     func testNLP() {
         let kw = "father"
-        
-        analyzeText(keyword: kw)
+        let a = "when a father is dysfunctional and is so selfish he drags his kids into his dysfunction"
+        analyzeText(str: a, keyword: kw)
     }
     
-//    func analyzeText( arr: [ String], keyword: String){
-    func analyzeText(keyword: String){
+    func aggergate() {
+        
+    }
+    
+    
+    func analyzeText( str: String, keyword: String) -> Double {
+//    func analyzeText(keyword: String) -> Double {
         let naturalLanguageUnderstanding = NaturalLanguageUnderstanding(version: "2019-07-12", apiKey: "zoJzrFwHBvke1PvG4jSs8pKD1BHOQ-Rzq0PBFSeb5epv")
         naturalLanguageUnderstanding.serviceURL = "https://gateway.watsonplatform.net/natural-language-understanding/api"
         
         let keyword = [keyword]
+        var temp = 0.0
         
-        let arr = ["when a father is dysfunctional and is so selfish he drags his kids into his dysfunction", "have a happy wedding anniversary my love"]
-        for x in arr{
-            print(x)
-            let sentiment = SentimentOptions(targets: keyword)
-            let features = Features(sentiment: sentiment)
-            naturalLanguageUnderstanding.analyze(features: features, text: x) {
-                response, error in
-                
-                guard let analysis = response?.result else {
-                    print(error?.localizedDescription ?? "unknown error")
-                    return
-                }
-                print("------------------------------------------")
-                
-                
-                print(analysis.sentiment.map({ result in
-                    result
-                }))
+        print(str)
+        let sentiment = SentimentOptions(targets: keyword)
+        let features = Features(sentiment: sentiment)
+        let cool = naturalLanguageUnderstanding.analyze(features: features, text: str) {
+            response, error in
+
+            guard let analysis = response?.result else {
+                print(error?.localizedDescription ?? "unknown error")
+                return
             }
+//            print(analysis.sentiment)
+//            print(analysis.sentiment?.document?.score)
+//            print(analysis.sentiment?.document?.score ?? 0.0)
+//            print(temp)
+            temp = analysis.sentiment?.document?.score ?? 0.0
+//            print(temp)
+
+//                print(type(of: analysis.sentiment?.document?.score ?? 0))
         }
+//            print(cool)
+        return temp
     }
 
 
