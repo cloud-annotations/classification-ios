@@ -18,16 +18,18 @@ import UIKit
 import AVFoundation
 import Vision
 import CoreML
-
+import SwiftyJSON
+import NaturalLanguageUnderstanding
 
 
 class CameraViewController: UIViewController {
-
+    
     struct Globals {
         static var Brand:String = ""
         static var Product:String = ""
     }
     
+    @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var heatmapView: UIImageView!
@@ -86,7 +88,7 @@ class CameraViewController: UIViewController {
         drawer.delegate = self
     }
     
-
+    
     
     // MARK: - Image Classification
     
@@ -116,6 +118,85 @@ class CameraViewController: UIViewController {
                     Globals.Brand = "Soylent"
                 } else if(classifications[0].identifier == "rice krispie treat"){
                     Globals.Brand = "Kellogg's"
+                }
+                
+                let host = "https://newsapi.org/v2/everything?q="+CameraViewController.Globals.Brand+"%20drink&apiKey=e443b5309d904830bbe102d3a5af11ff&language=en&sortBy=popularity&pageSize=30&qInTitle="+CameraViewController.Globals.Product
+                
+                if let url = URL(string: host){
+                    var request = URLRequest(url: url, timeoutInterval: 720)
+                    var agg = 0.0
+                    request.httpMethod = "GET"
+                    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                        if let error = error {
+                            print(error)
+                        } else if let p = data {
+                            do{
+                                let json = try JSON(data: p)
+                                for (_,value) in json["articles"]{
+                                    let keyword = [CameraViewController.Globals.Brand]
+                                    let str = value["description"].string!
+                                    let naturalLanguageUnderstanding = NaturalLanguageUnderstanding(version: "2019-07-12", apiKey: "zoJzrFwHBvke1PvG4jSs8pKD1BHOQ-Rzq0PBFSeb5epv")
+                                    naturalLanguageUnderstanding.serviceURL = "https://gateway.watsonplatform.net/natural-language-understanding/api"
+                                    
+                                    let sentiment = SentimentOptions(targets: keyword)
+                                    let features = Features(sentiment: sentiment)
+                                    let cool = naturalLanguageUnderstanding.analyze(features: features, text: str) {
+                                        response, error in
+                                        
+                                        guard let analysis = response?.result else {
+                                            print(error?.localizedDescription ?? "unknown error")
+                                            return
+                                        }
+                                        
+                                        if let score = analysis.sentiment?.document?.score{
+                                            print(score)
+                                            DispatchQueue.main.async {
+                                                self.progressView.setProgress(self.progressView.progress+Float(score), animated: true)
+                                            }
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                            } catch {
+                                
+                            }
+                        } else {
+                            print("No data received in response.")
+                        }
+                    }
+                    print("----------------------------------------")
+                    print(CameraViewController.Globals.Brand)
+                    print("----------------------------------------")
+                    task.resume()
+                }
+                
+                let rawhost2 = "https://d.joinhoney.com/v3?query=query%20searchProduct(%24query%3A%20String!%2C%20%24meta%3A%20SearchMetaInput)%20%7B%0A%20%20searchProduct(query%3A%20%24query%2C%20meta%3A%20%24meta)%0A%7D%0A&operationName=searchProduct&variables=%7B%22query%22%3A%22"+CameraViewController.Globals.Product.replacingOccurrences(of: " ", with: "%20")+"%20%22%2C%22meta%22%3A%7B%22walletEnabledFilter%22%3Afalse%7D%7D"
+                
+                let host2 = rawhost2
+                if let url2 = URL(string: host2){
+                    var request2 = URLRequest(url: url2, timeoutInterval: 720)
+                    request2.httpMethod = "GET"
+                    let task2 = URLSession.shared.dataTask(with: request2) { (data, response, error) in
+                        if let error = error {
+                            print(error)
+                        } else if let p = data {
+                            do{
+                                let json = try JSON(data: p)
+                                for (_,product) in json["data"]["searchProduct"]["products"] {
+                                    /*print(product["imageUrlPrimaryTransformed"]["small"])
+                                     print(product["title"])
+                                     print(product["brand"])
+                                     print(product["priceCurrent"].doubleValue / 100.0)*/
+                                }
+                            } catch {
+                                
+                            }
+                        } else {
+                            print("No data received in response.")
+                        }
+                    }
+                    task2.resume()
                 }
             }
             
@@ -169,7 +250,7 @@ class CameraViewController: UIViewController {
                         let usbClass = classifications.filter({ return $0.identifier == classToAnalyze })
                         
                         guard let usbClassSingle = usbClass.first else {
-                                return
+                            return
                         }
                         
                         let score = Double(usbClassSingle.confidence)
@@ -288,7 +369,6 @@ class CameraViewController: UIViewController {
             captureButton.isHidden = false
             focusView.isHidden = false
         } else {
-            imageView.image = UIImage(named: "Background")
             simulatorTextView.isHidden = false
             imageView.isHidden = false
             captureButton.isHidden = true
@@ -314,6 +394,8 @@ class CameraViewController: UIViewController {
         photoOutput.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
     }
     
+    
+    
     @IBAction func presentPhotoPicker() {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -334,7 +416,6 @@ class CameraViewController: UIViewController {
 }
 
 // MARK: - Error Handling
-
 extension CameraViewController {
     func showAlert(_ alertTitle: String, alertMessage: String) {
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
@@ -371,7 +452,6 @@ extension CameraViewController {
 }
 
 // MARK: - UIImagePickerControllerDelegate
-
 extension CameraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
@@ -385,7 +465,6 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
 }
 
 // MARK: - AVCapturePhotoCaptureDelegate
-
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         if let error = error {
@@ -394,7 +473,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         }
         guard let photoData = photo.fileDataRepresentation(),
             let image = UIImage(data: photoData) else {
-            return
+                return
         }
         
         classifyImage(image)
@@ -402,7 +481,6 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
 }
 
 // MARK: - TableViewControllerSelectionDelegate
-
 extension CameraViewController: TableViewControllerSelectionDelegate {
     func didSelectItem(_ name: String) {
         startAnalysis(classToAnalyze: name)
